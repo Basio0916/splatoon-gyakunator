@@ -1,6 +1,10 @@
 import { styled } from "@mui/material";
+import { FC } from "react";
 
-export const Header = () => {
+/**
+ * ヘッダーを表すコンポーネント
+ */
+export const Header: FC = () => {
   return (
     <SHeader>
       <h2>Splatoon Gyakunator</h2>
