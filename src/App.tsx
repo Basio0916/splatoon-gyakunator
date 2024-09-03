@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { Answer } from "./types/Answer";
 import { GameStartModal } from "./components/GameStartModal";
 import { CorrectAnswerModal } from "./components/CorrectAnswerModal";
+import { IncorrectAnswerModal } from "./components/IncorrectAnswerModal";
 
 const answerHistory: Array<Answer> = [
   {
@@ -48,11 +49,7 @@ function App() {
   return (
     <>
       <Header />
-      <CorrectAnswerModal
-        open={open}
-        setOpen={setOpen}
-        answerHistory={answerHistory}
-      />
+      <IncorrectAnswerModal open={open} setOpen={setOpen} />
     </>
   );
 }
