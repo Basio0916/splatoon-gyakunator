@@ -4,6 +4,7 @@ import { Answer } from "./types/Answer";
 import { GameStartModal } from "./components/GameStartModal";
 import { CorrectAnswerModal } from "./components/CorrectAnswerModal";
 import { IncorrectAnswerModal } from "./components/IncorrectAnswerModal";
+import { AnswerModal } from "./components/AnswerModal";
 
 const answerHistory: Array<Answer> = [
   {
@@ -49,7 +50,7 @@ function App() {
   return (
     <>
       <Header />
-      <IncorrectAnswerModal open={open} setOpen={setOpen} />
+      <AnswerModal open={open} setOpen={setOpen} weapon="もみじシューター" />
     </>
   );
 }
