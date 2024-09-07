@@ -10,11 +10,14 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { Question } from "../types/Question";
+import { QuestionAnswer } from "../types/QuestionAnswer";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   questions: Array<Question>;
+  questionAnswers: Array<QuestionAnswer>;
+  setQuestionAnswers: (questionAnswers: Array<QuestionAnswer>) => void;
 };
 
 const question4Set = ["以上？", "以下？", "？"];
@@ -99,6 +102,17 @@ export const QuestionModal: FC<Props> = (props) => {
   ]);
 
   const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
+    const questionString =
+      question1Select + question2Select + question3Select + question4Select;
+    const answer = Math.random() < 0.5;
+    props.setQuestionAnswers([
+      { question: questionString, answer },
+      ...props.questionAnswers,
+    ]);
+    setQuestion1Select("");
+    setQuestion2Select("");
+    setQuestion3Select("");
+    setQuestion4Select("");
     setOpen(false);
   };
   const handleQuestion1Change = (
