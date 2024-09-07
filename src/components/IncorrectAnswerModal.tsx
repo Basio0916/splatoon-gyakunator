@@ -2,22 +2,28 @@ import { Button, Card, Modal, Stack } from "@mui/material";
 import { FC } from "react";
 
 type Props = {
-  open: boolean;
-  setOpen: (open: boolean) => void;
+  incorrectAnswerModalOpen: boolean;
+  setIncorrectAnswerModalOpen: (open: boolean) => void;
+  setAnswerModalOpen: (open: boolean) => void;
 };
 
 export const IncorrectAnswerModal: FC<Props> = (props) => {
-  const { open, setOpen } = props;
+  const {
+    incorrectAnswerModalOpen,
+    setIncorrectAnswerModalOpen,
+    setAnswerModalOpen,
+  } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
-      setOpen(false);
+      setIncorrectAnswerModalOpen(false);
     }
   };
   const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    setOpen(false);
+    setIncorrectAnswerModalOpen(false);
+    setAnswerModalOpen(true);
   };
   return (
-    <Modal open={open} onClose={handleClose} sx={{}}>
+    <Modal open={incorrectAnswerModalOpen} onClose={handleClose} sx={{}}>
       <Card
         sx={{
           padding: "10px",

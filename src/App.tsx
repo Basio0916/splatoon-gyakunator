@@ -5,6 +5,9 @@ import { GameStartModal } from "./components/GameStartModal";
 import { CorrectAnswerModal } from "./components/CorrectAnswerModal";
 import { IncorrectAnswerModal } from "./components/IncorrectAnswerModal";
 import { AnswerModal } from "./components/AnswerModal";
+import { QuestionModal } from "./components/QuestionModal";
+import questions from "./data/question.json";
+import { CreateQuestion } from "./QuestionParser";
 
 const answerHistory: Array<Answer> = [
   {
@@ -46,11 +49,31 @@ const answerHistory: Array<Answer> = [
 ];
 
 function App() {
-  const [open, setOpen] = useState(true);
+  const [answerModalOpen, setAnswerModalOpen] = useState(false);
+  const [incorrectAnswerModalOpen, setIncorrectAnswerModalOpen] =
+    useState(false);
+  const [correctAnswerModalOpen, setCorrectAnswerModalOpen] = useState(false);
+  const [gameStartModalOpen, setGameStartModalOpen] = useState(false);
+  const [questionModalOpen, setQuestionModalOpen] = useState(true);
+  const question = CreateQuestion(questions);
   return (
     <>
       <Header />
-      <AnswerModal open={open} setOpen={setOpen} weapon="もみじシューター" />
+      <IncorrectAnswerModal
+        incorrectAnswerModalOpen={incorrectAnswerModalOpen}
+        setIncorrectAnswerModalOpen={setIncorrectAnswerModalOpen}
+        setAnswerModalOpen={setAnswerModalOpen}
+      />
+      <AnswerModal
+        open={answerModalOpen}
+        setOpen={setAnswerModalOpen}
+        weapon="もみじシューター"
+      />
+      <QuestionModal
+        open={questionModalOpen}
+        setOpen={setQuestionModalOpen}
+        questions={question}
+      />
     </>
   );
 }

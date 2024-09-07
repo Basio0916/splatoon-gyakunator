@@ -23,7 +23,7 @@ export const AnswerModal: FC<Props> = (props) => {
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
         sx={{
-          padding: "10px",
+          padding: "20px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
