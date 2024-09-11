@@ -9,6 +9,17 @@ type RawQuestion = {
   比較: string;
 };
 
+type RawWeapon = {
+  ブキ: string;
+  メインウェポン: string;
+  サブウェポン: string;
+  スペシャルウェポン: string;
+  必要P: string;
+  派生: string;
+  レプリカ: string;
+  DLC: string;
+};
+
 export const CreateQuestion = (
   rawQuestion: Array<RawQuestion>
 ): Array<Question> => {
@@ -26,4 +37,8 @@ export const CreateQuestion = (
       isComparable,
     };
   });
+};
+
+export const CreateWeapons = (rawWeapon: Array<RawWeapon>): Array<string> => {
+  return rawWeapon.map((weapon) => weapon.ブキ);
 };

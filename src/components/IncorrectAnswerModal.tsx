@@ -2,28 +2,33 @@ import { Button, Card, Modal, Stack } from "@mui/material";
 import { FC } from "react";
 
 type Props = {
-  incorrectAnswerModalOpen: boolean;
-  setIncorrectAnswerModalOpen: (open: boolean) => void;
-  setAnswerModalOpen: (open: boolean) => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  onClose?: (retire: boolean) => void;
 };
 
 export const IncorrectAnswerModal: FC<Props> = (props) => {
-  const {
-    incorrectAnswerModalOpen,
-    setIncorrectAnswerModalOpen,
-    setAnswerModalOpen,
-  } = props;
+  const { open, setOpen, onClose } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
-      setIncorrectAnswerModalOpen(false);
+      setOpen(false);
     }
   };
-  const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    setIncorrectAnswerModalOpen(false);
-    setAnswerModalOpen(true);
+  const handleClickContinue = (_event: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClose) {
+      onClose(false);
+    }
+    setOpen(false);
+  };
+
+  const handleClickRetire = (_event: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClose) {
+      onClose(true);
+    }
+    setOpen(false);
   };
   return (
-    <Modal open={incorrectAnswerModalOpen} onClose={handleClose} sx={{}}>
+    <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
         sx={{
           padding: "10px",
@@ -42,7 +47,7 @@ export const IncorrectAnswerModal: FC<Props> = (props) => {
           <Button
             variant="contained"
             sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-            onClick={onClick}
+            onClick={handleClickContinue}
           >
             続ける
           </Button>
@@ -50,7 +55,7 @@ export const IncorrectAnswerModal: FC<Props> = (props) => {
             variant="outlined"
             color="error"
             sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-            onClick={onClick}
+            onClick={handleClickRetire}
           >
             あきらめる
           </Button>
