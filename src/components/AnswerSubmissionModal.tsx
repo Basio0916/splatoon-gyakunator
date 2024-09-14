@@ -2,12 +2,15 @@ import {
   Autocomplete,
   AutocompleteChangeDetails,
   AutocompleteChangeReason,
+  Box,
   Button,
   Card,
+  IconButton,
   Modal,
   TextField,
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 type Props = {
   open: boolean;
@@ -22,6 +25,14 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
   const [disabled, setDisabled] = useState<boolean>(true);
 
   const handleClose = (_event: {}, _reason: string) => {
+    setWeaponSelect("");
+    setOpen(false);
+  };
+
+  const handleClickCloseIcon = (
+    _event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    setWeaponSelect("");
     setOpen(false);
   };
 
@@ -97,6 +108,19 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
           maxHeight: "80%",
         }}
       >
+        <IconButton
+          aria-label="close"
+          onClick={handleClickCloseIcon}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+        <Box sx={{ height: "20px" }}></Box>
         <Autocomplete
           sx={{
             width: "100%",

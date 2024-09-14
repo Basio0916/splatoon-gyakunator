@@ -2,8 +2,10 @@ import {
   Autocomplete,
   AutocompleteChangeDetails,
   AutocompleteChangeReason,
+  Box,
   Button,
   Card,
+  IconButton,
   Modal,
   TextField,
   Typography,
@@ -11,6 +13,7 @@ import {
 import { FC, useEffect, useState } from "react";
 import { Question } from "../types/Question";
 import { QuestionAnswer } from "../types/QuestionAnswer";
+import CloseIcon from "@mui/icons-material/Close";
 
 type Props = {
   open: boolean;
@@ -118,6 +121,15 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion4Select("");
     setOpen(false);
   };
+  const handleClickCloseIcon = (
+    _event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    setQuestion1Select("");
+    setQuestion2Select("");
+    setQuestion3Select("");
+    setQuestion4Select("");
+    setOpen(false);
+  };
   const handleQuestion1Change = (
     _event: React.SyntheticEvent,
     value: string | null,
@@ -174,6 +186,19 @@ export const QuestionModal: FC<Props> = (props) => {
           maxHeight: "80%",
         }}
       >
+        <IconButton
+          aria-label="close"
+          onClick={handleClickCloseIcon}
+          sx={{
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+        <Box sx={{ height: "20px" }}></Box>
         <Autocomplete
           sx={{
             width: "100%",
