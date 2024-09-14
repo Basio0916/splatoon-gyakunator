@@ -97,7 +97,7 @@ function App() {
       <AnswerModal
         open={answerModalOpen}
         setOpen={setAnswerModalOpen}
-        weapon="もみじシューター"
+        weapon="デュアルスイーパーカスタム"
         onClose={handleAnswerModalClose}
       />
       <QuestionModal

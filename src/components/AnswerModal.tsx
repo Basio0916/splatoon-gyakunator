@@ -23,7 +23,9 @@ export const AnswerModal: FC<Props> = (props) => {
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
         sx={{
-          padding: "20px",
+          width: "90%",
+          maxWidth: "400px",
+          padding: "30px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -32,6 +34,8 @@ export const AnswerModal: FC<Props> = (props) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           outline: "none",
+          overflow: "auto",
+          maxHeight: "80%",
         }}
       >
         <h2>正解は{weapon}でした</h2>

@@ -25,7 +25,9 @@ export const CorrectAnswerModal: FC<Props> = (props) => {
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
         sx={{
-          padding: "10px",
+          width: "90%",
+          maxWidth: "600px",
+          padding: "30px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -34,6 +36,8 @@ export const CorrectAnswerModal: FC<Props> = (props) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           outline: "none",
+          overflow: "auto",
+          maxHeight: "80%",
         }}
       >
         <h1>正解</h1>

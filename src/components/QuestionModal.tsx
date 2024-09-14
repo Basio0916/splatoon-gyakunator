@@ -159,8 +159,9 @@ export const QuestionModal: FC<Props> = (props) => {
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
         sx={{
-          width: "600px",
-          padding: "10px",
+          width: "90%",
+          maxWidth: "600px",
+          padding: "30px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -169,6 +170,8 @@ export const QuestionModal: FC<Props> = (props) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           outline: "none",
+          overflow: "auto",
+          maxHeight: "80%",
         }}
       >
         <Autocomplete

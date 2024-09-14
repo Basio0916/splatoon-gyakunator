@@ -15,7 +15,7 @@ export const Header: FC = () => {
         padding: "20px",
       }}
     >
-      <Typography variant="h3">Splatoon3 Gyakunator</Typography>
+      <Typography variant="h4">Splatoon Gyakunator</Typography>
     </Box>
   );
 };
