@@ -1,6 +1,4 @@
 import { Box, Button, Card, Divider, Modal, Typography } from "@mui/material";
-import { AnswerHistory } from "./AnswerHistory";
-import { Answer } from "../types/Answer";
 import { FC } from "react";
 import { QuestionAnswer } from "../types/QuestionAnswer";
 import { QuestionAnswerHistory } from "./QuestionAnswerHistory";
@@ -8,7 +6,6 @@ import { QuestionAnswerHistory } from "./QuestionAnswerHistory";
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  answerHistory: Array<Answer>;
 };
 
 const questionAnswers: Array<QuestionAnswer> = [
@@ -26,8 +23,8 @@ const questionAnswers: Array<QuestionAnswer> = [
   },
 ];
 
-export const GameStartModal: FC<Props> = (props) => {
-  const { open, setOpen, answerHistory } = props;
+export const HowToPlayModal: FC<Props> = (props) => {
+  const { open, setOpen } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
       setOpen(false);
