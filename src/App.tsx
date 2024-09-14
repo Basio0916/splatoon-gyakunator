@@ -11,7 +11,7 @@ import buki from "./data/buki.json";
 import { CreateQuestion, CreateWeapons } from "./QuestionParser";
 import { QuestionAnswer } from "./types/QuestionAnswer";
 import { QuestionAnswerHistory } from "./components/QuestionAnswerHistory";
-import { Button, Stack } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import { AnswerSubmissionModal } from "./components/AnswerSubmissionModal";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   const [incorrectAnswerModalOpen, setIncorrectAnswerModalOpen] =
     useState(false);
   const [correctAnswerModalOpen, setCorrectAnswerModalOpen] = useState(false);
-  const [gameStartModalOpen, setGameStartModalOpen] = useState(false);
+  const [gameStartModalOpen, setGameStartModalOpen] = useState(true);
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
   const [answerSubmissionModalOpen, setAnswerSubmissionModalOpen] =
     useState(false);
@@ -37,19 +37,6 @@ function App() {
     if (isFirstLoad) {
       return;
     }
-    if (!answerSubmissionModalOpen) {
-      if (answer) {
-        setCorrectAnswerModalOpen(true);
-      } else {
-        setIncorrectAnswerModalOpen(true);
-      }
-    }
-  }, [answerSubmissionModalOpen, answer]);
-
-  useEffect(() => {
-    if (isFirstLoad) {
-      return;
-    }
     if (!questionModalOpen) {
     }
   }, [correctAnswerModalOpen, incorrectAnswerModalOpen]);
@@ -62,18 +49,42 @@ function App() {
     setAnswerSubmissionModalOpen(true);
   };
 
+  const handleCorrectAnswerModalClose = () => {
+    setQuestionAnswers([]);
+  };
+
   const handleIncorrectAnswerModalClose = (retire: boolean) => {
     if (retire) {
       setAnswerModalOpen(true);
+    } else {
+      const questionAnswer: QuestionAnswer = {
+        question: `ブキは${weapon}？`,
+        answer: false,
+      };
+      setQuestionAnswers([questionAnswer, ...questionAnswers]);
     }
   };
 
-  useEffect(() => {
-    if (isFirstLoad) {
-      setIsFirstLoad(false);
-      setGameStartModalOpen(true);
+  const handleAnswerModalClose = () => {
+    setQuestionAnswers([]);
+  };
+
+  const handleAnswerSubmissionModalClose = (
+    weapon: string,
+    result: boolean
+  ) => {
+    setWeapon(weapon);
+    if (result) {
+      const answer: Answer = {
+        weapon: weapon,
+        questionCount: questionAnswers.length,
+      };
+      setAnswerHistory([answer, ...answerHistory]);
+      setCorrectAnswerModalOpen(true);
+    } else {
+      setIncorrectAnswerModalOpen(true);
     }
-  }, [isFirstLoad]);
+  };
 
   return (
     <>
@@ -87,6 +98,7 @@ function App() {
         open={correctAnswerModalOpen}
         setOpen={setCorrectAnswerModalOpen}
         answerHistory={answerHistory}
+        onClose={handleCorrectAnswerModalClose}
       />
       <IncorrectAnswerModal
         open={incorrectAnswerModalOpen}
@@ -97,6 +109,7 @@ function App() {
         open={answerModalOpen}
         setOpen={setAnswerModalOpen}
         weapon="もみじシューター"
+        onClose={handleAnswerModalClose}
       />
       <QuestionModal
         open={questionModalOpen}
@@ -109,11 +122,10 @@ function App() {
         open={answerSubmissionModalOpen}
         setOpen={setAnswerSubmissionModalOpen}
         weapons={weapons}
-        setWeapon={setWeapon}
-        setAnswer={setAnswer}
+        onClose={handleAnswerSubmissionModalClose}
       />
-      <div
-        style={{
+      <Box
+        sx={{
           width: "90%",
           maxWidth: "800px",
           display: "flex",
@@ -125,7 +137,7 @@ function App() {
         }}
       >
         <QuestionAnswerHistory questionAnswers={questionAnswers} />
-        <Stack spacing={2} direction="row">
+        <Stack spacing={2} direction="row" sx={{ margin: "10px" }}>
           <Button
             variant="contained"
             color="primary"
@@ -151,7 +163,7 @@ function App() {
             回答する
           </Button>
         </Stack>
-      </div>
+      </Box>
     </>
   );
 }

@@ -13,12 +13,11 @@ type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   weapons: Array<string>;
-  setWeapon: (weapon: string) => void;
-  setAnswer: (answer: boolean) => void;
+  onClose: (weapon: string, result: boolean) => void;
 };
 
 export const AnswerSubmissionModal: FC<Props> = (props) => {
-  const { open, setOpen, weapons, setWeapon, setAnswer } = props;
+  const { open, setOpen, weapons, onClose } = props;
   const [weaponSelect, setWeaponSelect] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(true);
 
@@ -41,12 +40,11 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
     setDisabled(weaponSelect === "");
   }, [weaponSelect]);
 
-  const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    setWeapon(weaponSelect);
-    const answer = Math.random() < 0.5;
-    setAnswer(answer);
+  const handleClickAnswer = (_event: React.MouseEvent<HTMLButtonElement>) => {
+    const result = Math.random() < 0.5;
     setWeaponSelect("");
     setOpen(false);
+    onClose(weaponSelect, result);
   };
 
   return (
@@ -81,7 +79,7 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-          onClick={onClick}
+          onClick={handleClickAnswer}
           disabled={disabled}
         >
           回答する

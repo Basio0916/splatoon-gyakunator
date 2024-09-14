@@ -1,23 +1,23 @@
-import { Button, Card, Modal, Stack } from "@mui/material";
-import { AnswerHistory } from "./AnswerHistory";
-import { Answer } from "../types/Answer";
+import { Button, Card, Modal } from "@mui/material";
 import { FC } from "react";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   weapon: string;
+  onClose: () => void;
 };
 
 export const AnswerModal: FC<Props> = (props) => {
-  const { open, setOpen, weapon } = props;
+  const { open, setOpen, weapon, onClose } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
       setOpen(false);
     }
   };
-  const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickStart = (_event: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(false);
+    onClose();
   };
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>
@@ -38,7 +38,7 @@ export const AnswerModal: FC<Props> = (props) => {
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-          onClick={onClick}
+          onClick={handleClickStart}
         >
           再度遊ぶ
         </Button>

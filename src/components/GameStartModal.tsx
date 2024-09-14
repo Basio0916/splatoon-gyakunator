@@ -17,7 +17,7 @@ const questionAnswers: Array<QuestionAnswer> = [
     answer: false,
   },
   {
-    question: "スペシャルウェポンはスペシャルウェポン名がウルトラショット？",
+    question: "スペシャルウェポンはスペシャルウェポン名がグレートバリア？",
     answer: true,
   },
   {
@@ -33,13 +33,15 @@ export const GameStartModal: FC<Props> = (props) => {
       setOpen(false);
     }
   };
-  const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickStart = (_event: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(false);
   };
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
         sx={{
+          width: "90%",
+          maxWidth: "800px",
           padding: "30px",
           display: "flex",
           flexDirection: "column",
@@ -54,7 +56,7 @@ export const GameStartModal: FC<Props> = (props) => {
         }}
       >
         <Typography variant="h4">How to Play</Typography>
-        <Box sx={{ alignItems: "left", width: "600px" }}>
+        <Box sx={{ alignItems: "left", width: "90%", maxWidth: "600px" }}>
           <Divider sx={{ width: "100%", margin: "10px 0px" }} />
           <Typography>
             スプラトゥーン3のブキを当てるクイズゲームです。
@@ -63,10 +65,25 @@ export const GameStartModal: FC<Props> = (props) => {
             質問をするとYESかNOで回答が返ってくるので、できるだけ少ない質問数でブキを当てましょう。
           </Typography>
           <Divider sx={{ width: "100%", margin: "10px 0px" }} />
-          <Typography variant="h6">例</Typography>
-          <QuestionAnswerHistory questionAnswers={questionAnswers} />
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", margin: "5px 0px" }}
+          >
+            例
+          </Typography>
           <Typography sx={{ marginTop: "10px" }}>
-            例えばこのような質問履歴であれば、答えはスプラシューターとなります。
+            例えばこのような質問履歴であれば、答えはわかばシューターとなります。
+          </Typography>
+          <QuestionAnswerHistory questionAnswers={questionAnswers} />
+          <Divider sx={{ width: "100%", margin: "10px 0px" }} />
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", margin: "5px 0px" }}
+          >
+            補足ルール
+          </Typography>
+          <Typography>
+            本ゲームではレプリカブキは回答にはなりません。
           </Typography>
           <Divider sx={{ width: "100%", margin: "10px 0px" }} />
           <Typography>
@@ -76,7 +93,7 @@ export const GameStartModal: FC<Props> = (props) => {
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-          onClick={onClick}
+          onClick={handleClickStart}
         >
           スタート
         </Button>

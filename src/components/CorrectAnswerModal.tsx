@@ -7,17 +7,19 @@ type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   answerHistory: Array<Answer>;
+  onClose: () => void;
 };
 
 export const CorrectAnswerModal: FC<Props> = (props) => {
-  const { open, setOpen, answerHistory } = props;
+  const { open, setOpen, answerHistory, onClose } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
       setOpen(false);
     }
   };
-  const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickStart = (_event: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(false);
+    onClose();
   };
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>
@@ -41,9 +43,9 @@ export const CorrectAnswerModal: FC<Props> = (props) => {
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-          onClick={onClick}
+          onClick={handleClickStart}
         >
-          スタート
+          再度遊ぶ
         </Button>
       </Card>
     </Modal>

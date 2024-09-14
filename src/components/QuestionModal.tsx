@@ -34,6 +34,10 @@ export const QuestionModal: FC<Props> = (props) => {
   const [disabled, setDisabled] = useState<boolean>(true);
 
   const handleClose = (_event: {}, reason: string) => {
+    setQuestion1Select("");
+    setQuestion2Select("");
+    setQuestion3Select("");
+    setQuestion4Select("");
     setOpen(false);
   };
   const question1Set = Array.from(
@@ -67,7 +71,6 @@ export const QuestionModal: FC<Props> = (props) => {
         (q.questions[2] ? q.questions[2] === question3Select : true)
     );
     setSelectedQuestion(selected);
-    console.log(selected);
   }, [question1Select, question2Select, question3Select]);
 
   useEffect(() => {
@@ -101,7 +104,7 @@ export const QuestionModal: FC<Props> = (props) => {
     question3Set,
   ]);
 
-  const onClick = (_event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickQuestion = (_event: React.MouseEvent<HTMLButtonElement>) => {
     const questionString =
       question1Select + question2Select + question3Select + question4Select;
     const answer = Math.random() < 0.5;
@@ -244,7 +247,7 @@ export const QuestionModal: FC<Props> = (props) => {
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
-          onClick={onClick}
+          onClick={handleClickQuestion}
           disabled={disabled}
         >
           質問する

@@ -28,9 +28,9 @@ export const AnswerHistory: FC<Props> = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {answerHistory.map((answer) => {
+            {answerHistory.map((answer, index) => {
               return (
-                <TableRow>
+                <TableRow key={index}>
                   <TableCell>{answer.weapon}</TableCell>
                   <TableCell>{answer.questionCount}</TableCell>
                 </TableRow>

@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { FC } from "react";
 
 /**
@@ -6,17 +6,16 @@ import { FC } from "react";
  */
 export const Header: FC = () => {
   return (
-    <SHeader>
-      <h2>Splatoon Gyakunator</h2>
-    </SHeader>
+    <Box
+      sx={{
+        backgroundColor: "#eee",
+        textAlign: "center",
+        fontSize: "24px",
+        margin: "0px",
+        padding: "20px",
+      }}
+    >
+      <Typography variant="h3">Splatoon3 Gyakunator</Typography>
+    </Box>
   );
 };
-
-const SHeader = styled("div")`
-  background-color: #eee;
-  text-align: center;
-  font-size: 24px;
-
-  margin: 0px;
-  padding: 1px;
-`;
