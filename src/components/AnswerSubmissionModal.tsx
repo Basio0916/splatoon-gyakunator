@@ -21,7 +21,7 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
   const [weaponSelect, setWeaponSelect] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(true);
 
-  const handleClose = (_event: {}, reason: string) => {
+  const handleClose = (_event: {}, _reason: string) => {
     setOpen(false);
   };
 

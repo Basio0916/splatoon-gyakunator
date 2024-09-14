@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Header } from "./components/Header";
 import { Answer } from "./types/Answer";
-import { GameStartModal } from "./components/GameStartModal";
+import { HowToPlayModal } from "./components/HowToPlayModal";
 import { CorrectAnswerModal } from "./components/CorrectAnswerModal";
 import { IncorrectAnswerModal } from "./components/IncorrectAnswerModal";
 import { AnswerModal } from "./components/AnswerModal";
@@ -26,20 +26,10 @@ function App() {
   const [questionAnswers, setQuestionAnswers] = useState<Array<QuestionAnswer>>(
     []
   );
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
-  const [weapon, setWeapon] = useState<string>("");
-  const [answer, setAnswer] = useState<boolean>(false);
+  const [submittedAnswer, setSubmittedAnswer] = useState<string>("");
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
   const question = CreateQuestion(questions);
   const weapons = CreateWeapons(buki);
-
-  useEffect(() => {
-    if (isFirstLoad) {
-      return;
-    }
-    if (!questionModalOpen) {
-    }
-  }, [correctAnswerModalOpen, incorrectAnswerModalOpen]);
 
   const handleClickQuestion = () => {
     setQuestionModalOpen(true);
@@ -58,7 +48,7 @@ function App() {
       setAnswerModalOpen(true);
     } else {
       const questionAnswer: QuestionAnswer = {
-        question: `ブキは${weapon}？`,
+        question: `ブキは${submittedAnswer}？`,
         answer: false,
       };
       setQuestionAnswers([questionAnswer, ...questionAnswers]);
@@ -73,7 +63,7 @@ function App() {
     weapon: string,
     result: boolean
   ) => {
-    setWeapon(weapon);
+    setSubmittedAnswer(weapon);
     if (result) {
       const answer: Answer = {
         weapon: weapon,
@@ -89,10 +79,9 @@ function App() {
   return (
     <>
       <Header />
-      <GameStartModal
+      <HowToPlayModal
         open={gameStartModalOpen}
         setOpen={setGameStartModalOpen}
-        answerHistory={answerHistory}
       />
       <CorrectAnswerModal
         open={correctAnswerModalOpen}

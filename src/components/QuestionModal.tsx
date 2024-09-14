@@ -33,7 +33,7 @@ export const QuestionModal: FC<Props> = (props) => {
   const [selectedQuestion, setSelectedQuestion] = useState<Question>();
   const [disabled, setDisabled] = useState<boolean>(true);
 
-  const handleClose = (_event: {}, reason: string) => {
+  const handleClose = (_event: {}, _reason: string) => {
     setQuestion1Select("");
     setQuestion2Select("");
     setQuestion3Select("");
@@ -119,26 +119,26 @@ export const QuestionModal: FC<Props> = (props) => {
     setOpen(false);
   };
   const handleQuestion1Change = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     value: string | null,
-    reason: AutocompleteChangeReason,
-    details?: AutocompleteChangeDetails<string>
+    _reason: AutocompleteChangeReason,
+    _details?: AutocompleteChangeDetails<string>
   ) => {
     setQuestion1Select(value || "");
   };
   const handleQuestion2Change = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     value: string | null,
-    reason: AutocompleteChangeReason,
-    details?: AutocompleteChangeDetails<string>
+    _reason: AutocompleteChangeReason,
+    _details?: AutocompleteChangeDetails<string>
   ) => {
     setQuestion2Select(value || "");
   };
   const handleQuestion3Change = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     value: string | null,
-    reason: AutocompleteChangeReason,
-    details?: AutocompleteChangeDetails<string>
+    _reason: AutocompleteChangeReason,
+    _details?: AutocompleteChangeDetails<string>
   ) => {
     setQuestion3Select(value || "");
   };
@@ -148,10 +148,10 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion3Select(event.target.value);
   };
   const handleQuestion4Change = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     value: string | null,
-    reason: AutocompleteChangeReason,
-    details?: AutocompleteChangeDetails<string>
+    _reason: AutocompleteChangeReason,
+    _details?: AutocompleteChangeDetails<string>
   ) => {
     setQuestion4Select(value || "");
   };
