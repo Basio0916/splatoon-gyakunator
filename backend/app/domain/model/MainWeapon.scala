@@ -1,6 +1,6 @@
 case class MainWeapon(
     val name: String,
-    val category: WeaponCategory,
+    val weaponCategory: WeaponCategory,
     val range: (Option[Double], Option[Double]),
     val damage: (Option[Double], Option[Double], Option[Double], Option[Double]),
     val rate: (Option[Double], Option[Double]),
