@@ -5,7 +5,7 @@ case class MainWeapon(
     val weaponCategory: WeaponCategory,
     val range: (Option[Double], Option[Double]),
     val damage: (Option[Double], Option[Double], Option[Double], Option[Double]),
-    val rate: (Option[Double], Option[Double]),
+    val firingInterval: (Option[Double], Option[Double]),
     val spread: (Option[Double], Option[Double]),
     val weight: Weight,
     val canRapidFire: Answer,
