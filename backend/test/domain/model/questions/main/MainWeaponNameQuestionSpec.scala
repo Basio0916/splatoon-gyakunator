@@ -14,7 +14,7 @@ class MainWeaponNameQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
         val mainWeapon = MainWeapon(
             name = "わかばシューター", 
             weaponCategory = WeaponCategory("シューター"),
-            range = List(1.6),
+            range = List(2.0),
             damage = List(28.0),
             firingInterval = List(5.0),
             spread = List(12.0),
@@ -36,7 +36,7 @@ class MainWeaponNameQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
         val mainWeapon = MainWeapon(
             name = "わかばシューター", 
             weaponCategory = WeaponCategory("シューター"),
-            range = List(1.6),
+            range = List(2.0),
             damage = List(28.0),
             firingInterval = List(5.0),
             spread = List(12.0),
