@@ -1,3 +1,5 @@
+package domain.model
+
 sealed trait WeaponCategory {
   override def toString: String
 }

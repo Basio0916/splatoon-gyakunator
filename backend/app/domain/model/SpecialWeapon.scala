@@ -1,3 +1,5 @@
+package domain.model
+
 case class SpecialWeapon(
     val name: String,
     val hasZRButtonAction: Answer,

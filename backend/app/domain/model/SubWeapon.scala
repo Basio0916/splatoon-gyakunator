@@ -1,3 +1,5 @@
+package domain.model
+
 case class SubWeapon(
     val name: String,
     val inkConsumption: Int,

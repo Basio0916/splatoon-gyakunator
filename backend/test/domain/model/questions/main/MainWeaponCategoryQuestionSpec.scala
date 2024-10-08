@@ -1,6 +1,9 @@
+package domain.model.questions.main
+
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
+import domain.model._
 
 class MainWeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
 

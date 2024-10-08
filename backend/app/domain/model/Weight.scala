@@ -1,3 +1,5 @@
+package domain.model
+
 sealed trait Weight extends Ordered[Weight] {
   def value: Int
   override def compare(that: Weight): Int = this.value - that.value

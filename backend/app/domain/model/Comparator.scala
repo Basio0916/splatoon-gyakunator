@@ -1,3 +1,5 @@
+package domain.model
+
 sealed trait Comparator{
     def compare[T : Ordering](a: T, b: T): Boolean
 }

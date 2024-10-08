@@ -1,3 +1,5 @@
+package domain.model
+
 sealed trait Answer {
   override def toString: String
 }

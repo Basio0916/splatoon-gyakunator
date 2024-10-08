@@ -1,3 +1,5 @@
+package domain.model
+
 case class MainWeapon(
     val name: String,
     val weaponCategory: WeaponCategory,
