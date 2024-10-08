@@ -6,7 +6,6 @@ case class MainWeapon(
     val rate: (Option[Double], Option[Double]),
     val spread: (Option[Double], Option[Double]),
     val weight: Weight,
-    val price: Int,
     val canRapidFire: Answer,
     val canCharge: Answer,
     val isExplosive: Answer,
