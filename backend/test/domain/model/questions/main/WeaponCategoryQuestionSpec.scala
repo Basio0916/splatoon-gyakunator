@@ -5,7 +5,7 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import domain.model._
 
-class MainWeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
+class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
 
     val subWeapon = SubWeapon("sub weapon", 0, (Some(0.0), Some(0.0), Some(0.0)), Yes, Yes, Yes, Yes)
     val specialWeapon = SpecialWeapon("special weapon", Yes, Yes, Yes, Yes, Yes, Yes, Yes)
@@ -43,7 +43,7 @@ class MainWeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropert
                 Yes
             )
             val answerWeapon = Weapon("name", mainWeapon, subWeapon, specialWeapon, 0)
-            val question = new MainWeaponCategoryQuestion(answerWeapon, weaponCategory)
+            val question = new WeaponCategoryQuestion(answerWeapon, weaponCategory)
             question.answer should be(Yes)
         }
     }
@@ -74,7 +74,7 @@ class MainWeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropert
                 Yes
             )
             val answerWeapon = Weapon("name", mainWeapon, subWeapon, specialWeapon, 0)
-            val question = new MainWeaponCategoryQuestion(answerWeapon, weaponCategory2)
+            val question = new WeaponCategoryQuestion(answerWeapon, weaponCategory2)
             question.answer should be(No)
         }
     }
