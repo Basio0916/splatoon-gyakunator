@@ -7,7 +7,7 @@ import domain.model._
 
 class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
 
-    val subWeapon = SubWeapon("sub weapon", 0, (Some(0.0), Some(0.0), Some(0.0)), Yes, Yes, Yes, Yes)
+    val subWeapon = SubWeapon("sub weapon", 0, List(0.0), Yes, Yes, Yes, Yes)
     val specialWeapon = SpecialWeapon("special weapon", Yes, Yes, Yes, Yes, Yes, Yes, Yes)
 
     "MainWeaponCategoryQuestion" should "return Yes when answerWeapon's weaponCategory is the same as weaponCategory" in {
@@ -27,20 +27,20 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
         )
         forAll(examples) { (weaponCategory) =>
             val mainWeapon = MainWeapon(
-                "main weapon", 
-                weaponCategory,
-                (Some(0.0), Some(0.0)),
-                (Some(0.0), Some(0.0), Some(0.0), Some(0.0)),
-                (Some(0.0), Some(0.0)),
-                (Some(0.0), Some(0.0)),
-                Light,
-                Yes,
-                Yes,
-                Yes,
-                Yes,
-                Yes,
-                0,
-                Yes
+                name = "ブキ", 
+                weaponCategory = weaponCategory,
+                range = List(0.0),
+                damage = List(0.0),
+                firingInterval = List(0.0),
+                spread = List(0.0),
+                weight = Light,
+                canRapidFire = Yes,
+                canCharge = No,
+                isExplosive = No,
+                canRollingOrBrushing = No,
+                canChargeKeep = No,
+                dodgeRollCount = 0,
+                hasDirectHitSound = No
             )
             val answerWeapon = Weapon("name", mainWeapon, subWeapon, specialWeapon, 0)
             val question = new WeaponCategoryQuestion(answerWeapon, weaponCategory)
@@ -58,20 +58,20 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
         )
         forAll(examples) { (weaponCategory1, weaponCategory2) =>
             val mainWeapon = MainWeapon(
-                "main weapon", 
-                weaponCategory1,
-                (Some(0.0), Some(0.0)),
-                (Some(0.0), Some(0.0), Some(0.0), Some(0.0)),
-                (Some(0.0), Some(0.0)),
-                (Some(0.0), Some(0.0)),
-                Light,
-                Yes,
-                Yes,
-                Yes,
-                Yes,
-                Yes,
-                0,
-                Yes
+                name = "ブキ", 
+                weaponCategory = weaponCategory1,
+                range = List(0.0),
+                damage = List(0.0),
+                firingInterval = List(0.0),
+                spread = List(0.0),
+                weight = Light,
+                canRapidFire = Yes,
+                canCharge = No,
+                isExplosive = No,
+                canRollingOrBrushing = No,
+                canChargeKeep = No,
+                dodgeRollCount = 0,
+                hasDirectHitSound = No
             )
             val answerWeapon = Weapon("name", mainWeapon, subWeapon, specialWeapon, 0)
             val question = new WeaponCategoryQuestion(answerWeapon, weaponCategory2)

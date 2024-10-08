@@ -7,17 +7,17 @@ import domain.model._
 
 class MainWeaponNameQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
     
-    val subWeapon = SubWeapon("sub weapon", 0, (Some(0.0), Some(0.0), Some(0.0)), Yes, Yes, Yes, Yes)
+    val subWeapon = SubWeapon("sub weapon", 0, List(0.0), Yes, Yes, Yes, Yes)
     val specialWeapon = SpecialWeapon("special weapon", Yes, Yes, Yes, Yes, Yes, Yes, Yes)
 
     "MainWeaponNameQuestion" should "return Yes when answerWeapon's mainWeaponName is the same as mainWeaponName" in {
         val mainWeapon = MainWeapon(
             name = "わかばシューター", 
             weaponCategory = WeaponCategory("シューター"),
-            range = (Some(1.6), None),
-            damage = (Some(38.0), None, None, None),
-            firingInterval = (Some(5.0), None),
-            spread = (Some(12.0), None),
+            range = List(1.6),
+            damage = List(28.0),
+            firingInterval = List(5.0),
+            spread = List(12.0),
             weight = Light,
             canRapidFire = Yes,
             canCharge = No,
@@ -36,10 +36,10 @@ class MainWeaponNameQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
         val mainWeapon = MainWeapon(
             name = "わかばシューター", 
             weaponCategory = WeaponCategory("シューター"),
-            range = (Some(1.6), None),
-            damage = (Some(38.0), None, None, None),
-            firingInterval = (Some(5.0), None),
-            spread = (Some(12.0), None),
+            range = List(1.6),
+            damage = List(28.0),
+            firingInterval = List(5.0),
+            spread = List(12.0),
             weight = Light,
             canRapidFire = Yes,
             canCharge = No,
