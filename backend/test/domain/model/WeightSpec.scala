@@ -2,7 +2,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 
-class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
+class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "Weight" should "compare correctly using == operator" in {
         val examples = Table(
             ("Weight1", "Weight2", "expectedResult"),
@@ -24,7 +24,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
             (Heavy, Middle, false)
         )
         forAll(examples) { (weight1, weight2, expectedResult) =>
-            assert(weight1 == weight2 === expectedResult)
+            weight1 == weight2 should equal(expectedResult)
         }    
     }
 
@@ -49,7 +49,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
             (Heavy, Middle, false)
         )
         forAll(examples) { (weight1, weight2, expectedResult) =>
-            assert(weight1 < weight2 === expectedResult)
+            weight1 < weight2 should equal(expectedResult)
         }    
     }
 
@@ -74,7 +74,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
             (Heavy, Middle, true)
         )
         forAll(examples) { (weight1, weight2, expectedResult) =>
-            assert(weight1 > weight2 === expectedResult)
+            weight1 > weight2 should equal(expectedResult)
         }    
     }
 
@@ -87,7 +87,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
             (3, Heavy)
         )
         forAll(examples) { (value, expectedResult) =>
-            assert(Weight.from(value) === expectedResult)
+            Weight.from(value) should equal(expectedResult)
         }
     }
 
@@ -98,7 +98,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
             4
         )
         forAll(examples) { value =>
-            assertThrows[IllegalArgumentException] {
+            an[IllegalArgumentException] should be thrownBy {
                 Weight.from(value)
             }
         }
