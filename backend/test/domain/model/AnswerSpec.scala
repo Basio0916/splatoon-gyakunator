@@ -14,4 +14,34 @@ class AnswerSpec extends AnyFlatSpec with TableDrivenPropertyChecks {
             assert(answer.toString === expectedResult)
         }    
     }
+
+    "from" should "return Answer object from string" in {
+        val examples = Table(
+            ("value", "expectedResult"),
+            ("yes", Yes),
+            ("Yes", Yes),
+            ("YES", Yes),
+            ("no", No),
+            ("No", No),
+            ("NO", No),
+            ("partial", Partial),
+            ("Partial", Partial),
+            ("PARTIAL", Partial)
+        )
+        forAll(examples) { (value, expectedResult) =>
+            assert(Answer.from(value) === expectedResult)
+        }
+    }
+
+    it should "throw IllegalArgumentException when invalid value is given" in {
+        val examples = Table(
+            "value",
+            "invalid"
+        )
+        forAll(examples) { value =>
+            assertThrows[IllegalArgumentException] {
+                Answer.from(value)
+            }
+        }
+    }
 }
