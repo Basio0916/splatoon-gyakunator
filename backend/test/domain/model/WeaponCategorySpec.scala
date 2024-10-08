@@ -23,7 +23,7 @@ class WeaponCategorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with
         }
     }
 
-    "from" should "return WeaponCategory from a string" in {
+    "apply" should "return WeaponCategory from a string" in {
         val examples = Table(
             ("value", "expectedResult"),
             ("シューター", Shooter),
@@ -39,7 +39,7 @@ class WeaponCategorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with
             ("ワイパー", Splatanas)
         )
         forAll(examples) { (value, expectedResult) =>
-            WeaponCategory.from(value) should equal(expectedResult)
+            WeaponCategory(value) should equal(expectedResult)
         }
     }
 
@@ -50,7 +50,7 @@ class WeaponCategorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with
         )
         forAll(examples) { value =>
             an[IllegalArgumentException] should be thrownBy {
-                WeaponCategory.from(value)
+                WeaponCategory(value)
             }
         }
     }

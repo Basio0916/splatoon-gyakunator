@@ -13,7 +13,7 @@ case object Partial extends Answer{
 }
 
 object Answer {
-  def from(value: String): Answer = value.toLowerCase() match {
+  def apply(value: String): Answer = value.toLowerCase() match {
     case "yes" => Yes
     case "no" => No
     case "partial" => Partial

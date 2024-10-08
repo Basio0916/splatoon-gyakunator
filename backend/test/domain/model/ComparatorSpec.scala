@@ -3,7 +3,7 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 
 class ComparatorSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
-    "from" should "return Comparator object from string" in {
+    "apply" should "return Comparator object from string" in {
         val examples = Table(
             ("value", "expectedResult"),
             ("？", Equal),
@@ -11,7 +11,7 @@ class ComparatorSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Mat
             ("以上？", GreaterThanOrEqual)
         )
         forAll(examples) { (value, expectedResult) =>
-            Comparator.from(value) should be(expectedResult)
+            Comparator(value) should be(expectedResult)
         }
     }
 
@@ -22,7 +22,7 @@ class ComparatorSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Mat
         )
         forAll(examples) { value =>
             an[IllegalArgumentException] should be thrownBy {
-                Comparator.from(value)
+                Comparator(value)
             }
         }
     }

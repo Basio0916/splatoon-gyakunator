@@ -15,7 +15,7 @@ object Equal extends Comparator{
 }
 
 object Comparator {
-    def from(s: String): Comparator = s match {
+    def apply(s: String): Comparator = s match {
         case "以上？" => GreaterThanOrEqual
         case "以下？" => LessThanOrEqual
         case "？" => Equal

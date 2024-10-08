@@ -20,7 +20,7 @@ case object Heavy extends Weight {
 }
 
 object Weight{
-    def from(value: Int): Weight = value match {
+    def apply(value: Int): Weight = value match {
         case 0 => ExtraLight
         case 1 => Light
         case 2 => Middle

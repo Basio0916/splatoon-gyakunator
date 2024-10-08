@@ -15,7 +15,7 @@ class AnswerSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
         }
     }
 
-    "from" should "return Answer object from string" in {
+    "apply" should "return Answer object from string" in {
         val examples = Table(
             ("value", "expectedResult"),
             ("yes", Yes),
@@ -29,7 +29,7 @@ class AnswerSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
             ("PARTIAL", Partial)
         )
         forAll(examples) { (value, expectedResult) =>
-            Answer.from(value) should be(expectedResult)
+            Answer(value) should be(expectedResult)
         }
     }
 
@@ -40,7 +40,7 @@ class AnswerSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
         )
         forAll(examples) { value =>
             an[IllegalArgumentException] should be thrownBy {
-                Answer.from(value)
+                Answer(value)
             }
         }
     }

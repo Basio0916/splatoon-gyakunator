@@ -37,7 +37,7 @@ case object Splatanas extends WeaponCategory{
 }
 
 object WeaponCategory{
-    def from(value: String): WeaponCategory = value match {
+    def apply(value: String): WeaponCategory = value match {
         case "シューター" => Shooter
         case "ローラー" => Roller
         case "チャージャー" => Charger

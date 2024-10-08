@@ -78,7 +78,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
         }    
     }
 
-    "from" should "return Weight object from value" in {
+    "apply" should "return Weight object from value" in {
         val examples = Table(
             ("value", "expectedResult"),
             (0, ExtraLight),
@@ -87,7 +87,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
             (3, Heavy)
         )
         forAll(examples) { (value, expectedResult) =>
-            Weight.from(value) should equal(expectedResult)
+            Weight(value) should equal(expectedResult)
         }
     }
 
@@ -99,7 +99,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
         )
         forAll(examples) { value =>
             an[IllegalArgumentException] should be thrownBy {
-                Weight.from(value)
+                Weight(value)
             }
         }
     }
