@@ -23,6 +23,16 @@ object SubWeaponSample{
         canMark = No
     )
 
+    val pointSensor = SubWeapon(
+        name = "ポイントセンサー",
+        inkConsumption = 45,
+        damage = List(0.0),
+        isAttackType = No,
+        canBePlaced = No,
+        canInk = No,
+        canMark = Yes
+    )
+
     val partiallySubWeapon = SubWeapon(
         name = "imaginarySubWeapon",
         inkConsumption = 70,
