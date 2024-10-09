@@ -26,6 +26,19 @@ object JsonData{
                 "dodgeRollCount": 0,
                 "hasDirectHitSound": "NO"
             }
+        ],
+        "subWeapons": [
+            {
+                "name": "スプラッシュボム",
+                "inkConsumption": "70",
+                "damage1": "180.0",
+                "damage2": "30.0",
+                "damage3": "",
+                "isAttackType": "YES",
+                "canBePlaced": "NO",
+                "canInk": "YES",
+                "canMark": "NO"
+            }
         ]
     }
     """
