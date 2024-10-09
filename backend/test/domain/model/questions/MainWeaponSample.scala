@@ -1,4 +1,4 @@
-package domain.model.questions.main
+package domain.model.questions
 
 import domain.model._
 

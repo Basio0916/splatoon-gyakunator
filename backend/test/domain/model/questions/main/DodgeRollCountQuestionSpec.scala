@@ -4,9 +4,9 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import domain.model._
-import domain.model.questions.main.MainWeaponSample._
-import domain.model.questions.sub.SubWeaponSample._
-import domain.model.questions.special.SpecialWeaponSample._
+import domain.model.questions.MainWeaponSample._
+import domain.model.questions.SubWeaponSample._
+import domain.model.questions.SpecialWeaponSample._
 
 class DodgeRollCountQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
     "answer" should "return correct Answer when Equal Comparator is given" in {
