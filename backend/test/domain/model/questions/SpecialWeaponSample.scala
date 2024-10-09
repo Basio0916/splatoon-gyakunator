@@ -10,7 +10,7 @@ object SpecialWeaponSample{
         canOneShot = Yes,
         dealsContinuousDamage = No,
         isAttackType = Yes,
-        jumpsToUsePoint = Yes
+        jumpsToUsePoint = No
     )
 
     val bigBubbler = SpecialWeapon(
