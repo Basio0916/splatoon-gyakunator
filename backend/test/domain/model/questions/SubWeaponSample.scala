@@ -4,7 +4,7 @@ import domain.model._
 
 object SubWeaponSample{
     val splatBomb = SubWeapon(
-        name = "Sスプラッシュボム",
+        name = "スプラッシュボム",
         inkConsumption = 70,
         damage = List(180.0),
         isAttackType = Yes,
