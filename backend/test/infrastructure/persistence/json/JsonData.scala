@@ -3,6 +3,15 @@ package infrastructure.persistence.json
 object JsonData{
     val jsonString = """
     {
+        "weapons": [
+            {
+                "name": "わかばシューター",
+                "mainWeapon": "わかばシューター",
+                "subWeapon": "スプラッシュボム",
+                "specialWeapon": "グレートバリア",
+                "specialPoint": "180"
+            }
+        ],
         "mainWeapons": [
             {
                 "name": "わかばシューター",
