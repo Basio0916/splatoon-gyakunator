@@ -1,7 +1,5 @@
 package domain.model
 
-import play.api.libs.json._
-
 sealed trait Weight extends Ordered[Weight] {
   def value: Int
   override def compare(that: Weight): Int = this.value - that.value
@@ -30,10 +28,5 @@ object Weight{
       case "中量級" => Middle
       case "重量級" => Heavy
       case _ => throw new IllegalArgumentException(s"Weight value $value is invalid")
-    }
-
-      implicit val weightReads: Reads[Weight] = Reads {
-        case JsString(s) => JsSuccess(Weight(s))
-        case _ => JsError("Could not read Weight")
     }
 }

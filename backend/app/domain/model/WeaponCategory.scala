@@ -1,7 +1,5 @@
 package domain.model
 
-import play.api.libs.json._
-
 sealed trait WeaponCategory {
   override def toString: String
 }
@@ -54,10 +52,5 @@ object WeaponCategory{
         case "ストリンガー" => Stringer
         case "ワイパー" => Splatana
         case _ => throw new IllegalArgumentException(s"WeaponCategory value $value is invalid")
-    }
-
-    implicit val weaponCategoryReads: Reads[WeaponCategory] = Reads {
-        case JsString(s) => JsSuccess(WeaponCategory(s))
-        case _ => JsError("Could not read WeaponCategory")
     }
 }
