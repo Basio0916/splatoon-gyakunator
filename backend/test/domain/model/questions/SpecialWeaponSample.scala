@@ -12,4 +12,24 @@ object SpecialWeaponSample{
         isAttackType = Yes,
         jumpsToUsePoint = Yes
     )
+
+    val bigBubbler = SpecialWeapon(
+        name = "グレートバリア",
+        hasZRButtonAction = No,
+        hasRButtonAction = No,
+        canOneShot = No,
+        dealsContinuousDamage = No,
+        isAttackType = No,
+        jumpsToUsePoint = Yes
+    )
+
+    val partiallySpecialWeapon = SpecialWeapon(
+        name = "imaginarySpecialWeapon",
+        hasZRButtonAction = Partial,
+        hasRButtonAction = Partial,
+        canOneShot = Partial,
+        dealsContinuousDamage = Partial,
+        isAttackType = Partial,
+        jumpsToUsePoint = Partial
+    )
 }
