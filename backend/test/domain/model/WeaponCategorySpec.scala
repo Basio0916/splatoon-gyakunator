@@ -17,8 +17,8 @@ class WeaponCategorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with
             (Brella, "シェルター"),
             (Dualies, "マニューバー"),
             (Brush, "フデ"),
-            (Stringers, "ストリンガー"),
-            (Splatanas, "ワイパー")
+            (Stringer, "ストリンガー"),
+            (Splatana, "ワイパー")
         )
         forAll(examples) { (weaponCategory, expectedResult) =>
             weaponCategory.toString should equal(expectedResult)
@@ -37,8 +37,8 @@ class WeaponCategorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with
             ("シェルター", Brella),
             ("マニューバー", Dualies),
             ("フデ", Brush),
-            ("ストリンガー", Stringers),
-            ("ワイパー", Splatanas)
+            ("ストリンガー", Stringer),
+            ("ワイパー", Splatana)
         )
         forAll(examples) { (value, expectedResult) =>
             WeaponCategory(value) should equal(expectedResult)
