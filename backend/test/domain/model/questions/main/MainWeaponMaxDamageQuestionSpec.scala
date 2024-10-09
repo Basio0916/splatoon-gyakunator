@@ -4,27 +4,11 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import domain.model._
+import domain.model.questions.main.MainWeaponSample._
+import domain.model.questions.sub.SubWeaponSample._
+import domain.model.questions.special.SpecialWeaponSample._
 
 class MainWeaponMaxDamageQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
-    val subWeapon = SubWeapon("sub weapon", 0, List(0.0), Yes, Yes, Yes, Yes)
-    val specialWeapon = SpecialWeapon("special weapon", Yes, Yes, Yes, Yes, Yes, Yes, Yes)
-
-    val mainWeapon = MainWeapon(
-        name = "ノヴァブラスター", 
-        weaponCategory = WeaponCategory("ブラスター"),
-        range = List(1.6),
-        damage = List(125.0, 70),
-        firingInterval = List(40.0),
-        spread = List(0.0),
-        weight = Light,
-        canRapidFire = Yes,
-        canCharge = No,
-        isExplosive = Yes,
-        canRollingOrBrushing = No,
-        canChargeKeep = No,
-        dodgeRollCount = 0,
-        hasDirectHitSound = Yes
-    )
 
     "answer" should "return correct Answer when Equal Comparator is given" in {
 
@@ -38,7 +22,7 @@ class MainWeaponMaxDamageQuestionSpec extends AnyFlatSpec with TableDrivenProper
         )
 
         forAll(examples) { (maxDamage, expected) =>
-            val answerWeapon = Weapon("ノヴァブラスター", mainWeapon, subWeapon, specialWeapon, 0)
+            val answerWeapon = Weapon("ノヴァブラスター", lunaBlaster, splatBomb, trizooka, 0)
             val question = new MainWeaponMaxDamageQuestion(answerWeapon, maxDamage, Equal)
             question.answer should be(expected)
         }
@@ -56,7 +40,7 @@ class MainWeaponMaxDamageQuestionSpec extends AnyFlatSpec with TableDrivenProper
         )
 
         forAll(examples) { (maxDamage, expected) =>
-            val answerWeapon = Weapon("ノヴァブラスター", mainWeapon, subWeapon, specialWeapon, 0)
+            val answerWeapon = Weapon("ノヴァブラスター", lunaBlaster, splatBomb, trizooka, 0)
             val question = new MainWeaponMaxDamageQuestion(answerWeapon, maxDamage, GreaterThanOrEqual)
             question.answer should be(expected)
         }
@@ -74,7 +58,7 @@ class MainWeaponMaxDamageQuestionSpec extends AnyFlatSpec with TableDrivenProper
         )
 
         forAll(examples) { (maxDamage, expected) =>
-            val answerWeapon = Weapon("ノヴァブラスター", mainWeapon, subWeapon, specialWeapon, 0)
+            val answerWeapon = Weapon("ノヴァブラスター", lunaBlaster, splatBomb, trizooka, 0)
             val question = new MainWeaponMaxDamageQuestion(answerWeapon, maxDamage, LessThanOrEqual)
             question.answer should be(expected)
         }

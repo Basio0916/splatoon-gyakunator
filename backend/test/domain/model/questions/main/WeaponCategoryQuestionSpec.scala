@@ -4,11 +4,10 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import domain.model._
+import domain.model.questions.sub.SubWeaponSample._
+import domain.model.questions.special.SpecialWeaponSample._
 
 class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers {
-
-    val subWeapon = SubWeapon("sub weapon", 0, List(0.0), Yes, Yes, Yes, Yes)
-    val specialWeapon = SpecialWeapon("special weapon", Yes, Yes, Yes, Yes, Yes, Yes, Yes)
 
     "answer" should "return Yes when answerWeapon's weaponCategory is the same as weaponCategory" in {
         val examples = Table(
@@ -42,7 +41,7 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
                 dodgeRollCount = 0,
                 hasDirectHitSound = No
             )
-            val answerWeapon = Weapon("name", mainWeapon, subWeapon, specialWeapon, 0)
+            val answerWeapon = Weapon("name", mainWeapon, splatBomb, trizooka, 0)
             val question = new WeaponCategoryQuestion(answerWeapon, weaponCategory)
             question.answer should be(Yes)
         }
@@ -73,7 +72,7 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
                 dodgeRollCount = 0,
                 hasDirectHitSound = No
             )
-            val answerWeapon = Weapon("name", mainWeapon, subWeapon, specialWeapon, 0)
+            val answerWeapon = Weapon("name", mainWeapon, splatBomb, trizooka, 0)
             val question = new WeaponCategoryQuestion(answerWeapon, weaponCategory2)
             question.answer should be(No)
         }
