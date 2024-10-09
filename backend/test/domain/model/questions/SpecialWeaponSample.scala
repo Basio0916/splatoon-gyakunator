@@ -33,6 +33,16 @@ object SpecialWeaponSample{
         jumpsToUsePoint = No
     )
 
+    val inkStorm = SpecialWeapon(
+        name = "アメフラシ",
+        hasZRButtonAction = No,
+        hasRButtonAction = Yes,
+        canOneShot = Partial,
+        dealsContinuousDamage = Yes,
+        isAttackType = Partial,
+        jumpsToUsePoint = No
+    )
+
     val partiallySpecialWeapon = SpecialWeapon(
         name = "imaginarySpecialWeapon",
         hasZRButtonAction = Partial,
