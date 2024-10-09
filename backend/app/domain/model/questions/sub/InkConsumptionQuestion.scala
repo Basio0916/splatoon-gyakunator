@@ -5,7 +5,7 @@ import domain.model.questions.Question
 
 class InkConsumptionQuestion(
     answerWeapon: Weapon,
-    targetInkConsumption: Int,
+    targetInkConsumption: Double,
     comparator: Comparator
 ) extends Question {
     override def answer: Answer = {

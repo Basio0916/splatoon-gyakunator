@@ -5,7 +5,7 @@ import domain.model.questions.Question
 
 class DodgeRollCountQuestion(
     answerWeapon: Weapon,
-    targetDodgeRollCount: Int,
+    targetDodgeRollCount: Double,
     comparator: Comparator
 ) extends Question {
     override def answer: Answer = {
