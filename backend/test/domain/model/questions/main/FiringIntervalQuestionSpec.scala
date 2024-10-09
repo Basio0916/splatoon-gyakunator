@@ -46,13 +46,12 @@ class FiringIntervalQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
 
         val examples = Table(
             ("mainWeapon", "firingInterval", "expected"),
-            (splattershotJr, "5", Yes),
-            (splattershotJr, "5.0", Yes),
-            (splattershotJr, "5.1", No),
-            (splattershotJr, "4.9", No),
-            (l3Nozzlenose, "4", Partial),
-            (l3Nozzlenose, "9", Partial),
-            (l3Nozzlenose, "5", No),
+            (splattershotJr, 5.0, Yes),
+            (splattershotJr, 5.1, No),
+            (splattershotJr, 4.9, No),
+            (l3Nozzlenose, 4.0, Partial),
+            (l3Nozzlenose, 9.0, Partial),
+            (l3Nozzlenose, 5.0, No),
         )
 
         forAll(examples) { (mainWeapon, firingInterval, expected) =>
@@ -66,16 +65,14 @@ class FiringIntervalQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
 
         val examples = Table(
             ("mainWeapon", "firingInterval", "expected"),
-            (splattershotJr, "4.9", Yes),
-            (splattershotJr, "5", Yes),
-            (splattershotJr, "5.0", Yes),
-            (splattershotJr, "5.1", No),
-            (l3Nozzlenose, "3.9", Yes),
-            (l3Nozzlenose, "4", Yes),
-            (l3Nozzlenose, "4.0", Yes),
-            (l3Nozzlenose, "4.1", Partial),
-            (l3Nozzlenose, "9.0", Partial),
-            (l3Nozzlenose, "9.1", No)
+            (splattershotJr, 4.9, Yes),
+            (splattershotJr, 5.0, Yes),
+            (splattershotJr, 5.1, No),
+            (l3Nozzlenose, 3.9, Yes),
+            (l3Nozzlenose, 4.0, Yes),
+            (l3Nozzlenose, 4.1, Partial),
+            (l3Nozzlenose, 9.0, Partial),
+            (l3Nozzlenose, 9.1, No)
         )
 
         forAll(examples) { (mainWeapon, firingInterval, expected) =>
@@ -89,16 +86,14 @@ class FiringIntervalQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
 
         val examples = Table(
             ("mainWeapon", "firingInterval", "expected"),
-            (splattershotJr, "5.1", Yes),
-            (splattershotJr, "5", Yes),
-            (splattershotJr, "5.0", Yes),
-            (splattershotJr, "4.9", No),
-            (l3Nozzlenose, "9.1", Yes),
-            (l3Nozzlenose, "9", Yes),
-            (l3Nozzlenose, "9.0", Yes),
-            (l3Nozzlenose, "8.9", Partial),
-            (l3Nozzlenose, "4.0", Partial),
-            (l3Nozzlenose, "3.9", No)
+            (splattershotJr, 5.1, Yes),
+            (splattershotJr, 5.0, Yes),
+            (splattershotJr, 4.9, No),
+            (l3Nozzlenose, 9.1, Yes),
+            (l3Nozzlenose, 9.0, Yes),
+            (l3Nozzlenose, 8.9, Partial),
+            (l3Nozzlenose, 4.0, Partial),
+            (l3Nozzlenose, 3.9, No)
         )
 
         forAll(examples) { (mainWeapon, firingInterval, expected) =>

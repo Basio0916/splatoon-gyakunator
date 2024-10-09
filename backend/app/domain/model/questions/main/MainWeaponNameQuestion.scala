@@ -3,9 +3,9 @@ package domain.model.questions.main
 import domain.model._
 import domain.model.questions.Question
 
-class MainWeaponNameQuestion(answerWeapon: Weapon, mainWeaponName: String) extends Question {
+class MainWeaponNameQuestion(answerWeapon: Weapon, targetMainWeaponName: String) extends Question {
     override def answer: Answer = {
-        if (answerWeapon.mainWeapon.name == mainWeaponName) Yes
+        if (answerWeapon.mainWeapon.name == targetMainWeaponName) Yes
         else No
     }
 }
