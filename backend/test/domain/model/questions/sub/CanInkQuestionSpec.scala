@@ -19,7 +19,7 @@ class CanInkQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChecks with
 
     it should "return No when answerWeapon's subWeapon cannot ink" in {
 
-        val answerWeapon = Weapon("name", splattershotJr, squidBeakon, trizooka, 0)
+        val answerWeapon = Weapon("name", splattershotJr, pointSensor, trizooka, 0)
         val question = new CanInkQuestion(answerWeapon)
         question.answer should be(No)
     }

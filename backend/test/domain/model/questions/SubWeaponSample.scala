@@ -19,7 +19,7 @@ object SubWeaponSample{
         damage = List(0.0),
         isAttackType = No,
         canBePlaced = Yes,
-        canInk = No,
+        canInk = Yes,
         canMark = No
     )
 
