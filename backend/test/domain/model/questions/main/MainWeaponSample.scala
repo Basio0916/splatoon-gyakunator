@@ -83,7 +83,22 @@ object MainWeaponSample {
         dodgeRollCount = 0,
         hasDirectHitSound = Yes
     )
-
+    val splatRoller = MainWeapon(
+        name = "スプラローラー", 
+        weaponCategory = Roller,
+        range = List(1.4, 1.7),
+        damage = List(150.0),
+        firingInterval = List(42.0),
+        spread = List(16.0),
+        weight = Middle,
+        canRapidFire = No,
+        canCharge = No,
+        isExplosive = No,
+        canRollingOrBrushing = Yes,
+        canChargeKeep = No,
+        dodgeRollCount = 0,
+        hasDirectHitSound = No
+    )
     val partiallyMainWeapon = MainWeapon(
         name = "imaginaryWeapon", 
         weaponCategory = Shooter,
