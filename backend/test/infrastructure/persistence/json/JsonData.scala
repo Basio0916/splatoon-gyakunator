@@ -1,8 +1,9 @@
 package infrastructure.persistence.json
 
 object JsonData{
-    val mainWeapon = """
-        [
+    val jsonString = """
+    {
+        "mainWeapons": [
             {
                 "name": "わかばシューター",
                 "weaponCategory": "シューター",
@@ -26,5 +27,6 @@ object JsonData{
                 "hasDirectHitSound": "NO"
             }
         ]
+    }
     """
 }

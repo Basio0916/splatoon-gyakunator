@@ -34,7 +34,7 @@ class JsonMainWeaponRepository(source: scala.io.Source) extends MainWeaponReposi
         (JsPath \ "hasDirectHitSound").read[Answer]
     )(MainWeapon.apply _)
 
-    private val mainWeapons = json.as[List[MainWeapon]]
+    private val mainWeapons = (json \ "mainWeapons").as[List[MainWeapon]]
 
     def findMainWeaponByName(name: String): Option[MainWeapon] = {
         mainWeapons.find(_.name == name)
