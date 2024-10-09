@@ -12,17 +12,17 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
     "answer" should "return Yes when answerWeapon's weaponCategory is the same as weaponCategory" in {
         val examples = Table(
             ("weaponCategory"),
-            (WeaponCategory("シューター")),
-            (WeaponCategory("チャージャー")),
-            (WeaponCategory("スロッシャー")),
-            (WeaponCategory("スピナー")),
-            (WeaponCategory("ローラー")),
-            (WeaponCategory("フデ")),
-            (WeaponCategory("ブラスター")),
-            (WeaponCategory("マニューバー")),
-            (WeaponCategory("シェルター")),
-            (WeaponCategory("ストリンガー")),
-            (WeaponCategory("ワイパー")),
+            (Shooter),
+            (Roller),
+            (Charger),
+            (Blaster),
+            (Slosher),
+            (Splatling),
+            (Brella),
+            (Dualies),
+            (Brush),
+            (Stringer),
+            (Splatana)
         )
         forAll(examples) { (weaponCategory) =>
             val mainWeapon = MainWeapon(
@@ -50,10 +50,10 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
     it should "return No when answerWeapon's weaponCategory is not the same as weaponCategory" in {
         val examples = Table(
             ("weaponCategory1", "weaponCategory2"),
-            (WeaponCategory("シューター"), WeaponCategory("ローラー")),
-            (WeaponCategory("ローラー"), WeaponCategory("シューター")),
-            (WeaponCategory("ローラー"), WeaponCategory("チャージャー")),
-            (WeaponCategory("シューター"), WeaponCategory("チャージャー")),
+            (Shooter, Roller),
+            (Roller, Shooter),
+            (Roller, Charger),
+            (Shooter, Charger),
         )
         forAll(examples) { (weaponCategory1, weaponCategory2) =>
             val mainWeapon = MainWeapon(
