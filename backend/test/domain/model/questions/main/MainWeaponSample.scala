@@ -5,7 +5,7 @@ import domain.model._
 object MainWeaponSample {
     val splattershotJr = MainWeapon(
         name = "わかばシューター", 
-        weaponCategory = WeaponCategory("シューター"),
+        weaponCategory = Shooter,
         range = List(2.0),
         damage = List(28.0),
         firingInterval = List(5.0),
@@ -21,7 +21,7 @@ object MainWeaponSample {
     )
     val l3Nozzlenose = MainWeapon(
         name = "L3リールガン", 
-        weaponCategory = WeaponCategory("シューター"),
+        weaponCategory = Shooter,
         range = List(2.7),
         damage = List(29.0),
         firingInterval = List(4.0, 9.0),
@@ -37,7 +37,7 @@ object MainWeaponSample {
     )
     val squeezer = MainWeapon(
         name = "ボトルガイザー", 
-        weaponCategory = WeaponCategory("シューター"),
+        weaponCategory = Shooter,
         range = List(3.3, 2.2),
         damage = List(38.0, 30.0),
         firingInterval = List(8.0, 7.0),
@@ -53,7 +53,7 @@ object MainWeaponSample {
     )
     val lunaBlaster = MainWeapon(
         name = "ノヴァブラスター", 
-        weaponCategory = WeaponCategory("ブラスター"),
+        weaponCategory = Blaster,
         range = List(1.6),
         damage = List(125.0, 70),
         firingInterval = List(40.0),
