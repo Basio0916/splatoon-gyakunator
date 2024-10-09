@@ -99,6 +99,22 @@ object MainWeaponSample {
         dodgeRollCount = 0,
         hasDirectHitSound = No
     )
+    val splatDualies = MainWeapon(
+        name = "スプラマニューバー", 
+        weaponCategory = Dualies,
+        range = List(2.25),
+        damage = List(30.0),
+        firingInterval = List(5.0, 4.0),
+        spread = List(2.0, 0),
+        weight = Middle,
+        canRapidFire = Yes,
+        canCharge = No,
+        isExplosive = No,
+        canRollingOrBrushing = No,
+        canChargeKeep = No,
+        dodgeRollCount = 2,
+        hasDirectHitSound = No
+    )
     val partiallyMainWeapon = MainWeapon(
         name = "imaginaryWeapon", 
         weaponCategory = Shooter,
