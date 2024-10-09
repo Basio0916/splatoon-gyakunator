@@ -10,7 +10,7 @@ object SubWeaponSample{
         isAttackType = Yes,
         canBePlaced = No,
         canInk = Yes,
-        canSensor = No
+        canMark = No
     )
 
     val squidBeakon = SubWeapon(
@@ -20,7 +20,7 @@ object SubWeaponSample{
         isAttackType = No,
         canBePlaced = Yes,
         canInk = No,
-        canSensor = No
+        canMark = No
     )
 
     val partiallySubWeapon = SubWeapon(
@@ -30,6 +30,6 @@ object SubWeaponSample{
         isAttackType = Partial,
         canBePlaced = Partial,
         canInk = Partial,
-        canSensor = Partial
+        canMark = Partial
     )
 }

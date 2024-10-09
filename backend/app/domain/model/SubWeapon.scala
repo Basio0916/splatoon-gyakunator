@@ -7,5 +7,5 @@ case class SubWeapon(
     val isAttackType: Answer,
     val canBePlaced: Answer,
     val canInk: Answer,
-    val canSensor: Answer
+    val canMark: Answer
 )
