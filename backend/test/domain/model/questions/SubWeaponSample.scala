@@ -6,7 +6,7 @@ object SubWeaponSample{
     val splatBomb = SubWeapon(
         name = "スプラッシュボム",
         inkConsumption = 70,
-        damage = List(180.0),
+        damage = List(180.0, 30.0),
         isAttackType = Yes,
         canSet = No,
         canInk = Yes,
