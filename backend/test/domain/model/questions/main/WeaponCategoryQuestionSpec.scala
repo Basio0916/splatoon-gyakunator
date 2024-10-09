@@ -10,7 +10,7 @@ class WeaponCategoryQuestionSpec extends AnyFlatSpec with TableDrivenPropertyChe
     val subWeapon = SubWeapon("sub weapon", 0, List(0.0), Yes, Yes, Yes, Yes)
     val specialWeapon = SpecialWeapon("special weapon", Yes, Yes, Yes, Yes, Yes, Yes, Yes)
 
-    "MainWeaponCategoryQuestion" should "return Yes when answerWeapon's weaponCategory is the same as weaponCategory" in {
+    "answer" should "return Yes when answerWeapon's weaponCategory is the same as weaponCategory" in {
         val examples = Table(
             ("weaponCategory"),
             (WeaponCategory("シューター")),
