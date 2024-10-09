@@ -5,7 +5,7 @@ case class SubWeapon(
     val inkConsumption: Int,
     val damage: Seq[Double],
     val isAttackType: Answer,
-    val canSet: Answer,
+    val canBePlaced: Answer,
     val canInk: Answer,
     val canSensor: Answer
 )

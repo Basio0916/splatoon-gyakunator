@@ -8,7 +8,7 @@ object SubWeaponSample{
         inkConsumption = 70,
         damage = List(180.0, 30.0),
         isAttackType = Yes,
-        canSet = No,
+        canBePlaced = No,
         canInk = Yes,
         canSensor = No
     )
@@ -18,7 +18,7 @@ object SubWeaponSample{
         inkConsumption = 75,
         damage = List(0.0),
         isAttackType = No,
-        canSet = Yes,
+        canBePlaced = Yes,
         canInk = No,
         canSensor = No
     )
@@ -28,7 +28,7 @@ object SubWeaponSample{
         inkConsumption = 70,
         damage = List(180.0, 30.0),
         isAttackType = Partial,
-        canSet = Partial,
+        canBePlaced = Partial,
         canInk = Partial,
         canSensor = Partial
     )
