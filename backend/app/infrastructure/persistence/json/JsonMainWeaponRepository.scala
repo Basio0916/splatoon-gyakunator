@@ -30,7 +30,7 @@ class JsonMainWeaponRepository(source: scala.io.Source) extends MainWeaponReposi
         (JsPath \ "isExplosive").read[Answer] and
         (JsPath \ "canRollingOrBrushing").read[Answer] and
         (JsPath \ "canChargeKeep").read[Answer] and
-        (JsPath \ "dodgeRollCount").read[Int] and
+        (JsPath \ "dodgeRollCount").read[String].map(ic => ic.toInt) and
         (JsPath \ "hasDirectHitSound").read[Answer]
     )(MainWeapon.apply _)
 

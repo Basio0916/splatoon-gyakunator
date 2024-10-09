@@ -23,7 +23,7 @@ object JsonData{
                 "isExplosive": "NO",
                 "canRollingOrBrushing": "NO",
                 "canChargeKeep": "NO",
-                "dodgeRollCount": 0,
+                "dodgeRollCount": "0",
                 "hasDirectHitSound": "NO"
             }
         ],
