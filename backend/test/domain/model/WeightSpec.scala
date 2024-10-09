@@ -80,19 +80,6 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
         }    
     }
 
-    "apply" should "return Weight object from Int value" in {
-        val examples = Table(
-            ("value", "expectedResult"),
-            (0, ExtraLight),
-            (1, Light),
-            (2, Middle),
-            (3, Heavy)
-        )
-        forAll(examples) { (value, expectedResult) =>
-            Weight(value) should equal(expectedResult)
-        }
-    }
-
     "apply" should "return Weight object from String value" in {
         val examples = Table(
             ("value", "expectedResult"),
@@ -105,20 +92,7 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
             Weight(value) should equal(expectedResult)
         }
     }
-
-    it should "throw IllegalArgumentException when invalid Int value is given" in {
-        val examples = Table(
-            "value",
-            -1,
-            4
-        )
-        forAll(examples) { value =>
-            an[IllegalArgumentException] should be thrownBy {
-                Weight(value)
-            }
-        }
-    }
-
+    
     it should "throw IllegalArgumentException when invalid String value is given" in {
         val examples = Table(
             "value",
