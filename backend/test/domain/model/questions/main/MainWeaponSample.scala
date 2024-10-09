@@ -67,4 +67,37 @@ object MainWeaponSample {
         dodgeRollCount = 0,
         hasDirectHitSound = Yes
     )
+    val splatCharger = MainWeapon(
+        name = "スプラチャージャー", 
+        weaponCategory = Charger,
+        range = List(5.3),
+        damage = List(160.0),
+        firingInterval = List(66.0, 14.0),
+        spread = List(0.0),
+        weight = Middle,
+        canRapidFire = No,
+        canCharge = Yes,
+        isExplosive = No,
+        canRollingOrBrushing = No,
+        canChargeKeep = Yes,
+        dodgeRollCount = 0,
+        hasDirectHitSound = Yes
+    )
+
+    val partiallyMainWeapon = MainWeapon(
+        name = "imaginaryWeapon", 
+        weaponCategory = Shooter,
+        range = List(0.0),
+        damage = List(0.0),
+        firingInterval = List(0.0),
+        spread = List(0.0),
+        weight = Light,
+        canRapidFire = Partial,
+        canCharge = Partial,
+        isExplosive = Partial,
+        canRollingOrBrushing = Partial,
+        canChargeKeep = Partial,
+        dodgeRollCount = 0,
+        hasDirectHitSound = Partial
+    )
 }

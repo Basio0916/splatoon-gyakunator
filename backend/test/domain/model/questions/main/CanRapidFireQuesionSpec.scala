@@ -26,23 +26,7 @@ class CanRapidFireQuestionSpec extends AnyFlatSpec with TableDrivenPropertyCheck
 
     it should "return Partial when answerWeapon can rapid fire partially" in {
 
-        val mainWeapon = MainWeapon(
-                name = "ブキ", 
-                weaponCategory = Shooter,
-                range = List(0.0),
-                damage = List(0.0),
-                firingInterval = List(0.0),
-                spread = List(0.0),
-                weight = Light,
-                canRapidFire = Partial,
-                canCharge = No,
-                isExplosive = No,
-                canRollingOrBrushing = No,
-                canChargeKeep = No,
-                dodgeRollCount = 0,
-                hasDirectHitSound = No
-            )
-        val answerWeapon = Weapon("name", mainWeapon, splatBomb, trizooka, 0)
+        val answerWeapon = Weapon("name", partiallyMainWeapon, splatBomb, trizooka, 0)
         val question = new CanRapidFireQuestion(answerWeapon)
         question.answer should be(Partial)
     }
