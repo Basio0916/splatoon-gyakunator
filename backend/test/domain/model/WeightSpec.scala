@@ -96,10 +96,10 @@ class WeightSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matcher
     "apply" should "return Weight object from String value" in {
         val examples = Table(
             ("value", "expectedResult"),
-            ("再軽量級？", ExtraLight),
-            ("軽量級？", Light),
-            ("中量級？", Middle),
-            ("重量級？", Heavy)
+            ("最軽量級", ExtraLight),
+            ("軽量級", Light),
+            ("中量級", Middle),
+            ("重量級", Heavy)
         )
         forAll(examples) { (value, expectedResult) =>
             Weight(value) should equal(expectedResult)
