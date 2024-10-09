@@ -23,6 +23,16 @@ object SpecialWeaponSample{
         jumpsToUsePoint = Yes
     )
 
+    val crabTank = SpecialWeapon(
+        name = "カニタンク",
+        hasZRButtonAction = Yes,
+        hasRButtonAction = Yes,
+        canOneShot = No,
+        dealsContinuousDamage = No,
+        isAttackType = Yes,
+        jumpsToUsePoint = No
+    )
+
     val partiallySpecialWeapon = SpecialWeapon(
         name = "imaginarySpecialWeapon",
         hasZRButtonAction = Partial,
