@@ -31,7 +31,7 @@ class JsonMainWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyC
     it should "return None if main weapon is not found" in {
         val source = Source.fromString(JsonData.jsonString)
         val repository = new JsonMainWeaponRepository(source)
-        val mainWeapon = repository.findMainWeaponByName("スプラシューター")
+        val mainWeapon = repository.findMainWeaponByName("リッター4K")
         mainWeapon should equal(None)
     }
 }

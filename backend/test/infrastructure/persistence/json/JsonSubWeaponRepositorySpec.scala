@@ -24,7 +24,7 @@ class JsonSubWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyCh
     it should "return None if sub weapon is not found" in {
         val source = Source.fromString(JsonData.jsonString)
         val repository = new JsonSubWeaponRepository(source)
-        val subWeapon = repository.findSubWeaponByName("キューバンボム")
+        val subWeapon = repository.findSubWeaponByName("チェイスボム")
         subWeapon should equal(None)
     }
 }
