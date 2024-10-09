@@ -29,4 +29,12 @@ object Weight{
         case 3 => Heavy
         case _ => throw new IllegalArgumentException(s"Weight value $value is invalid")
     }
+
+    def apply(value: String): Weight = value match {
+      case "再軽量級？" => ExtraLight
+      case "軽量級？" => Light
+      case "中量級？" => Middle
+      case "重量級？" => Heavy
+      case _ => throw new IllegalArgumentException(s"Weight value $value is invalid")
+    }
 }
