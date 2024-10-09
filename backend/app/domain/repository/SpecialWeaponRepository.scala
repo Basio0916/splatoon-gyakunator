@@ -2,6 +2,6 @@ package domain.repository
 
 import domain.model.SpecialWeapon
 
-trait SupecialWeaponRepository {
+trait SpecialWeaponRepository {
     def findSpecialWeaponByName(name: String): Option[SpecialWeapon]
 }

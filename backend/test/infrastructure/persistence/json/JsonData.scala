@@ -39,6 +39,17 @@ object JsonData{
                 "canInk": "YES",
                 "canMark": "NO"
             }
+        ],
+        "specialWeapons": [
+            {
+                "name": "グレートバリア",
+                "hasZRButtonAction": "NO",
+                "hasRButtonAction": "NO",
+                "canOneShot": "NO",
+                "dealsContinuousDamage": "NO",
+                "isAttackType": "NO",
+                "jumpsToUsePoint": "YES"
+            }
         ]
     }
     """
