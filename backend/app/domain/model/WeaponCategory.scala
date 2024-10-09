@@ -31,10 +31,10 @@ case object Dualies extends WeaponCategory{
 case object Brush extends WeaponCategory{
     override def toString: String = "フデ"
 }
-case object Stringers extends WeaponCategory{
+case object Stringer extends WeaponCategory{
     override def toString: String = "ストリンガー"
 }
-case object Splatanas extends WeaponCategory{
+case object Splatana extends WeaponCategory{
     override def toString: String = "ワイパー"
 }
 
@@ -49,8 +49,8 @@ object WeaponCategory{
         case "シェルター" => Brella
         case "マニューバー" => Dualies
         case "フデ" => Brush
-        case "ストリンガー" => Stringers
-        case "ワイパー" => Splatanas
+        case "ストリンガー" => Stringer
+        case "ワイパー" => Splatana
         case _ => throw new IllegalArgumentException(s"WeaponCategory value $value is invalid")
     }
 }
