@@ -7,6 +7,5 @@ case class SpecialWeapon(
     val canOneShot: Answer,
     val dealsContinuousDamage: Answer,
     val isAttackType: Answer,
-    val canSuperJump: Answer,
     val jumpsToUsePoint: Answer,
 )
