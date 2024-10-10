@@ -9,7 +9,7 @@ class JsonSpecialWeaponRepository(source: scala.io.Source) extends SpecialWeapon
 
     private val json = Json.parse(source.mkString)
 
-    private val specialWeapons = (json \ "specialWeapons").as[List[SpecialWeapon]]
+    private val specialWeapons = json.as[List[SpecialWeapon]]
 
     def findSpecialWeaponByName(name: String): Option[SpecialWeapon] = {
         specialWeapons.find(_.name == name)

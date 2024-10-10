@@ -9,7 +9,7 @@ import domain.model._
 class JsonSpecialWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "findSpecialWeaponByName" should "find special weapon by name" in {
 
-        val source = Source.fromString(JsonData.jsonString)
+        val source = Source.fromString(JsonData.specialWeapons)
         val repository = new JsonSpecialWeaponRepository(source)
         val specialWeapon = repository.findSpecialWeaponByName("グレートバリア")
         specialWeapon.get.name should equal("グレートバリア")
@@ -22,7 +22,7 @@ class JsonSpecialWeaponRepositorySpec extends AnyFlatSpec with TableDrivenProper
     }
 
     it should "return None if special weapon is not found" in {
-        val source = Source.fromString(JsonData.jsonString)
+        val source = Source.fromString(JsonData.specialWeapons)
         val repository = new JsonSpecialWeaponRepository(source)
         val specialWeapon = repository.findSpecialWeaponByName("バブルランチャー")
         specialWeapon should equal(None)

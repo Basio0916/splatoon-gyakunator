@@ -9,7 +9,7 @@ class JsonSubWeaponRepository(source: scala.io.Source) extends SubWeaponReposito
 
     private val json = Json.parse(source.mkString)
 
-    private val subWeapons = (json \ "subWeapons").as[List[SubWeapon]]
+    private val subWeapons = json.as[List[SubWeapon]]
 
     def findSubWeaponByName(name: String): Option[SubWeapon] = {
         subWeapons.find(_.name == name)

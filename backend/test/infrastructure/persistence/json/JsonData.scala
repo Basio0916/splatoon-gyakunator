@@ -1,9 +1,8 @@
 package infrastructure.persistence.json
 
 object JsonData{
-    val jsonString = """
-    {
-        "weapons": [
+    val weapons = """
+        [
             {
                 "name": "わかばシューター",
                 "mainWeapon": "わかばシューター",
@@ -11,8 +10,11 @@ object JsonData{
                 "specialWeapon": "グレートバリア",
                 "specialPoint": "180"
             }
-        ],
-        "mainWeapons": [
+        ]
+    """
+
+    val mainWeapons = """
+        [
             {
                 "name": "わかばシューター",
                 "weaponCategory": "シューター",
@@ -35,8 +37,11 @@ object JsonData{
                 "dodgeRollCount": "0",
                 "hasDirectHitSound": "NO"
             }
-        ],
-        "subWeapons": [
+        ]
+    """
+
+    val subWeapons = """
+        [
             {
                 "name": "スプラッシュボム",
                 "inkConsumption": "70",
@@ -48,8 +53,11 @@ object JsonData{
                 "canInk": "YES",
                 "canMark": "NO"
             }
-        ],
-        "specialWeapons": [
+        ]
+    """
+
+    val specialWeapons = """
+        [
             {
                 "name": "グレートバリア",
                 "hasZRButtonAction": "NO",
@@ -60,6 +68,5 @@ object JsonData{
                 "jumpsToUsePoint": "YES"
             }
         ]
-    }
     """
 }

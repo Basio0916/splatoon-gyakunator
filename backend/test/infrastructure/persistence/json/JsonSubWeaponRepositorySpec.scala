@@ -9,7 +9,7 @@ import domain.model._
 class JsonSubWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "findSubWeaponByName" should "find sub weapon by name" in {
 
-        val source = Source.fromString(JsonData.jsonString)
+        val source = Source.fromString(JsonData.subWeapons)
         val repository = new JsonSubWeaponRepository(source)
         val subWeapon = repository.findSubWeaponByName("スプラッシュボム")
         subWeapon.get.name should equal("スプラッシュボム")
@@ -22,7 +22,7 @@ class JsonSubWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyCh
     }
 
     it should "return None if sub weapon is not found" in {
-        val source = Source.fromString(JsonData.jsonString)
+        val source = Source.fromString(JsonData.subWeapons)
         val repository = new JsonSubWeaponRepository(source)
         val subWeapon = repository.findSubWeaponByName("チェイスボム")
         subWeapon should equal(None)

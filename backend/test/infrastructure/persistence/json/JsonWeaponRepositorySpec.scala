@@ -9,16 +9,28 @@ import domain.model._
 class JsonWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "findWeaponByName" should "find weapon by name" in {
 
-        val source = Source.fromString(JsonData.jsonString)
-        val repository = new JsonWeaponRepository(source)
-        val weapon = repository.findWeaponByName("わかばシューター")
+        val mainWeaponSource = Source.fromString(JsonData.mainWeapons)
+        val mainWeaponRepository = new JsonMainWeaponRepository(mainWeaponSource)
+        val subWeaponSource = Source.fromString(JsonData.subWeapons)
+        val subWeaponRepository = new JsonSubWeaponRepository(subWeaponSource)
+        val specialWeaponSource = Source.fromString(JsonData.specialWeapons)
+        val specialWeaponRepository = new JsonSpecialWeaponRepository(specialWeaponSource)
+        val source = Source.fromString(JsonData.weapons)
+        val weaponRepository = new JsonWeaponRepository(source, mainWeaponRepository, subWeaponRepository, specialWeaponRepository)
+        val weapon = weaponRepository.findWeaponByName("わかばシューター")
         weapon.get.name should equal("わかばシューター")
     }
 
     it should "return None if weapon is not found" in {
-        val source = Source.fromString(JsonData.jsonString)
-        val repository = new JsonMainWeaponRepository(source)
-        val mainWeapon = repository.findMainWeaponByName("リッター4K")
-        mainWeapon should equal(None)
+        val mainWeaponSource = Source.fromString(JsonData.mainWeapons)
+        val mainWeaponRepository = new JsonMainWeaponRepository(mainWeaponSource)
+        val subWeaponSource = Source.fromString(JsonData.subWeapons)
+        val subWeaponRepository = new JsonSubWeaponRepository(subWeaponSource)
+        val specialWeaponSource = Source.fromString(JsonData.specialWeapons)
+        val specialWeaponRepository = new JsonSpecialWeaponRepository(specialWeaponSource)
+        val source = Source.fromString(JsonData.weapons)
+        val weaponRepository = new JsonWeaponRepository(source, mainWeaponRepository, subWeaponRepository, specialWeaponRepository)
+        val weapon = weaponRepository.findWeaponByName("リッター4K")
+        weapon should equal(None)
     }
 }

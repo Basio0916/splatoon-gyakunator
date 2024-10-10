@@ -9,7 +9,7 @@ import domain.model._
 class JsonMainWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "findMainWeaponByName" should "find main weapon by name" in {
 
-        val source = Source.fromString(JsonData.jsonString)
+        val source = Source.fromString(JsonData.mainWeapons)
         val repository = new JsonMainWeaponRepository(source)
         val mainWeapon = repository.findMainWeaponByName("わかばシューター")
         mainWeapon.get.name should equal("わかばシューター")
@@ -29,7 +29,7 @@ class JsonMainWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyC
     }
 
     it should "return None if main weapon is not found" in {
-        val source = Source.fromString(JsonData.jsonString)
+        val source = Source.fromString(JsonData.mainWeapons)
         val repository = new JsonMainWeaponRepository(source)
         val mainWeapon = repository.findMainWeaponByName("リッター4K")
         mainWeapon should equal(None)
