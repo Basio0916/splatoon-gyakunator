@@ -2,16 +2,17 @@ package infrastructure.persistence.json
 
 import domain.models._
 import domain.repositories._
+import domain.factories.SourceFactory
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
 class JsonWeaponRepository(
-    source: scala.io.Source,
+    sourceFactory: SourceFactory,
     mainWeaponRepository: MainWeaponRepository,
     subWeaponRepository: SubWeaponRepository,
     specialWeaponRepository: SpecialWeaponRepository
     ) extends WeaponRepository {
-
+    private val source = sourceFactory.createSource
     private val json = Json.parse(source.mkString)
 
     private val weapons = json.as[List[JsValue]].map { weaponJson =>

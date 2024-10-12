@@ -5,12 +5,15 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import scala.io.Source
 import domain.models._
+import domain.factories.SourceFactory
 
 class JsonMainWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "findMainWeaponByName" should "find main weapon by name" in {
 
-        val source = Source.fromString(JsonData.mainWeapons)
-        val repository = new JsonMainWeaponRepository(source)
+        val sourceFactory = new SourceFactory{
+            def createSource: Source = Source.fromString(JsonData.mainWeapons)
+        }
+        val repository = new JsonMainWeaponRepository(sourceFactory)
         val mainWeapon = repository.findMainWeaponByName("わかばシューター")
         mainWeapon.get.name should equal("わかばシューター")
         mainWeapon.get.weaponCategory should equal(Shooter)
@@ -29,8 +32,10 @@ class JsonMainWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyC
     }
 
     it should "return None if main weapon is not found" in {
-        val source = Source.fromString(JsonData.mainWeapons)
-        val repository = new JsonMainWeaponRepository(source)
+        val sourceFactory = new SourceFactory{
+            def createSource: Source = Source.fromString(JsonData.mainWeapons)
+        }
+        val repository = new JsonMainWeaponRepository(sourceFactory)
         val mainWeapon = repository.findMainWeaponByName("リッター4K")
         mainWeapon should equal(None)
     }
