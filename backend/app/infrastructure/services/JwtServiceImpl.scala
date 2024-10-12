@@ -1,11 +1,11 @@
-package application.service
+package infrastructure.services
 
-import scala.io.Source
+import domain.services.JwtService
 import pdi.jwt.{Jwt, JwtAlgorithm, JwtClaim}
 import play.api.libs.json.Json
+import scala.io.Source
 
-object JwtService{
-  
+class JwtServiceImpl extends JwtService {
   val secretKey: String = getSecretKey
 
   private def getSecretKey: String = {
@@ -20,9 +20,9 @@ object JwtService{
   }
 
   def decodeJwt(token: String): String = {
-      Jwt.decode(token, secretKey, Seq(JwtAlgorithm.HS256)).toOption.flatMap { claim =>
-        val json = Json.parse(claim.content)
-        (json \ "weaponName").asOpt[String]
-      }.getOrElse(throw new IllegalArgumentException("Invalid token"))
+    Jwt.decode(token, secretKey, Seq(JwtAlgorithm.HS256)).toOption.flatMap { claim =>
+      val json = Json.parse(claim.content)
+      (json \ "weaponName").asOpt[String]
+    }.getOrElse(throw new IllegalArgumentException("Invalid token"))
   }
 }
