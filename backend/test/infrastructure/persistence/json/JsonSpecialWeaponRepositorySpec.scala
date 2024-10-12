@@ -4,7 +4,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import scala.io.Source
-import domain.model._
+import domain.models._
 
 class JsonSpecialWeaponRepositorySpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers{
     "findSpecialWeaponByName" should "find special weapon by name" in {

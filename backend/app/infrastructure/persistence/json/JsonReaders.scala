@@ -2,7 +2,7 @@ package infrastructure.persistence.json
 
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
-import domain.model._
+import domain.models._
 
 object JsonReaders{
     implicit val weightReads: Reads[Weight] = Reads {

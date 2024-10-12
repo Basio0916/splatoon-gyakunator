@@ -1,7 +1,7 @@
 package infrastructure.persistence.json
 
-import domain.model._
-import domain.repository.SubWeaponRepository
+import domain.models._
+import domain.repositories.SubWeaponRepository
 import play.api.libs.json._
 import infrastructure.persistence.json.JsonReaders._
 

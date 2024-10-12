@@ -1,7 +1,7 @@
 package infrastructure.persistence.json
 
-import domain.model._
-import domain.repository._
+import domain.models._
+import domain.repositories._
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 
