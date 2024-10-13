@@ -1,0 +1,156 @@
+[
+    {
+        "name": "スプラッシュボム",
+        "inkConsumption": "70",
+        "damage1": "180",
+        "damage2": "30",
+        "damage3": "",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "キューバンボム",
+        "inkConsumption": "70",
+        "damage1": "180",
+        "damage2": "30",
+        "damage3": "",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "クイックボム",
+        "inkConsumption": "45",
+        "damage1": "60",
+        "damage2": "35",
+        "damage3": "25",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "スプリンクラー",
+        "inkConsumption": "60",
+        "damage1": "20",
+        "damage2": "",
+        "damage3": "",
+        "isAttackType": "NO",
+        "canBePlaced": "YES",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "スプラッシュシールド",
+        "inkConsumption": "60",
+        "damage1": "30",
+        "damage2": "",
+        "damage3": "",
+        "isAttackType": "NO",
+        "canBePlaced": "YES",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "タンサンボム",
+        "inkConsumption": "60",
+        "damage1": "50",
+        "damage2": "35",
+        "damage3": "",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "カーリングボム",
+        "inkConsumption": "65",
+        "damage1": "180",
+        "damage2": "30",
+        "damage3": "20",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "ロボットボム",
+        "inkConsumption": "55",
+        "damage1": "180",
+        "damage2": "30",
+        "damage3": "",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "ジャンプビーコン",
+        "inkConsumption": "75",
+        "damage1": "0",
+        "damage2": "",
+        "damage3": "",
+        "isAttackType": "NO",
+        "canBePlaced": "YES",
+        "canInk": "YES",
+        "canMark": "NO"
+    },
+    {
+        "name": "ポイントセンサー",
+        "inkConsumption": "45",
+        "damage1": "0",
+        "damage2": "",
+        "damage3": "",
+        "isAttackType": "NO",
+        "canBePlaced": "PARTIAL",
+        "canInk": "NO",
+        "canMark": "YES"
+    },
+    {
+        "name": "トラップ",
+        "inkConsumption": "60",
+        "damage1": "45",
+        "damage2": "35",
+        "damage3": "",
+        "isAttackType": "PARTIAL",
+        "canBePlaced": "YES",
+        "canInk": "YES",
+        "canMark": "YES"
+    },
+    {
+        "name": "ポイズンミスト",
+        "inkConsumption": "60",
+        "damage1": "0",
+        "damage2": "",
+        "damage3": "",
+        "isAttackType": "NO",
+        "canBePlaced": "PARTIAL",
+        "canInk": "NO",
+        "canMark": "NO"
+    },
+    {
+        "name": "ラインマーカー",
+        "inkConsumption": "40",
+        "damage1": "40",
+        "damage2": "",
+        "damage3": "",
+        "isAttackType": "PARTIAL",
+        "canBePlaced": "PARTIAL",
+        "canInk": "YES",
+        "canMark": "YES"
+    },
+    {
+        "name": "トーピード",
+        "inkConsumption": "65",
+        "damage1": "60",
+        "damage2": "35",
+        "damage3": "12",
+        "isAttackType": "YES",
+        "canBePlaced": "NO",
+        "canInk": "YES",
+        "canMark": "NO"
+    }
+]

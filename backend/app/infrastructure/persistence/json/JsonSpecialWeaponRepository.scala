@@ -5,10 +5,13 @@ import domain.repositories.SpecialWeaponRepository
 import domain.factories.SourceFactory
 import play.api.libs.json._
 import infrastructure.persistence.json.JsonReaders._
+import javax.inject.{Inject, Singleton, Named}
 
-class JsonSpecialWeaponRepository(sourceFactory: SourceFactory) extends SpecialWeaponRepository {
+@Singleton
+class JsonSpecialWeaponRepository @Inject()(@Named("SpecialWeapon") sourceFactory: SourceFactory) extends SpecialWeaponRepository {
     private val source = sourceFactory.createSource
     private val json = Json.parse(source.mkString)
+    source.close()
 
     private val specialWeapons = json.as[List[SpecialWeapon]]
 

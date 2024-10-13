@@ -5,10 +5,13 @@ import domain.repositories.SubWeaponRepository
 import domain.factories.SourceFactory
 import play.api.libs.json._
 import infrastructure.persistence.json.JsonReaders._
+import javax.inject.{Inject, Singleton, Named}
 
-class JsonSubWeaponRepository(sourceFactory: SourceFactory) extends SubWeaponRepository {
+@Singleton
+class JsonSubWeaponRepository @Inject()(@Named("SubWeapon") sourceFactory: SourceFactory) extends SubWeaponRepository {
     private val source = sourceFactory.createSource
     private val json = Json.parse(source.mkString)
+    source.close()
 
     private val subWeapons = json.as[List[SubWeapon]]
 

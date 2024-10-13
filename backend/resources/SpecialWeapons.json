@@ -1,0 +1,173 @@
+[
+    {
+        "name": "カニタンク",
+        "canOneShot": "NO",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "YES",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "ショクワンダー",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "YES"
+    },
+    {
+        "name": "キューインキ",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "NO",
+        "isAttackType": "PARTIAL",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "エナジースタンド",
+        "canOneShot": "NO",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "NO",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "ホップソナー",
+        "canOneShot": "NO",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "PARTIAL",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "サメライド",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "デコイチラシ",
+        "canOneShot": "NO",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "PARTIAL",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "スミナガシート",
+        "canOneShot": "NO",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "PARTIAL",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "ウルトラショット",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "グレートバリア",
+        "canOneShot": "NO",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "NO",
+        "isAttackType": "NO",
+        "jumpsToUsePoint": "YES"
+    },
+    {
+        "name": "メガホンレーザー5.1ch",
+        "canOneShot": "PARTIAL",
+        "dealsContinuousDamage": "YES",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "トリプルトルネード",
+        "canOneShot": "PARTIAL",
+        "dealsContinuousDamage": "YES",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "テイオウイカ",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "YES"
+    },
+    {
+        "name": "ウルトラチャクチ",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "マルチミサイル",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "ジェットパック",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "PARTIAL",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "YES"
+    },
+    {
+        "name": "アメフラシ",
+        "canOneShot": "PARTIAL",
+        "dealsContinuousDamage": "YES",
+        "hasZRButtonAction": "NO",
+        "hasRButtonAction": "YES",
+        "isAttackType": "PARTIAL",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "ウルトラハンコ",
+        "canOneShot": "YES",
+        "dealsContinuousDamage": "NO",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "YES",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    },
+    {
+        "name": "ナイスダマ",
+        "canOneShot": "PARTIAL",
+        "dealsContinuousDamage": "YES",
+        "hasZRButtonAction": "YES",
+        "hasRButtonAction": "NO",
+        "isAttackType": "YES",
+        "jumpsToUsePoint": "NO"
+    }
+]
