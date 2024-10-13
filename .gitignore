@@ -33,3 +33,5 @@ dist-ssr
 *.sw?
 
 secret.txt
+.metals
+.bloop
