@@ -5,8 +5,9 @@ import domain.models.questions._
 import domain.repositories._
 import domain.services.JwtService
 import play.api.libs.json._
+import javax.inject.Inject
 
-class QuestionUseCase (weaponRepository: WeaponRepository, jwtService: JwtService) {
+class QuestionUseCase @Inject()(weaponRepository: WeaponRepository, jwtService: JwtService) {
     def run(questionJsonString: String): Answer = {
         val questionJson = Json.parse(questionJsonString)
         val jwt = (questionJson \ "jwt").as[String]
