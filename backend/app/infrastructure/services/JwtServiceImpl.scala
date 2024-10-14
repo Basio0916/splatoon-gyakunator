@@ -15,7 +15,7 @@ class JwtServiceImpl extends JwtService {
   }
 
   def generateJwt(weaponName: String): String = {
-    val nonce = new SecureRandom().nextInt()
+    val nonce = new SecureRandom().nextInt(10000)
     val json = Json.obj("weaponName" -> s"$weaponName-$nonce")
     val claim = JwtClaim(json.toString())
     Jwt.encode(claim, secretKey, JwtAlgorithm.HS256)
