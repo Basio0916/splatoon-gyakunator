@@ -5,6 +5,7 @@ import play.api.mvc.Results._
 import play.api.mvc._
 import usecase.QuestionUseCase
 import domain.models.QuestionInput
+import play.api.libs.json.Json
 
 @Singleton
 class QuestionController @Inject()(cc: ControllerComponents, questionUseCase: QuestionUseCase) extends AbstractController(cc) {
@@ -15,8 +16,8 @@ class QuestionController @Inject()(cc: ControllerComponents, questionUseCase: Qu
                 json.validate[QuestionInput].fold(
                     errors => BadRequest("Invalid json"),
                     questionInput => {
-                        val result = questionUseCase.run(questionInput)
-                        Ok(result.toString)
+                        val answer = questionUseCase.run(questionInput)
+                        Ok(Json.obj("answer" -> answer.toString))
                     }
                 )
             case None => BadRequest("Invalid json")
