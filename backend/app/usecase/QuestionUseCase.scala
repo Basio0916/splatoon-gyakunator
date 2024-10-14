@@ -1,12 +1,13 @@
 package usecase
 
+import javax.inject.{Inject, Singleton}
 import domain.models._
 import domain.models.questions._
 import domain.repositories._
 import domain.services.JwtService
 import play.api.libs.json._
-import javax.inject.Inject
 
+@Singleton
 class QuestionUseCase @Inject()(weaponRepository: WeaponRepository, jwtService: JwtService) {
     def run(questionJsonString: String): Answer = {
         val questionJson = Json.parse(questionJsonString)
