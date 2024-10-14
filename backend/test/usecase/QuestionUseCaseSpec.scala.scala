@@ -6,7 +6,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
 import domain.repositories.WeaponRepository
 import domain.models._
-import infrastructure.services.JwtServiceImpl
+import domain.services.JwtService
 import play.api.libs.json.Json
 
 class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
@@ -55,9 +55,12 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
         )
 
         (mockRepository.findWeaponByName _).expects("わかばシューター").returning(Some(weapon))
-        var jwtService = new JwtServiceImpl
-        var jwt = jwtService.generateJwt("わかばシューター")
-        var useCase = new QuestionUseCase(mockRepository, jwtService)
+        var mockJwtService = mock[JwtService]
+        (mockJwtService.generateJwt _).stubs("わかばシューター").returning("わかばシューター")
+        (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
+        var jwt = mockJwtService.generateJwt("わかばシューター")
+        
+        var useCase = new QuestionUseCase(mockRepository, mockJwtService)
         var json = Json.obj(
             "jwt" -> jwt,
             "questionName" -> "MainWeaponMaxDamageQuestion",
