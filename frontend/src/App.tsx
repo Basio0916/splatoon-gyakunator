@@ -6,13 +6,14 @@ import { CorrectAnswerModal } from "./components/CorrectAnswerModal";
 import { IncorrectAnswerModal } from "./components/IncorrectAnswerModal";
 import { AnswerModal } from "./components/AnswerModal";
 import { QuestionModal } from "./components/QuestionModal";
-import questions from "./data/question.json";
-import buki from "./data/buki.json";
+import questionsJson from "./data/Questions.json";
+import weaponsJson from "./data/Weapons.json";
 import { CreateQuestion, CreateWeapons } from "./QuestionParser";
 import { QuestionAnswer } from "./types/QuestionAnswer";
 import { QuestionAnswerHistory } from "./components/QuestionAnswerHistory";
 import { Box, Button, Stack } from "@mui/material";
 import { AnswerSubmissionModal } from "./components/AnswerSubmissionModal";
+import { AnswerStatus } from "./types/AnswerStatus";
 
 function App() {
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
@@ -28,8 +29,8 @@ function App() {
   );
   const [submittedAnswer, setSubmittedAnswer] = useState<string>("");
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
-  const question = CreateQuestion(questions);
-  const weapons = CreateWeapons(buki);
+  const questions = CreateQuestion(questionsJson);
+  const weapons = CreateWeapons(weaponsJson);
 
   const handleClickQuestion = () => {
     setQuestionModalOpen(true);
@@ -49,7 +50,7 @@ function App() {
     } else {
       const questionAnswer: QuestionAnswer = {
         question: `ブキは${submittedAnswer}？`,
-        answer: false,
+        answer: AnswerStatus.NO,
       };
       setQuestionAnswers([questionAnswer, ...questionAnswers]);
     }
@@ -103,7 +104,7 @@ function App() {
       <QuestionModal
         open={questionModalOpen}
         setOpen={setQuestionModalOpen}
-        questions={question}
+        questions={questions}
         questionAnswers={questionAnswers}
         setQuestionAnswers={setQuestionAnswers}
       />

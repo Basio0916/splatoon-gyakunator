@@ -2,6 +2,10 @@ import { Box, Button, Card, Divider, Modal, Typography } from "@mui/material";
 import { FC } from "react";
 import { QuestionAnswer } from "../types/QuestionAnswer";
 import { QuestionAnswerHistory } from "./QuestionAnswerHistory";
+import { AnswerStatus } from "../types/AnswerStatus";
+import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
+import ClearIcon from "@mui/icons-material/Clear";
+import ChangeHistoryIcon from "@mui/icons-material/ChangeHistory";
 
 type Props = {
   open: boolean;
@@ -11,15 +15,15 @@ type Props = {
 const questionAnswers: Array<QuestionAnswer> = [
   {
     question: "サブウェポンはサブウェポン名がスプラッシュシールド？",
-    answer: false,
+    answer: AnswerStatus.NO,
   },
   {
     question: "スペシャルウェポンはスペシャルウェポン名がグレートバリア？",
-    answer: true,
+    answer: AnswerStatus.YES,
   },
   {
     question: "メインウェポンはブキ種がシューター？",
-    answer: true,
+    answer: AnswerStatus.YES,
   },
 ];
 
@@ -59,7 +63,17 @@ export const HowToPlayModal: FC<Props> = (props) => {
             スプラトゥーン3のブキを当てるクイズゲームです。
           </Typography>
           <Typography>
-            質問をするとYESかNOで回答が返ってくるので、できるだけ少ない質問数でブキを当てましょう。
+            質問をすると
+            <PanoramaFishEyeIcon
+              style={{ color: "2e7d32", verticalAlign: "-10%" }}
+            />
+            （はい）か
+            <ClearIcon style={{ color: "#d32f2f", verticalAlign: "-10%" }} />
+            （いいえ）か
+            <ChangeHistoryIcon
+              style={{ color: "#E3D026", verticalAlign: "-10%" }}
+            />
+            （部分的にはい）で回答が返ってくるので、できるだけ少ない質問数でブキを当てましょう。
           </Typography>
           <Divider sx={{ width: "100%", margin: "10px 0px" }} />
           <Typography

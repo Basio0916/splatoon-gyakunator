@@ -1,5 +1,9 @@
 import { FC } from "react";
 import { QuestionAnswer } from "../types/QuestionAnswer";
+import { AnswerStatus } from "../types/AnswerStatus";
+import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
+import ClearIcon from "@mui/icons-material/Clear";
+import ChangeHistoryIcon from "@mui/icons-material/ChangeHistory";
 import {
   Paper,
   Table,
@@ -35,13 +39,17 @@ export const QuestionAnswerHistory: FC<Props> = (props) => {
                 <TableRow key={index}>
                   <TableCell>{questionAnswers.length - index}</TableCell>
                   <TableCell>{qa.question}</TableCell>
-                  {qa.answer ? (
-                    <TableCell style={{ color: "#2e7d32", fontWeight: "bold" }}>
-                      YES
+                  {qa.answer === AnswerStatus.YES ? (
+                    <TableCell>
+                      <PanoramaFishEyeIcon style={{ color: "2e7d32" }} />
+                    </TableCell>
+                  ) : qa.answer === AnswerStatus.NO ? (
+                    <TableCell>
+                      <ClearIcon style={{ color: "#d32f2f" }} />
                     </TableCell>
                   ) : (
-                    <TableCell style={{ color: "#d32f2f", fontWeight: "bold" }}>
-                      NO
+                    <TableCell>
+                      <ChangeHistoryIcon style={{ color: "#E3D026" }} />
                     </TableCell>
                   )}
                 </TableRow>
