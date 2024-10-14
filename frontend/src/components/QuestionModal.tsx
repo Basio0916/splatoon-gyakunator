@@ -123,25 +123,30 @@ export const QuestionModal: FC<Props> = (props) => {
       option: question3Select,
       comparator: question4Select,
     };
-    const response = await fetch("http://localhost:9000/api/game/question", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(json),
-    });
-    const data = await response.json();
-    const answer = AnswerStatus[data.answer as keyof typeof AnswerStatus];
-    const questionString =
-      question1Select +
-      question2Select +
-      question3Select +
-      selectedQuestion?.unit +
-      question4Select;
-    props.setQuestionAnswers([
-      { question: questionString, answer },
-      ...props.questionAnswers,
-    ]);
+    try {
+      const response = await fetch("http://localhost:9000/api/game/question", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      const data = await response.json();
+      const answer = AnswerStatus[data.answer as keyof typeof AnswerStatus];
+      const questionString =
+        question1Select +
+        question2Select +
+        question3Select +
+        selectedQuestion?.unit +
+        question4Select;
+      props.setQuestionAnswers([
+        { question: questionString, answer },
+        ...props.questionAnswers,
+      ]);
+    } catch (error) {
+      console.error(error);
+    }
     setQuestion1Select("");
     setQuestion2Select("");
     setQuestion3Select("");

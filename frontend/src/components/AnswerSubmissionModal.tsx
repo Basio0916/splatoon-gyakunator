@@ -59,17 +59,21 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
       jwt: jwt,
       weaponName: selectedWeapon,
     };
-    const response = await fetch("http://localhost:9000/api/game/answer", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(json),
-    });
-    const data = await response.json();
+    try {
+      const response = await fetch("http://localhost:9000/api/game/answer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+      const data = await response.json();
+      onClose(selectedWeapon, data.result);
+    } catch (error) {
+      console.error(error);
+    }
     setSelectedWeapon("");
     setOpen(false);
-    onClose(selectedWeapon, data.result);
   };
 
   const toKatakana = (input: string): string => {
