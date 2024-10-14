@@ -1,5 +1,5 @@
 export enum AnswerStatus {
-  YES = "Yes",
-  NO = "No",
-  PARTIAL = "Partial",
+  Yes = "Yes",
+  No = "No",
+  Partial = "Partial",
 }

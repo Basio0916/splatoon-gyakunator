@@ -17,22 +17,23 @@ type Props = {
   setOpen: (open: boolean) => void;
   weapons: Array<string>;
   onClose: (weapon: string, result: boolean) => void;
+  jwt: string;
 };
 
 export const AnswerSubmissionModal: FC<Props> = (props) => {
-  const { open, setOpen, weapons, onClose } = props;
-  const [weaponSelect, setWeaponSelect] = useState<string>("");
+  const { open, setOpen, weapons, onClose, jwt } = props;
+  const [selectedWeapon, setSelectedWeapon] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(true);
 
   const handleClose = (_event: {}, _reason: string) => {
-    setWeaponSelect("");
+    setSelectedWeapon("");
     setOpen(false);
   };
 
   const handleClickCloseIcon = (
     _event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    setWeaponSelect("");
+    setSelectedWeapon("");
     setOpen(false);
   };
 
@@ -43,19 +44,32 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
     _details?: AutocompleteChangeDetails<string>
   ) => {
     if (value) {
-      setWeaponSelect(value);
+      setSelectedWeapon(value);
     }
   };
 
   useEffect(() => {
-    setDisabled(weaponSelect === "");
-  }, [weaponSelect]);
+    setDisabled(selectedWeapon === "");
+  }, [selectedWeapon]);
 
-  const handleClickAnswer = (_event: React.MouseEvent<HTMLButtonElement>) => {
-    const result = Math.random() < 0.5;
-    setWeaponSelect("");
+  const handleClickAnswer = async (
+    _event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const json = {
+      jwt: jwt,
+      weaponName: selectedWeapon,
+    };
+    const response = await fetch("http://localhost:9000/api/game/answer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(json),
+    });
+    const data = await response.json();
+    setSelectedWeapon("");
     setOpen(false);
-    onClose(weaponSelect, result);
+    onClose(selectedWeapon, data.result);
   };
 
   const toKatakana = (input: string): string => {
@@ -127,7 +141,7 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
           }}
           options={weapons}
           getOptionLabel={(option) => option}
-          value={weaponSelect}
+          value={selectedWeapon}
           onChange={handleWeaponChange}
           filterOptions={filterOptions}
           renderInput={(params) => (

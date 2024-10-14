@@ -14,6 +14,7 @@ import { FC, useEffect, useState } from "react";
 import { Question } from "../types/Question";
 import { QuestionAnswer } from "../types/QuestionAnswer";
 import CloseIcon from "@mui/icons-material/Close";
+import { AnswerStatus } from "../types/AnswerStatus";
 
 type Props = {
   open: boolean;
@@ -21,12 +22,13 @@ type Props = {
   questions: Array<Question>;
   questionAnswers: Array<QuestionAnswer>;
   setQuestionAnswers: (questionAnswers: Array<QuestionAnswer>) => void;
+  jwt: string;
 };
 
 const question4Set = ["以上？", "以下？", "？"];
 
 export const QuestionModal: FC<Props> = (props) => {
-  const { open, setOpen, questions } = props;
+  const { open, setOpen, questions, jwt } = props;
   const [question1Select, setQuestion1Select] = useState<string>("");
   const [question2Select, setQuestion2Select] = useState<string>("");
   const [question3Select, setQuestion3Select] = useState<string>("");
@@ -112,10 +114,30 @@ export const QuestionModal: FC<Props> = (props) => {
     question3Set,
   ]);
 
-  const handleClickQuestion = (_event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickQuestion = async (
+    _event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const json = {
+      jwt: jwt,
+      questionName: selectedQuestion?.questionName,
+      option: question3Select,
+      comparator: question4Select,
+    };
+    const response = await fetch("http://localhost:9000/api/game/question", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(json),
+    });
+    const data = await response.json();
+    const answer = AnswerStatus[data.answer as keyof typeof AnswerStatus];
     const questionString =
-      question1Select + question2Select + question3Select + question4Select;
-    const answer = Math.random() < 0.5;
+      question1Select +
+      question2Select +
+      question3Select +
+      selectedQuestion?.unit +
+      question4Select;
     props.setQuestionAnswers([
       { question: questionString, answer },
       ...props.questionAnswers,

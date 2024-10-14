@@ -29,8 +29,24 @@ function App() {
   );
   const [submittedAnswer, setSubmittedAnswer] = useState<string>("");
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
+  const [jwt, setJwt] = useState<string>("");
   const questions = CreateQuestion(questionsJson);
   const weapons = CreateWeapons(weaponsJson);
+
+  const getAnswerWeapon = async () => {
+    try {
+      const response = await fetch("http://localhost:9000/api/game/start");
+      response.json().then((data) => {
+        setJwt(data.jwt);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleHowToPlayModalClose = async () => {
+    await getAnswerWeapon();
+  };
 
   const handleClickQuestion = () => {
     setQuestionModalOpen(true);
@@ -40,8 +56,9 @@ function App() {
     setAnswerSubmissionModalOpen(true);
   };
 
-  const handleCorrectAnswerModalClose = () => {
+  const handleCorrectAnswerModalClose = async () => {
     setQuestionAnswers([]);
+    await getAnswerWeapon();
   };
 
   const handleIncorrectAnswerModalClose = (retire: boolean) => {
@@ -50,7 +67,7 @@ function App() {
     } else {
       const questionAnswer: QuestionAnswer = {
         question: `ブキは${submittedAnswer}？`,
-        answer: AnswerStatus.NO,
+        answer: AnswerStatus.No,
       };
       setQuestionAnswers([questionAnswer, ...questionAnswers]);
     }
@@ -83,6 +100,7 @@ function App() {
       <HowToPlayModal
         open={gameStartModalOpen}
         setOpen={setGameStartModalOpen}
+        onClose={handleHowToPlayModalClose}
       />
       <CorrectAnswerModal
         open={correctAnswerModalOpen}
@@ -107,12 +125,14 @@ function App() {
         questions={questions}
         questionAnswers={questionAnswers}
         setQuestionAnswers={setQuestionAnswers}
+        jwt={jwt}
       />
       <AnswerSubmissionModal
         open={answerSubmissionModalOpen}
         setOpen={setAnswerSubmissionModalOpen}
         weapons={weapons}
         onClose={handleAnswerSubmissionModalClose}
+        jwt={jwt}
       />
       <Box
         sx={{

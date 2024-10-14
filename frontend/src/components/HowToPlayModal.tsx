@@ -10,25 +10,26 @@ import ChangeHistoryIcon from "@mui/icons-material/ChangeHistory";
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
+  onClose: () => void;
 };
 
 const questionAnswers: Array<QuestionAnswer> = [
   {
     question: "サブウェポンはサブウェポン名がスプラッシュシールド？",
-    answer: AnswerStatus.NO,
+    answer: AnswerStatus.No,
   },
   {
     question: "スペシャルウェポンはスペシャルウェポン名がグレートバリア？",
-    answer: AnswerStatus.YES,
+    answer: AnswerStatus.Yes,
   },
   {
     question: "メインウェポンはブキ種がシューター？",
-    answer: AnswerStatus.YES,
+    answer: AnswerStatus.Yes,
   },
 ];
 
 export const HowToPlayModal: FC<Props> = (props) => {
-  const { open, setOpen } = props;
+  const { open, setOpen, onClose } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
       setOpen(false);
@@ -36,6 +37,7 @@ export const HowToPlayModal: FC<Props> = (props) => {
   };
   const handleClickStart = (_event: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(false);
+    onClose();
   };
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>

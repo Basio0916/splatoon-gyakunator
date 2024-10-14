@@ -39,11 +39,11 @@ export const QuestionAnswerHistory: FC<Props> = (props) => {
                 <TableRow key={index}>
                   <TableCell>{questionAnswers.length - index}</TableCell>
                   <TableCell>{qa.question}</TableCell>
-                  {qa.answer === AnswerStatus.YES ? (
+                  {qa.answer === AnswerStatus.Yes ? (
                     <TableCell>
                       <PanoramaFishEyeIcon style={{ color: "2e7d32" }} />
                     </TableCell>
-                  ) : qa.answer === AnswerStatus.NO ? (
+                  ) : qa.answer === AnswerStatus.No ? (
                     <TableCell>
                       <ClearIcon style={{ color: "#d32f2f" }} />
                     </TableCell>
