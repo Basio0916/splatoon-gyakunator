@@ -7,6 +7,7 @@ type RawQuestion = {
   質問数: string;
   数値: string;
   比較: string;
+  単位: string;
 };
 
 type RawWeapon = {
@@ -31,10 +32,12 @@ export const CreateQuestion = (
     ].filter((item) => item !== "");
     const isNumeric = question.数値 === "TRUE";
     const isComparable = question.比較 === "TRUE";
+    const unit = question.単位;
     return {
       questions,
       isNumeric,
       isComparable,
+      unit,
     };
   });
 };

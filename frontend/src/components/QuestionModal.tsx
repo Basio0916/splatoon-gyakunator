@@ -35,6 +35,7 @@ export const QuestionModal: FC<Props> = (props) => {
   const [question3Set, setQuestion3Set] = useState<Array<string>>([]);
   const [selectedQuestion, setSelectedQuestion] = useState<Question>();
   const [disabled, setDisabled] = useState<boolean>(true);
+  const [unit, setUnit] = useState<string>("");
 
   const handleClose = (_event: {}, _reason: string) => {
     setQuestion1Select("");
@@ -64,6 +65,10 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion3Set(Array.from(new Set(question3List)));
     setQuestion3Select("");
     setQuestion4Select("");
+    const unit = questions.find(
+      (q) => q.questions[1] === question2Select
+    )?.unit;
+    setUnit(unit || "");
   }, [question2Select]);
 
   useEffect(() => {
@@ -167,6 +172,7 @@ export const QuestionModal: FC<Props> = (props) => {
   ) => {
     setQuestion4Select(value || "");
   };
+
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
@@ -244,15 +250,15 @@ export const QuestionModal: FC<Props> = (props) => {
         {selectedQuestion?.isNumeric ? (
           <div style={{ display: "flex", width: "100%", alignItems: "center" }}>
             <TextField
-              sx={{ width: "90%", marginTop: "10px" }}
+              sx={{ width: "85%", marginTop: "10px" }}
               label="数値"
               variant="outlined"
               type="number"
               value={question3Select}
               onChange={handleQuestionNumberChange}
             />
-            <Typography sx={{ width: "10%", marginLeft: "10px" }}>
-              度
+            <Typography sx={{ width: "15%", marginLeft: "10px" }}>
+              {unit}
             </Typography>
           </div>
         ) : null}
