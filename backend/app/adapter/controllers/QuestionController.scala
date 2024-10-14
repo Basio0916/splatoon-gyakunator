@@ -9,7 +9,7 @@ import domain.models.QuestionInput
 @Singleton
 class QuestionController @Inject()(cc: ControllerComponents, questionUseCase: QuestionUseCase) extends AbstractController(cc) {
 
-    def answer = Action { request =>
+    def question = Action { request =>
         request.body.asJson match{
             case Some(json) =>
                 json.validate[QuestionInput].fold(

@@ -27,7 +27,7 @@ class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
         (mockQuestionUseCase.run _).expects(*).returning(Yes)
         val controller = new QuestionController(stubControllerComponents(), mockQuestionUseCase)
         val request = FakeRequest(POST, "/api/game/question").withJsonBody(json)
-        val result = controller.answer().apply(request)
+        val result = controller.question().apply(request)
         status(result) mustBe OK
       }
     }
@@ -44,7 +44,7 @@ class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
         val mockQuestionUseCase = mock[QuestionUseCase]
         val controller = new QuestionController(stubControllerComponents(), mockQuestionUseCase)
         val request = FakeRequest(POST, "/api/game/question").withJsonBody(json)
-        val result = controller.answer().apply(request)
+        val result = controller.question().apply(request)
         status(result) mustBe BAD_REQUEST
       }
     }
@@ -53,7 +53,7 @@ class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
       val mockQuestionUseCase = mock[QuestionUseCase]
       val controller = new QuestionController(stubControllerComponents(), mockQuestionUseCase)
       val request = FakeRequest(POST, "/api/game/question")
-      val result = controller.answer().apply(request)
+      val result = controller.question().apply(request)
       status(result) mustBe BAD_REQUEST
     }
   }
