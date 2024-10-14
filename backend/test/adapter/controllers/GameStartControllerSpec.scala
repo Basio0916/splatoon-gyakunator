@@ -6,7 +6,6 @@ import play.api.test._
 import play.api.test.Helpers._
 import org.scalamock.scalatest.MockFactory
 import usecase.GameStartUseCase
-import domain.repositories.WeaponRepository
 
 class GameStartControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory{
 
