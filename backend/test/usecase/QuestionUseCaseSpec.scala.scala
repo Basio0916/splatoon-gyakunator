@@ -60,9 +60,9 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
         var useCase = new QuestionUseCase(mockRepository, jwtService)
         var json = Json.obj(
             "jwt" -> jwt,
-            "questionName" -> "MainWeaponNameQuestion",
-            "option" -> "わかばシューター？",
-            "comparator" -> "")
+            "questionName" -> "MainWeaponMaxDamageQuestion",
+            "option" -> "25.0",
+            "comparator" -> "以上？")
         val answer = useCase.run(json.toString())
         answer should equal(Yes)
     }
