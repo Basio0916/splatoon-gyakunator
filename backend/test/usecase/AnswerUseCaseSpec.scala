@@ -5,7 +5,7 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
 import domain.services.JwtService
-import play.api.libs.json.Json
+import domain.models.AnswerInput
 
 class AnswerUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
 
@@ -23,12 +23,10 @@ class AnswerUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with 
 
         forAll(examples) { (weaponName, expected) =>
             
-            var json = Json.obj(
-                "jwt" -> "わかばシューター",
-                "weaponName" -> weaponName)
+            var answerInput = new AnswerInput("わかばシューター", weaponName)
 
             val useCase = new AnswerUseCase(mockJwtService)
-            val result = useCase.run(json) 
+            val result = useCase.run(answerInput) 
             result should equal(expected)
         }
     }  

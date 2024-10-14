@@ -4,16 +4,13 @@ import javax.inject.{Inject, Singleton}
 import domain.repositories.WeaponRepository
 import domain.services.JwtService
 import domain.models.Answer
-import play.api.libs.json.Json
-import play.api.libs.json.JsValue
+import domain.models.AnswerInput
 
 @Singleton
 class AnswerUseCase @Inject()(jwtService: JwtService) {
-    def run(answerJson: JsValue): Boolean = {
-        val jwt = (answerJson \ "jwt").as[String]
-        val weaponName = (answerJson \ "weaponName").as[String]
+    def run(answerInput: AnswerInput): Boolean = {
 
-        val decodedWeaponName = jwtService.decodeJwt(jwt)
-        weaponName == decodedWeaponName
+        val decodedWeaponName = jwtService.decodeJwt(answerInput.jwt)
+        answerInput.weaponName == decodedWeaponName
     }
 }
