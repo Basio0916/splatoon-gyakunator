@@ -49,7 +49,7 @@ export const HowToPlayModal: FC<Props> = (props) => {
           transform: "translate(-50%, -50%)",
           outline: "none",
           overflow: "auto",
-          maxHeight: "80%",
+          maxHeight: "90%",
         }}
       >
         <Typography variant="h4">How to Play</Typography>
