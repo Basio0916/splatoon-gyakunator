@@ -26,6 +26,7 @@ class AnswerControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecti
       )
       val result = controller.answer().apply(request)
       status(result) mustBe OK
+      contentAsString(result) mustBe """{"result":true}"""
     }
 
     "return 400 when JSON object validation fails" in {

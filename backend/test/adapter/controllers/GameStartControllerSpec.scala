@@ -19,7 +19,7 @@ class GameStartControllerSpec extends PlaySpec with GuiceOneAppPerTest with Inje
       val result = controller.startGame().apply(FakeRequest(GET, "/api/game/start"))
 
       status(result) mustBe OK
-      contentAsString(result) must include ("testToken")
+      contentAsString(result) mustBe ("""{"jwt":"testToken"}""")
     }
   }
 }
