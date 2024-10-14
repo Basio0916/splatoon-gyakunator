@@ -1,6 +1,6 @@
 # Routes
 
 GET /api/game/start adapter.controllers.GameStartController.startGame
-GET /api/game/weaponname adapter.controllers.GetWeaponNamesController.GetWeaponNames
+GET /api/game/weaponname adapter.controllers.GetWeaponNamesController.getWeaponNames
 POST /api/game/answer adapter.controllers.AnswerController.answer
-Post /api/game/question adapter.controllers.QuestionController.question
+POST /api/game/question adapter.controllers.QuestionController.question
