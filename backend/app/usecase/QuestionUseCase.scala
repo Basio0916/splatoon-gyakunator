@@ -5,15 +5,12 @@ import domain.models._
 import domain.models.questions._
 import domain.repositories._
 import domain.services.JwtService
-import play.api.libs.json._
+import domain.models.QuestionInput
 
 @Singleton
 class QuestionUseCase @Inject()(weaponRepository: WeaponRepository, jwtService: JwtService) {
-    def run(questionJson: JsValue): Answer = {
-        val jwt = (questionJson \ "jwt").as[String]
-        val questionName = (questionJson \ "questionName").as[String]
-        val option = (questionJson \ "option").asOpt[String]
-        val comparator = (questionJson \ "comparator").asOpt[String]
+    def run(questionInput: QuestionInput): Answer = {
+        val QuestionInput(jwt, questionName, option, comparator) = questionInput
 
         val weaponName = jwtService.decodeJwt(jwt);
         val answerWeapon = weaponRepository.findWeaponByName(weaponName).getOrElse(throw new IllegalArgumentException("Invalid token"))
