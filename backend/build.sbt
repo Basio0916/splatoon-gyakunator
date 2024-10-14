@@ -1,5 +1,5 @@
-name := """play-scala-seed"""
-organization := "com.example"
+name := """splatoon-gyakunator"""
+organization := "io.github.Basio0916"
 
 version := "1.0-SNAPSHOT"
 
