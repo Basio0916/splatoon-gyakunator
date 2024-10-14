@@ -9,8 +9,7 @@ import play.api.libs.json._
 
 @Singleton
 class QuestionUseCase @Inject()(weaponRepository: WeaponRepository, jwtService: JwtService) {
-    def run(questionJsonString: String): Answer = {
-        val questionJson = Json.parse(questionJsonString)
+    def run(questionJson: JsValue): Answer = {
         val jwt = (questionJson \ "jwt").as[String]
         val questionName = (questionJson \ "questionName").as[String]
         val option = (questionJson \ "option").asOpt[String]

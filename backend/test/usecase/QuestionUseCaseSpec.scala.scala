@@ -66,7 +66,7 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
             "questionName" -> "MainWeaponMaxDamageQuestion",
             "option" -> "25.0",
             "comparator" -> "以上？")
-        val answer = useCase.run(json.toString())
+        val answer = useCase.run(json)
         answer should equal(Yes)
     }
 }

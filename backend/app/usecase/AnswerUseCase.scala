@@ -5,11 +5,11 @@ import domain.repositories.WeaponRepository
 import domain.services.JwtService
 import domain.models.Answer
 import play.api.libs.json.Json
+import play.api.libs.json.JsValue
 
 @Singleton
 class AnswerUseCase @Inject()(jwtService: JwtService) {
-    def run(answerJsonString: String): Boolean = {
-        val answerJson = Json.parse(answerJsonString)
+    def run(answerJson: JsValue): Boolean = {
         val jwt = (answerJson \ "jwt").as[String]
         val weaponName = (answerJson \ "weaponName").as[String]
 

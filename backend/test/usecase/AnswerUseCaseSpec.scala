@@ -28,7 +28,7 @@ class AnswerUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with 
                 "weaponName" -> weaponName)
 
             val useCase = new AnswerUseCase(mockJwtService)
-            val result = useCase.run(json.toString()) 
+            val result = useCase.run(json) 
             result should equal(expected)
         }
     }  
