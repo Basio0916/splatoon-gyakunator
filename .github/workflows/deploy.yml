@@ -1,43 +1,48 @@
-name: Deploy to GitHub Pages
+# 静的コンテンツを GitHub Pages にデプロイするためのシンプルなワークフロー
+name: Deploy static content to Pages
 
 on:
   push:
     paths:
       - "frontend/**"
     branches:
-      - ["main"]
+      - main
 
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
+          cache: "npm"
       - name: Install dependencies
-        working-directory: frontend
         run: npm install
-
-      - name: Build the project
-        working-directory: frontend
+      - name: Build
         run: npm run build
-
       - name: Setup Pages
         uses: actions/configure-pages@v3
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: "./frontend/dist"
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
