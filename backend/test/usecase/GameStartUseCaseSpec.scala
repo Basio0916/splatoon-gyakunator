@@ -7,7 +7,7 @@ import org.scalamock.scalatest.MockFactory
 import domain.repositories.WeaponRepository
 import domain.services.JwtService
 
-class StartGameUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
+class GameStartUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
   
     "run" should "return weapon name" in {
         var mockRepository = mock[WeaponRepository]
@@ -22,7 +22,7 @@ class StartGameUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wi
         (mockJwtService.decodeJwt _).stubs("もみじシューター").returning("もみじシューター")
         (mockJwtService.decodeJwt _).stubs("プロモデラーMG").returning("プロモデラーMG")
 
-        var useCase = new StartGameUseCase(mockRepository, mockJwtService)
+        var useCase = new GameStartUseCase(mockRepository, mockJwtService)
         val result = useCase.run()
         Some(result) should contain oneOf ("わかばシューター", "もみじシューター", "プロモデラーMG")
     }
