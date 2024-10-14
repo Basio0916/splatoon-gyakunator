@@ -31,6 +31,7 @@ jobs:
 
       - name: Set up Node
         uses: actions/setup-node@v3
+        working-directory: frontend
         with:
           node-version: 18
           cache: "npm"
