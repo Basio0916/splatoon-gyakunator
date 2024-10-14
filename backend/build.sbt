@@ -1,5 +1,5 @@
 name := """splatoon-gyakunator"""
-organization := "io.github.Basio0916"
+organization := "io.github.basio0916"
 
 version := "1.0-SNAPSHOT"
 
