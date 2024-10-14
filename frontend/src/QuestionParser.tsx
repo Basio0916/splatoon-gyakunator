@@ -1,24 +1,21 @@
 import { Question } from "./types/Question";
 
 type RawQuestion = {
-  大項目: string;
-  中項目: string;
-  小項目: string;
-  質問数: string;
-  数値: string;
-  比較: string;
-  単位: string;
+  mainQuestion: string;
+  subQuestion: string;
+  option: string;
+  isNumeric: string;
+  isComparable: string;
+  unit: string;
+  questionName: string;
 };
 
 type RawWeapon = {
-  ブキ: string;
-  メインウェポン: string;
-  サブウェポン: string;
-  スペシャルウェポン: string;
-  必要P: string;
-  派生: string;
-  レプリカ: string;
-  DLC: string;
+  name: string;
+  mainWeapon: string;
+  subWeapon: string;
+  specialWeapon: string;
+  specialPoint: string;
 };
 
 export const CreateQuestion = (
@@ -26,22 +23,24 @@ export const CreateQuestion = (
 ): Array<Question> => {
   return rawQuestion.map((question) => {
     const questions = [
-      question.大項目,
-      question.中項目,
-      question.小項目,
+      question.mainQuestion,
+      question.subQuestion,
+      question.option,
     ].filter((item) => item !== "");
-    const isNumeric = question.数値 === "TRUE";
-    const isComparable = question.比較 === "TRUE";
-    const unit = question.単位;
+    const isNumeric = question.isNumeric === "TRUE";
+    const isComparable = question.isComparable === "TRUE";
+    const unit = question.unit;
+    const questionName = question.questionName;
     return {
       questions,
       isNumeric,
       isComparable,
       unit,
+      questionName,
     };
   });
 };
 
 export const CreateWeapons = (rawWeapon: Array<RawWeapon>): Array<string> => {
-  return rawWeapon.map((weapon) => weapon.ブキ);
+  return rawWeapon.map((weapon) => weapon.name);
 };

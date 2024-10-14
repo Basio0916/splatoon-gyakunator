@@ -3,4 +3,5 @@ export type Question = {
   isNumeric: boolean;
   isComparable: boolean;
   unit: string;
+  questionName: string;
 };
