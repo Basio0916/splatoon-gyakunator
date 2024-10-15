@@ -10,8 +10,7 @@ class JwtServiceImpl extends JwtService {
   val secretKey: String = getSecretKey
 
   private def getSecretKey: String = {
-    val source = Source.fromResource("secret.txt")
-    try source.mkString finally source.close()
+    sys.env.getOrElse("JWT_SECRET", throw new RuntimeException("JWT_SECRET environment variable not found"))
   }
 
   def generateJwt(weaponName: String): String = {
