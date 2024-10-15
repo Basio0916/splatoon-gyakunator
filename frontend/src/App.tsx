@@ -29,11 +29,12 @@ function App() {
   );
   const [submittedAnswer, setSubmittedAnswer] = useState<string>("");
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
+  const [answerWeapon, setAnswerWeapon] = useState<string>("");
   const [jwt, setJwt] = useState<string>("");
   const questions = CreateQuestion(questionsJson);
   const weapons = CreateWeapons(weaponsJson);
 
-  const getAnswerWeapon = async () => {
+  const gameStart = async () => {
     try {
       const response = await fetch("http://localhost:9000/api/game/start");
       response.json().then((data) => {
@@ -44,8 +45,28 @@ function App() {
     }
   };
 
+  const getAnswerWeapon = async () => {
+    try {
+      const json = { jwt: jwt };
+      const response = await fetch(
+        "http://localhost:9000/api/game/weaponname",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(json),
+        }
+      );
+      const data = await response.json();
+      setAnswerWeapon(data.weaponName);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleHowToPlayModalClose = async () => {
-    await getAnswerWeapon();
+    await gameStart();
   };
 
   const handleClickQuestion = () => {
@@ -58,11 +79,12 @@ function App() {
 
   const handleCorrectAnswerModalClose = async () => {
     setQuestionAnswers([]);
-    await getAnswerWeapon();
+    await gameStart();
   };
 
-  const handleIncorrectAnswerModalClose = (retire: boolean) => {
+  const handleIncorrectAnswerModalClose = async (retire: boolean) => {
     if (retire) {
+      await getAnswerWeapon();
       setAnswerModalOpen(true);
     } else {
       const questionAnswer: QuestionAnswer = {
@@ -73,8 +95,9 @@ function App() {
     }
   };
 
-  const handleAnswerModalClose = () => {
+  const handleAnswerModalClose = async () => {
     setQuestionAnswers([]);
+    await gameStart();
   };
 
   const handleAnswerSubmissionModalClose = (
@@ -116,7 +139,7 @@ function App() {
       <AnswerModal
         open={answerModalOpen}
         setOpen={setAnswerModalOpen}
-        weapon="デュアルスイーパーカスタム"
+        weapon={answerWeapon}
         onClose={handleAnswerModalClose}
       />
       <QuestionModal
