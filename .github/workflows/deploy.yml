@@ -24,8 +24,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      REACT_APP_API_URL: "https://splatoon-gyakunator.onrender.com"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
