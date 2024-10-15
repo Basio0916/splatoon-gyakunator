@@ -70,27 +70,6 @@
     "specialPoint": "190"
   },
   {
-    "name": "ヒーローシューターレプリカ",
-    "mainWeapon": "スプラシューター",
-    "subWeapon": "キューバンボム",
-    "specialWeapon": "ウルトラショット",
-    "specialPoint": "210"
-  },
-  {
-    "name": "オクタシューターレプリカ",
-    "mainWeapon": "スプラシューター",
-    "subWeapon": "スプラッシュボム",
-    "specialWeapon": "トリプルトルネード",
-    "specialPoint": "190"
-  },
-  {
-    "name": "オーダーシューターレプリカ",
-    "mainWeapon": "スプラシューター",
-    "subWeapon": "キューバンボム",
-    "specialWeapon": "ウルトラショット",
-    "specialPoint": "210"
-  },
-  {
     "name": ".52ガロン",
     "mainWeapon": ".52ガロン",
     "subWeapon": "スプラッシュシールド",
@@ -231,13 +210,6 @@
     "specialPoint": "180"
   },
   {
-    "name": "オーダーブラスターレプリカ",
-    "mainWeapon": "ノヴァブラスター",
-    "subWeapon": "スプラッシュボム",
-    "specialWeapon": "ショクワンダー",
-    "specialPoint": "170"
-  },
-  {
     "name": "ホットブラスター",
     "mainWeapon": "ホットブラスター",
     "subWeapon": "ロボットボム",
@@ -257,6 +229,13 @@
     "subWeapon": "キューバンボム",
     "specialWeapon": "ホップソナー",
     "specialPoint": "200"
+  },
+  {
+    "name": "ロングブラスターカスタム",
+    "mainWeapon": "ロングブラスター",
+    "subWeapon": "スプラッシュボム",
+    "specialWeapon": "テイオウイカ",
+    "specialPoint": "210"
   },
   {
     "name": "クラッシュブラスター",
@@ -343,13 +322,6 @@
     "specialPoint": "180"
   },
   {
-    "name": "オーダーローラーレプリカ",
-    "mainWeapon": "スプラローラー",
-    "subWeapon": "カーリングボム",
-    "specialWeapon": "グレートバリア",
-    "specialPoint": "180"
-  },
-  {
     "name": "ダイナモローラー",
     "mainWeapon": "ダイナモローラー",
     "subWeapon": "スプリンクラー",
@@ -420,13 +392,6 @@
     "specialPoint": "180"
   },
   {
-    "name": "オーダーブラシレプリカ",
-    "mainWeapon": "ホクサイ",
-    "subWeapon": "キューバンボム",
-    "specialWeapon": "ショクワンダー",
-    "specialPoint": "200"
-  },
-  {
     "name": "フィンセント",
     "mainWeapon": "フィンセント",
     "subWeapon": "カーリングボム",
@@ -467,13 +432,6 @@
     "subWeapon": "スプラッシュシールド",
     "specialWeapon": "トリプルトルネード",
     "specialPoint": "210"
-  },
-  {
-    "name": "オーダーチャージャーレプリカ",
-    "mainWeapon": "スプラチャージャー",
-    "subWeapon": "スプラッシュボム",
-    "specialWeapon": "キューインキ",
-    "specialPoint": "200"
   },
   {
     "name": "スプラスコープ",
@@ -525,6 +483,13 @@
     "specialPoint": "190"
   },
   {
+    "name": "14式竹筒銃・乙",
+    "mainWeapon": "14式竹筒銃・甲",
+    "subWeapon": "タンサンボム",
+    "specialWeapon": "デコイチラシ",
+    "specialPoint": "200"
+  },
+  {
     "name": "ソイチューバー",
     "mainWeapon": "ソイチューバー",
     "subWeapon": "トーピード",
@@ -565,13 +530,6 @@
     "subWeapon": "ラインマーカー",
     "specialWeapon": "ショクワンダー",
     "specialPoint": "180"
-  },
-  {
-    "name": "オーダースロッシャー レプリカ",
-    "mainWeapon": "バケットスロッシャー",
-    "subWeapon": "スプラッシュボム",
-    "specialWeapon": "トリプルトルネード",
-    "specialPoint": "200"
   },
   {
     "name": "ヒッセン",
@@ -672,18 +630,18 @@
     "specialPoint": "200"
   },
   {
-    "name": "オーダースピナー レプリカ",
-    "mainWeapon": "バレルスピナー",
-    "subWeapon": "スプリンクラー",
-    "specialWeapon": "ホップソナー",
-    "specialPoint": "200"
-  },
-  {
     "name": "ハイドラント",
     "mainWeapon": "ハイドラント",
     "subWeapon": "ロボットボム",
     "specialWeapon": "ナイスダマ",
     "specialPoint": "190"
+  },
+  {
+    "name": "ハイドラントカスタム",
+    "mainWeapon": "ハイドラント",
+    "subWeapon": "トラップ",
+    "specialWeapon": "スミナガシート",
+    "specialPoint": "200"
   },
   {
     "name": "クーゲルシュライバー",
@@ -721,6 +679,13 @@
     "specialPoint": "200"
   },
   {
+    "name": "イグザミナー・ヒュー",
+    "mainWeapon": "イグザミナー",
+    "subWeapon": "スプラッシュボム",
+    "specialWeapon": "カニタンク",
+    "specialPoint": "210"
+  },
+  {
     "name": "スパッタリー",
     "mainWeapon": "スパッタリー",
     "subWeapon": "ジャンプビーコン",
@@ -747,13 +712,6 @@
     "subWeapon": "カーリングボム",
     "specialWeapon": "ウルトラチャクチ",
     "specialPoint": "200"
-  },
-  {
-    "name": "オーダーマニューバー レプリカ",
-    "mainWeapon": "スプラマニューバー",
-    "subWeapon": "キューバンボム",
-    "specialWeapon": "カニタンク",
-    "specialPoint": "190"
   },
   {
     "name": "ケルビン525",
@@ -805,6 +763,13 @@
     "specialPoint": "200"
   },
   {
+    "name": "ガエンFFカスタム",
+    "mainWeapon": "ガエンFF",
+    "subWeapon": "クイックボム",
+    "specialWeapon": "トリプルトルネード",
+    "specialPoint": "200"
+  },
+  {
     "name": "パラシェルター",
     "mainWeapon": "パラシェルター",
     "subWeapon": "スプリンクラー",
@@ -817,13 +782,6 @@
     "subWeapon": "ロボットボム",
     "specialWeapon": "ジェットパック",
     "specialPoint": "190"
-  },
-  {
-    "name": "オーダーシェルター レプリカ",
-    "mainWeapon": "パラシェルター",
-    "subWeapon": "スプリンクラー",
-    "specialWeapon": "トリプルトルネード",
-    "specialPoint": "200"
   },
   {
     "name": "キャンピングシェルター",
@@ -861,6 +819,13 @@
     "specialPoint": "190"
   },
   {
+    "name": "24式張替傘・乙",
+    "mainWeapon": "24式張替傘・甲",
+    "subWeapon": "ポイズンミスト",
+    "specialWeapon": "ウルトラチャクチ",
+    "specialPoint": "200"
+  },
+  {
     "name": "トライストリンガー",
     "mainWeapon": "トライストリンガー",
     "subWeapon": "ポイズンミスト",
@@ -872,13 +837,6 @@
     "mainWeapon": "トライストリンガー",
     "subWeapon": "スプリンクラー",
     "specialWeapon": "デコイチラシ",
-    "specialPoint": "190"
-  },
-  {
-    "name": "オーダーストリンガー レプリカ",
-    "mainWeapon": "トライストリンガー",
-    "subWeapon": "ポイズンミスト",
-    "specialWeapon": "メガホンレーザー5.1ch",
     "specialPoint": "190"
   },
   {
@@ -896,6 +854,20 @@
     "specialPoint": "200"
   },
   {
+    "name": "フルイドV",
+    "mainWeapon": "フルイドV",
+    "subWeapon": "ロボットボム",
+    "specialWeapon": "ウルトラハンコ",
+    "specialPoint": "200"
+  },
+  {
+    "name": "フルイドVカスタム",
+    "mainWeapon": "フルイドV",
+    "subWeapon": "ポイントセンサー",
+    "specialWeapon": "ホップソナー",
+    "specialPoint": "200"
+  },
+  {
     "name": "ジムワイパー",
     "mainWeapon": "ジムワイパー",
     "subWeapon": "クイックボム",
@@ -907,13 +879,6 @@
     "mainWeapon": "ジムワイパー",
     "subWeapon": "ポイズンミスト",
     "specialWeapon": "カニタンク",
-    "specialPoint": "210"
-  },
-  {
-    "name": "オーダーワイパー レプリカ",
-    "mainWeapon": "ジムワイパー",
-    "subWeapon": "クイックボム",
-    "specialWeapon": "ショクワンダー",
     "specialPoint": "210"
   },
   {
@@ -929,5 +894,19 @@
     "subWeapon": "ジャンプビーコン",
     "specialWeapon": "マルチミサイル",
     "specialPoint": "190"
+  },
+  {
+    "name": "デンタルワイパーミント",
+    "mainWeapon": "デンタルワイパーミント",
+    "subWeapon": "キューバンボム",
+    "specialWeapon": "グレートバリア",
+    "specialPoint": "200"
+  },
+  {
+    "name": "デンタルワイパースミ",
+    "mainWeapon": "デンタルワイパーミント",
+    "subWeapon": "スプラッシュシールド",
+    "specialWeapon": "ジェットパック",
+    "specialPoint": "200"
   }
 ]
