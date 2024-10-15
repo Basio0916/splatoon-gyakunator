@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import { apiUrl } from "../config";
 
 type Props = {
   open: boolean;
@@ -60,7 +61,7 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
       weaponName: selectedWeapon,
     };
     try {
-      const response = await fetch("http://localhost:9000/api/game/answer", {
+      const response = await fetch(`${apiUrl}/api/game/answer`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

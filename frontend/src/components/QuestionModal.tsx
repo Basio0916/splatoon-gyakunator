@@ -15,6 +15,7 @@ import { Question } from "../types/Question";
 import { QuestionAnswer } from "../types/QuestionAnswer";
 import CloseIcon from "@mui/icons-material/Close";
 import { AnswerStatus } from "../types/AnswerStatus";
+import { apiUrl } from "../config";
 
 type Props = {
   open: boolean;
@@ -124,7 +125,7 @@ export const QuestionModal: FC<Props> = (props) => {
       comparator: question4Select,
     };
     try {
-      const response = await fetch("http://localhost:9000/api/game/question", {
+      const response = await fetch(`${apiUrl}/api/game/question`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

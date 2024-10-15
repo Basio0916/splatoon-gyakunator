@@ -14,6 +14,7 @@ import { QuestionAnswerHistory } from "./components/QuestionAnswerHistory";
 import { Box, Button, Stack } from "@mui/material";
 import { AnswerSubmissionModal } from "./components/AnswerSubmissionModal";
 import { AnswerStatus } from "./types/AnswerStatus";
+import { apiUrl } from "./config";
 
 function App() {
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
@@ -36,7 +37,7 @@ function App() {
 
   const gameStart = async () => {
     try {
-      const response = await fetch("http://localhost:9000/api/game/start");
+      const response = await fetch(`${apiUrl}/api/game/start`);
       response.json().then((data) => {
         setJwt(data.jwt);
       });
@@ -48,16 +49,13 @@ function App() {
   const getAnswerWeapon = async () => {
     try {
       const json = { jwt: jwt };
-      const response = await fetch(
-        "http://localhost:9000/api/game/weaponname",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(json),
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/game/weaponname`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
       const data = await response.json();
       setAnswerWeapon(data.weaponName);
     } catch (error) {
