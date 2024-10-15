@@ -16,6 +16,7 @@ import { QuestionAnswer } from "../types/QuestionAnswer";
 import CloseIcon from "@mui/icons-material/Close";
 import { AnswerStatus } from "../types/AnswerStatus";
 import { apiUrl } from "../config";
+import { filterOptions } from "../filterOptions";
 
 type Props = {
   open: boolean;
@@ -269,6 +270,7 @@ export const QuestionModal: FC<Props> = (props) => {
             options={question3Set}
             getOptionLabel={(option) => option}
             onChange={handleQuestion3Change}
+            filterOptions={filterOptions}
             value={question3Select}
             renderInput={(params) => (
               <TextField {...params} label="質問3" variant="outlined" />
