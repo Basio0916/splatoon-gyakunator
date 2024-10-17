@@ -690,7 +690,7 @@
     "isComparable": "TRUE",
     "isNumeric": "TRUE",
     "unit": "F",
-    "questionName": "RFiringIntervalQuestion"
+    "questionName": "FiringIntervalQuestion"
   },
   {
     "mainQuestion": "メインウェポンは",
