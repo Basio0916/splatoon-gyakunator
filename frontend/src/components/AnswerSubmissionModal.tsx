@@ -20,10 +20,11 @@ type Props = {
   weapons: Array<string>;
   onClose: (weapon: string, result: boolean) => void;
   jwt: string;
+  setProgressModalOpen: (open: boolean) => void;
 };
 
 export const AnswerSubmissionModal: FC<Props> = (props) => {
-  const { open, setOpen, weapons, onClose, jwt } = props;
+  const { open, setOpen, weapons, onClose, jwt, setProgressModalOpen } = props;
   const [selectedWeapon, setSelectedWeapon] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(true);
 
@@ -61,6 +62,7 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
       jwt: jwt,
       weaponName: selectedWeapon,
     };
+    setProgressModalOpen(true);
     try {
       const response = await fetch(`${apiUrl}/api/game/answer`, {
         method: "POST",
@@ -74,6 +76,7 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
     } catch (error) {
       console.error(error);
     }
+    setProgressModalOpen(false);
     setSelectedWeapon("");
     setOpen(false);
   };

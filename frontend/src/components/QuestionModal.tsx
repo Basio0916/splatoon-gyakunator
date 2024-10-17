@@ -25,12 +25,13 @@ type Props = {
   questionAnswers: Array<QuestionAnswer>;
   setQuestionAnswers: (questionAnswers: Array<QuestionAnswer>) => void;
   jwt: string;
+  setProgressModalOpen: (open: boolean) => void;
 };
 
 const question4Set = ["以上？", "以下？", "？"];
 
 export const QuestionModal: FC<Props> = (props) => {
-  const { open, setOpen, questions, jwt } = props;
+  const { open, setOpen, questions, jwt, setProgressModalOpen } = props;
   const [question1Select, setQuestion1Select] = useState<string>("");
   const [question2Select, setQuestion2Select] = useState<string>("");
   const [question3Select, setQuestion3Select] = useState<string>("");
@@ -125,6 +126,7 @@ export const QuestionModal: FC<Props> = (props) => {
       option: question3Select,
       comparator: question4Select,
     };
+    setProgressModalOpen(true);
     try {
       const response = await fetch(`${apiUrl}/api/game/question`, {
         method: "POST",
@@ -149,6 +151,7 @@ export const QuestionModal: FC<Props> = (props) => {
     } catch (error) {
       console.error(error);
     }
+    setProgressModalOpen(false);
     setQuestion1Select("");
     setQuestion2Select("");
     setQuestion3Select("");

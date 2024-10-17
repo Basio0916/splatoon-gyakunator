@@ -15,6 +15,7 @@ import { Box, Button, Stack } from "@mui/material";
 import { AnswerSubmissionModal } from "./components/AnswerSubmissionModal";
 import { AnswerStatus } from "./types/AnswerStatus";
 import { apiUrl } from "./config";
+import { ProgressModal } from "./components/ProgressModal";
 
 function App() {
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
@@ -25,6 +26,7 @@ function App() {
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
   const [answerSubmissionModalOpen, setAnswerSubmissionModalOpen] =
     useState(false);
+  const [progressModalOpen, setProgressModalOpen] = useState(false);
   const [questionAnswers, setQuestionAnswers] = useState<Array<QuestionAnswer>>(
     []
   );
@@ -36,17 +38,19 @@ function App() {
   const weapons = CreateWeapons(weaponsJson);
 
   const gameStart = async () => {
+    setProgressModalOpen(true);
     try {
       const response = await fetch(`${apiUrl}/api/game/start`);
-      response.json().then((data) => {
-        setJwt(data.jwt);
-      });
+      const data = await response.json();
+      setJwt(data.jwt);
     } catch (error) {
       console.error(error);
     }
+    setProgressModalOpen(false);
   };
 
   const getAnswerWeapon = async () => {
+    setProgressModalOpen(true);
     try {
       const json = { jwt: jwt };
       const response = await fetch(`${apiUrl}/api/game/weaponname`, {
@@ -61,6 +65,7 @@ function App() {
     } catch (error) {
       console.error(error);
     }
+    setProgressModalOpen(false);
   };
 
   const handleHowToPlayModalClose = async () => {
@@ -147,6 +152,7 @@ function App() {
         questionAnswers={questionAnswers}
         setQuestionAnswers={setQuestionAnswers}
         jwt={jwt}
+        setProgressModalOpen={setProgressModalOpen}
       />
       <AnswerSubmissionModal
         open={answerSubmissionModalOpen}
@@ -154,7 +160,9 @@ function App() {
         weapons={weapons}
         onClose={handleAnswerSubmissionModalClose}
         jwt={jwt}
+        setProgressModalOpen={setProgressModalOpen}
       />
+      <ProgressModal open={progressModalOpen} />
       <Box
         sx={{
           width: "90%",
