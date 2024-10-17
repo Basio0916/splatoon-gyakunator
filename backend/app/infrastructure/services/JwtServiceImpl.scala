@@ -10,7 +10,7 @@ class JwtServiceImpl extends JwtService {
   val secretKey: String = getSecretKey
 
   private def getSecretKey: String = {
-    sys.env.getOrElse("JWT_SECRET", throw new RuntimeException("JWT_SECRET environment variable not found"))
+    sys.env.getOrElse("JWT_SECRET", "secret")
   }
 
   def generateJwt(weaponName: String): String = {
