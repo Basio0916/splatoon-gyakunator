@@ -4,18 +4,18 @@ import javax.inject._
 import play.api.mvc.Results._
 import play.api.mvc._
 import play.api.libs.json.Json
-import usecase.AnswerUseCase
+import usecase.VerifyUseCase
 
 @Singleton
-class AnswerController @Inject()(cc: ControllerComponents, useCase: AnswerUseCase) extends AbstractController(cc) {
+class VerifyController @Inject()(cc: ControllerComponents, useCase: VerifyUseCase) extends AbstractController(cc) {
 
-    def answer = Action { request =>
+    def verify(weaponName: String) = Action { request =>
         val mayBeJwt = request.headers.get("X-Data-Token")
-        
+
         mayBeJwt match {
             case Some(jwt) =>
-                val weaponName = useCase.run(jwt)
-                Ok(Json.obj("weaponName" -> weaponName))
+                val result = useCase.run(jwt, weaponName)
+                Ok(Json.obj("result" -> result))
             case None => BadRequest("Token is required")
         }
     }

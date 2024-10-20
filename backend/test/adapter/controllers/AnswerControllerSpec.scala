@@ -6,50 +6,29 @@ import play.api.test._
 import play.api.test.Helpers._
 import org.scalamock.scalatest.MockFactory
 import usecase.AnswerUseCase
-import domain.repositories.WeaponRepository
 import play.api.libs.json.Json
-import org.scalatest.prop.TableDrivenPropertyChecks
 
-class AnswerControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory with TableDrivenPropertyChecks{
-  
-  "AnswerControllerSpec POST" should {
+class AnswerControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory{
+
+  "AnswerController GET" should {
 
     "return 200" in {
-      val mockAnswerUseCase = mock[AnswerUseCase]
-      (mockAnswerUseCase.run _).expects(*).returning(true)
-      val controller = new AnswerController(stubControllerComponents(), mockAnswerUseCase)
-      val request = FakeRequest(POST, "/api/game/answer").withJsonBody(
-        Json.obj(
-          "jwt" -> "jwt-decoded-string",
-          "weaponName" -> "わかばシューター"
-        )
-      )
+      val mockUseCase = mock[AnswerUseCase]
+      val weaponName = "わかばシューター"
+      (mockUseCase.run _).expects(*).returning(weaponName)
+
+      val controller = new AnswerController(stubControllerComponents(), mockUseCase)
+      val request =  FakeRequest(GET, "/api/answer").withHeaders("X-Data-Token" -> "jwt-decoded-string")
       val result = controller.answer().apply(request)
+
       status(result) mustBe OK
-      contentAsString(result) mustBe """{"result":true}"""
+      contentAsJson(result) mustBe Json.obj("weaponName" -> weaponName)
     }
 
-    "return 400 when JSON object validation fails" in {
-      val examples = Table(
-        ("json"),
-        (Json.obj("weaponName" -> "わかばシューター")),
-        (Json.obj("jwt" -> "jwt-decoded-string")),
-        (Json.obj())
-      )
-
-      forAll(examples) { json =>
-        val mockAnswerUseCase = mock[AnswerUseCase]
-        val controller = new AnswerController(stubControllerComponents(), mockAnswerUseCase)
-        val request = FakeRequest(POST, "/api/game/answer").withJsonBody(json)
-        val result = controller.answer().apply(request)
-        status(result) mustBe BAD_REQUEST
-      }
-    }
-
-    "return 400 when JSON object is not send" in {
-      val mockAnswerUseCase = mock[AnswerUseCase]
-      val controller = new AnswerController(stubControllerComponents(), mockAnswerUseCase)
-      val request = FakeRequest(POST, "/api/game/answer")
+    "return 400 when X-Data-Token is not set" in {
+      val mockUseCase = mock[AnswerUseCase]
+      val controller = new AnswerController(stubControllerComponents(), mockUseCase)
+      val request = FakeRequest(GET, "/api/answer")
       val result = controller.answer().apply(request)
       status(result) mustBe BAD_REQUEST
     }

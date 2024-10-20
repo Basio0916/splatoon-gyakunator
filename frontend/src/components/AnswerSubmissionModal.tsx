@@ -58,18 +58,13 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
   const handleClickAnswer = async (
     _event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    const json = {
-      jwt: jwt,
-      weaponName: selectedWeapon,
-    };
     setProgressModalOpen(true);
     try {
-      const response = await fetch(`${apiUrl}/api/game/answer`, {
-        method: "POST",
+      const response = await fetch(`${apiUrl}/api/verify/${selectedWeapon}`, {
+        method: "GET",
         headers: {
-          "Content-Type": "application/json",
+          "X-Data-Token": jwt,
         },
-        body: JSON.stringify(json),
       });
       const data = await response.json();
       onClose(selectedWeapon, data.result);

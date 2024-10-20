@@ -40,7 +40,7 @@ function App() {
   const gameStart = async () => {
     setProgressModalOpen(true);
     try {
-      const response = await fetch(`${apiUrl}/api/game/start`);
+      const response = await fetch(`${apiUrl}/api/start`);
       const data = await response.json();
       setJwt(data.jwt);
     } catch (error) {
@@ -52,13 +52,11 @@ function App() {
   const getAnswerWeapon = async () => {
     setProgressModalOpen(true);
     try {
-      const json = { jwt: jwt };
-      const response = await fetch(`${apiUrl}/api/game/weaponname`, {
-        method: "POST",
+      const response = await fetch(`${apiUrl}/api/answer`, {
+        method: "GET",
         headers: {
-          "Content-Type": "application/json",
+          "X-Data-Token": jwt,
         },
-        body: JSON.stringify(json),
       });
       const data = await response.json();
       setAnswerWeapon(data.weaponName);

@@ -10,50 +10,39 @@ import play.api.libs.json.Json
 import org.scalatest.prop.TableDrivenPropertyChecks
 import domain.models._
 
-class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory with TableDrivenPropertyChecks{
+class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory with TableDrivenPropertyChecks {
   
-  "QuestionController POST" should {
+  "QuestionController GET" should {
 
     "return 200" in {
       val examples = Table(
-        ("json"),
-        (Json.obj("jwt" -> "jwt-decoded-string", "questionName" -> "MainWeaponMaxValue", "option" -> "25.0", "comparator" -> "以上？")),
-        (Json.obj("jwt" -> "jwt-decoded-string", "questionName" -> "MainWeaponName", "option" -> "わかばシューター？", "comparator" -> "")),
-        (Json.obj("jwt" -> "jwt-decoded-string", "questionName" -> "IsExplosive", "option" -> "", "comparator" -> ""))
+        ("jwt", "questionName", "option", "comparator"),
+        ("jwt-decoded-string", "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？")),
+        ("jwt-decoded-string", "MainWeaponNameQuestion", Some("わかばシューター？"), None),
+        ("jwt-decoded-string", "IsExplosiveQuestion", None, None)
       )
       
-      forAll(examples) { json =>
-        val mockQuestionUseCase = mock[QuestionUseCase]
-        (mockQuestionUseCase.run _).expects(*).returning(Yes)
-        val controller = new QuestionController(stubControllerComponents(), mockQuestionUseCase)
-        val request = FakeRequest(POST, "/api/game/question").withJsonBody(json)
-        val result = controller.question().apply(request)
+      forAll(examples) { (jwt, questionName, option, comparator) =>
+        val mockUseCase = mock[QuestionUseCase]
+        (mockUseCase.run _).expects(*, *, *, *).returning(Yes)
+        val controller = new QuestionController(stubControllerComponents(), mockUseCase)
+        val queryString = Seq(
+          option.map("option" -> _),
+          comparator.map("comparator" -> _)
+        ).flatten.toMap
+        var url = s"/api/question/$questionName?${queryString.map { case (key, value) => s"$key=$value" }.mkString("&")}"
+        var request = FakeRequest(GET, url).withHeaders("X-Data-Token" -> jwt)
+        val result = controller.question(questionName).apply(request)
         status(result) mustBe OK
       }
     }
 
-    "return 400 when JSON object validation fails" in {
-      val examples = Table(
-        ("json"),
-        (Json.obj("questionName" -> "MainWeaponMaxValue", "option" -> "25.0", "comparator" -> "以上？")),
-        (Json.obj("jwt" -> "jwt-decoded-string", "option" -> "25.0", "comparator" -> "以上？")),
-        (Json.obj()),
-      )
-
-      forAll(examples) {json =>
-        val mockQuestionUseCase = mock[QuestionUseCase]
-        val controller = new QuestionController(stubControllerComponents(), mockQuestionUseCase)
-        val request = FakeRequest(POST, "/api/game/question").withJsonBody(json)
-        val result = controller.question().apply(request)
-        status(result) mustBe BAD_REQUEST
-      }
-    }
-
-    "return 400 when JSON object is not send" in {
-      val mockQuestionUseCase = mock[QuestionUseCase]
-      val controller = new QuestionController(stubControllerComponents(), mockQuestionUseCase)
-      val request = FakeRequest(POST, "/api/game/question")
-      val result = controller.question().apply(request)
+    "return 400 when X-Data-Token is not set" in {
+      val mockUseCase = mock[QuestionUseCase]
+      (mockUseCase.run _).stubs(*, *, *, *).returning(Yes)
+      val controller = new QuestionController(stubControllerComponents(), mockUseCase)
+      val request = FakeRequest(GET, "/api/question/MainWeaponMaxDamageQuestion?option=25&comparator=以上？")
+      val result = controller.question("MainWeaponMaxDamageQuestion").apply(request)
       status(result) mustBe BAD_REQUEST
     }
   }

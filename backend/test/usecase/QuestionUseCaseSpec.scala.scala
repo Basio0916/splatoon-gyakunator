@@ -61,8 +61,7 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
         var jwt = mockJwtService.generateJwt("わかばシューター")
         
         var useCase = new QuestionUseCase(mockRepository, mockJwtService)
-        var questionInput = new QuestionInput(jwt, "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
-        val answer = useCase.run(questionInput)
+        val answer = useCase.run(jwt, "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
         answer should equal(Yes)
     }
 }

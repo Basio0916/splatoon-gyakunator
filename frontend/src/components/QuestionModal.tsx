@@ -120,21 +120,23 @@ export const QuestionModal: FC<Props> = (props) => {
   const handleClickQuestion = async (
     _event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    const json = {
-      jwt: jwt,
-      questionName: selectedQuestion?.questionName,
-      option: question3Select,
-      comparator: question4Select,
-    };
     setProgressModalOpen(true);
     try {
-      const response = await fetch(`${apiUrl}/api/game/question`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(json),
-      });
+      const optionQueryString = question3Select
+        ? `?option=${question3Select}`
+        : "";
+      const comparatorQueryString = question4Select
+        ? `&comparator=${question4Select}`
+        : "";
+      const response = await fetch(
+        `${apiUrl}/api/question/${selectedQuestion?.questionName}${optionQueryString}${comparatorQueryString}`,
+        {
+          method: "GET",
+          headers: {
+            "X-Data-Token": jwt,
+          },
+        }
+      );
 
       const data = await response.json();
       const answer = AnswerStatus[data.answer as keyof typeof AnswerStatus];
