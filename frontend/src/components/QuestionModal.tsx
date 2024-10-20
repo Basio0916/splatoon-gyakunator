@@ -41,7 +41,6 @@ export const QuestionModal: FC<Props> = (props) => {
   const [disabled, setDisabled] = useState<boolean>(true);
   const [unit, setUnit] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const [autoCompleteOpen, setAutoCompleteOpen] = useState<boolean>(false);
 
   const handleClick = () => {
     if (!isFocused) {
