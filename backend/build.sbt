@@ -12,7 +12,6 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.10" % Test
 libraryDependencies += "org.scalamock" %% "scalamock" % "5.1.0" % Test
 libraryDependencies += "com.pauldijou" %% "jwt-core" % "5.0.0"
-libraryDependencies += "com.typesafe.play" %% "filters-helpers" % "2.8.x"
 
 unmanagedResourceDirectories in Compile += baseDirectory.value / "resources"
 
