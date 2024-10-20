@@ -1,10 +1,12 @@
+import { QuestionAnswer } from "./QuestionAnswer";
+
 /**
  * 回答を表す型
  *
  * @property weapon 答えのブキ
- * @property questionCount 回答までにかかった質問の回数
+ * @property questionHistory 回答までの質問の履歴
  */
 export type Answer = {
   weapon: string;
-  questionCount: number;
+  questionHistory: Array<QuestionAnswer>;
 };

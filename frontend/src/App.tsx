@@ -16,6 +16,7 @@ import { AnswerSubmissionModal } from "./components/AnswerSubmissionModal";
 import { AnswerStatus } from "./types/AnswerStatus";
 import { apiUrl } from "./config";
 import { ProgressModal } from "./components/ProgressModal";
+import { QuestionHistoryModal } from "./components/QuestionHistoryModal";
 
 function App() {
   const [answerModalOpen, setAnswerModalOpen] = useState(false);
@@ -27,12 +28,17 @@ function App() {
   const [answerSubmissionModalOpen, setAnswerSubmissionModalOpen] =
     useState(false);
   const [progressModalOpen, setProgressModalOpen] = useState(false);
+  const [questionHistoryModalOpen, setQuestionHistoryModalOpen] =
+    useState(false);
+
   const [questionAnswers, setQuestionAnswers] = useState<Array<QuestionAnswer>>(
     []
   );
   const [submittedAnswer, setSubmittedAnswer] = useState<string>("");
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
   const [answerWeapon, setAnswerWeapon] = useState<string>("");
+  const [selectedAnswersQuestionHistory, setSelectedAnswersQuestionHistory] =
+    useState<Array<QuestionAnswer>>([]);
   const [jwt, setJwt] = useState<string>("");
   const questions = CreateQuestion(questionsJson);
   const weapons = CreateWeapons(weaponsJson);
@@ -78,6 +84,11 @@ function App() {
     setAnswerSubmissionModalOpen(true);
   };
 
+  const handleClickAnswerRow = (answer: Answer) => {
+    setSelectedAnswersQuestionHistory(answer.questionHistory);
+    setQuestionHistoryModalOpen(true);
+  };
+
   const handleCorrectAnswerModalClose = async () => {
     setQuestionAnswers([]);
     await gameStart();
@@ -115,7 +126,7 @@ function App() {
       if (data.result) {
         const answer: Answer = {
           weapon: selectedWeapon,
-          questionCount: questionAnswers.length,
+          questionHistory: questionAnswers,
         };
         setAnswerHistory([answer, ...answerHistory]);
         setCorrectAnswerModalOpen(true);
@@ -176,6 +187,7 @@ function App() {
         setOpen={setCorrectAnswerModalOpen}
         answerHistory={answerHistory}
         onClose={handleCorrectAnswerModalClose}
+        onClickAnswer={handleClickAnswerRow}
       />
       <IncorrectAnswerModal
         open={incorrectAnswerModalOpen}
@@ -199,6 +211,11 @@ function App() {
         setOpen={setAnswerSubmissionModalOpen}
         weapons={weapons}
         onClose={handleAnswerSubmissionModalClose}
+      />
+      <QuestionHistoryModal
+        open={questionHistoryModalOpen}
+        setOpen={setQuestionHistoryModalOpen}
+        questionHistory={selectedAnswersQuestionHistory}
       />
       <ProgressModal open={progressModalOpen} />
       <Box

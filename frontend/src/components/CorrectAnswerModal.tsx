@@ -8,10 +8,11 @@ type Props = {
   setOpen: (open: boolean) => void;
   answerHistory: Array<Answer>;
   onClose: () => void;
+  onClickAnswer: (answer: Answer) => void;
 };
 
 export const CorrectAnswerModal: FC<Props> = (props) => {
-  const { open, setOpen, answerHistory, onClose } = props;
+  const { open, setOpen, answerHistory, onClose, onClickAnswer } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
       setOpen(false);
@@ -42,7 +43,10 @@ export const CorrectAnswerModal: FC<Props> = (props) => {
       >
         <h1>正解</h1>
         <div style={{ minWidth: "400px", width: "100%" }}>
-          <AnswerHistory answerHistory={answerHistory} />
+          <AnswerHistory
+            answerHistory={answerHistory}
+            onClick={onClickAnswer}
+          />
         </div>
         <Button
           variant="contained"

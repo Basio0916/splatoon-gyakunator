@@ -12,10 +12,11 @@ import {
 
 type Props = {
   answerHistory: Array<Answer>;
+  onClick: (answer: Answer) => void;
 };
 
 export const AnswerHistory: FC<Props> = (props) => {
-  const { answerHistory } = props;
+  const { answerHistory, onClick } = props;
   return (
     <Paper sx={{ width: "100%", padding: 5, boxSizing: "border-box" }}>
       <p style={{ fontWeight: "bold" }}>回答履歴</p>
@@ -30,9 +31,9 @@ export const AnswerHistory: FC<Props> = (props) => {
           <TableBody>
             {answerHistory.map((answer, index) => {
               return (
-                <TableRow key={index}>
+                <TableRow key={index} onClick={() => onClick(answer)}>
                   <TableCell>{answer.weapon}</TableCell>
-                  <TableCell>{answer.questionCount}</TableCell>
+                  <TableCell>{answer.questionHistory.length}</TableCell>
                 </TableRow>
               );
             })}
