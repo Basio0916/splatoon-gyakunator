@@ -12,26 +12,25 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { Question } from "../types/Question";
-import { QuestionAnswer } from "../types/QuestionAnswer";
 import CloseIcon from "@mui/icons-material/Close";
-import { AnswerStatus } from "../types/AnswerStatus";
-import { apiUrl } from "../config";
 import { filterOptions } from "../filterOptions";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   questions: Array<Question>;
-  questionAnswers: Array<QuestionAnswer>;
-  setQuestionAnswers: (questionAnswers: Array<QuestionAnswer>) => void;
-  jwt: string;
-  setProgressModalOpen: (open: boolean) => void;
+  onClose: (
+    questionString: string,
+    questionName: string,
+    option: string,
+    comparator: string
+  ) => void;
 };
 
 const question4Set = ["以上？", "以下？", "？"];
 
 export const QuestionModal: FC<Props> = (props) => {
-  const { open, setOpen, questions, jwt, setProgressModalOpen } = props;
+  const { open, setOpen, questions, onClose } = props;
   const [question1Select, setQuestion1Select] = useState<string>("");
   const [question2Select, setQuestion2Select] = useState<string>("");
   const [question3Select, setQuestion3Select] = useState<string>("");
@@ -120,45 +119,25 @@ export const QuestionModal: FC<Props> = (props) => {
   const handleClickQuestion = async (
     _event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    setProgressModalOpen(true);
-    try {
-      const optionQueryString = question3Select
-        ? `?option=${question3Select}`
-        : "";
-      const comparatorQueryString = question4Select
-        ? `&comparator=${question4Select}`
-        : "";
-      const response = await fetch(
-        `${apiUrl}/api/question/${selectedQuestion?.questionName}${optionQueryString}${comparatorQueryString}`,
-        {
-          method: "GET",
-          headers: {
-            "X-Data-Token": jwt,
-          },
-        }
-      );
+    setOpen(false);
 
-      const data = await response.json();
-      const answer = AnswerStatus[data.answer as keyof typeof AnswerStatus];
-      const questionString =
-        question1Select +
-        question2Select +
-        question3Select +
-        selectedQuestion?.unit +
-        question4Select;
-      props.setQuestionAnswers([
-        { question: questionString, answer },
-        ...props.questionAnswers,
-      ]);
-    } catch (error) {
-      console.error(error);
-    }
-    setProgressModalOpen(false);
+    const questionString =
+      question1Select +
+      question2Select +
+      question3Select +
+      selectedQuestion?.unit +
+      question4Select;
+    onClose(
+      questionString,
+      selectedQuestion?.questionName || "",
+      question3Select,
+      question4Select
+    );
+
     setQuestion1Select("");
     setQuestion2Select("");
     setQuestion3Select("");
     setQuestion4Select("");
-    setOpen(false);
   };
   const handleClickCloseIcon = (
     _event: React.MouseEvent<HTMLButtonElement>
@@ -247,6 +226,7 @@ export const QuestionModal: FC<Props> = (props) => {
           getOptionLabel={(option) => option}
           value={question1Select}
           onChange={handleQuestion1Change}
+          filterOptions={filterOptions}
           renderInput={(params) => (
             <TextField {...params} label="質問1" variant="outlined" />
           )}
@@ -260,6 +240,7 @@ export const QuestionModal: FC<Props> = (props) => {
             options={question2Set}
             getOptionLabel={(option) => option}
             onChange={handleQuestion2Change}
+            filterOptions={filterOptions}
             value={question2Select}
             renderInput={(params) => (
               <TextField {...params} label="質問2" variant="outlined" />

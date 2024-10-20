@@ -101,21 +101,66 @@ function App() {
     await gameStart();
   };
 
-  const handleAnswerSubmissionModalClose = (
-    weapon: string,
-    result: boolean
-  ) => {
-    setSubmittedAnswer(weapon);
-    if (result) {
-      const answer: Answer = {
-        weapon: weapon,
-        questionCount: questionAnswers.length,
-      };
-      setAnswerHistory([answer, ...answerHistory]);
-      setCorrectAnswerModalOpen(true);
-    } else {
-      setIncorrectAnswerModalOpen(true);
+  const handleAnswerSubmissionModalClose = async (selectedWeapon: string) => {
+    setSubmittedAnswer(selectedWeapon);
+    setProgressModalOpen(true);
+    try {
+      const response = await fetch(`${apiUrl}/api/verify/${selectedWeapon}`, {
+        method: "GET",
+        headers: {
+          "X-Data-Token": jwt,
+        },
+      });
+      const data = await response.json();
+      if (data.result) {
+        const answer: Answer = {
+          weapon: selectedWeapon,
+          questionCount: questionAnswers.length,
+        };
+        setAnswerHistory([answer, ...answerHistory]);
+        setCorrectAnswerModalOpen(true);
+      } else {
+        setIncorrectAnswerModalOpen(true);
+      }
+    } catch (error) {
+      console.error(error);
     }
+    setProgressModalOpen(false);
+  };
+
+  const handleQuestionModalClose = async (
+    questionString: string,
+    questionName: string,
+    option: string,
+    comparator: string
+  ) => {
+    setProgressModalOpen(true);
+    try {
+      const optionQueryString = option ? `option=${option}` : "";
+      const comparatorQueryString = comparator
+        ? `&comparator=${comparator}`
+        : "";
+      const response = await fetch(
+        `${apiUrl}/api/question/${questionName}?${optionQueryString}${comparatorQueryString}`,
+        {
+          method: "GET",
+          headers: {
+            "X-Data-Token": jwt,
+          },
+        }
+      );
+
+      const data = await response.json();
+      const answer = AnswerStatus[data.answer as keyof typeof AnswerStatus];
+      const questionAnswer: QuestionAnswer = {
+        question: questionString,
+        answer: answer,
+      };
+      setQuestionAnswers([questionAnswer, ...questionAnswers]);
+    } catch (error) {
+      console.error(error);
+    }
+    setProgressModalOpen(false);
   };
 
   return (
@@ -147,18 +192,13 @@ function App() {
         open={questionModalOpen}
         setOpen={setQuestionModalOpen}
         questions={questions}
-        questionAnswers={questionAnswers}
-        setQuestionAnswers={setQuestionAnswers}
-        jwt={jwt}
-        setProgressModalOpen={setProgressModalOpen}
+        onClose={handleQuestionModalClose}
       />
       <AnswerSubmissionModal
         open={answerSubmissionModalOpen}
         setOpen={setAnswerSubmissionModalOpen}
         weapons={weapons}
         onClose={handleAnswerSubmissionModalClose}
-        jwt={jwt}
-        setProgressModalOpen={setProgressModalOpen}
       />
       <ProgressModal open={progressModalOpen} />
       <Box

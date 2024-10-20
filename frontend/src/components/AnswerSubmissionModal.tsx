@@ -11,20 +11,17 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { apiUrl } from "../config";
 import { filterOptions } from "../filterOptions";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   weapons: Array<string>;
-  onClose: (weapon: string, result: boolean) => void;
-  jwt: string;
-  setProgressModalOpen: (open: boolean) => void;
+  onClose: (selectedWeapon: string) => void;
 };
 
 export const AnswerSubmissionModal: FC<Props> = (props) => {
-  const { open, setOpen, weapons, onClose, jwt, setProgressModalOpen } = props;
+  const { open, setOpen, weapons, onClose } = props;
   const [selectedWeapon, setSelectedWeapon] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(true);
 
@@ -58,22 +55,9 @@ export const AnswerSubmissionModal: FC<Props> = (props) => {
   const handleClickAnswer = async (
     _event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    setProgressModalOpen(true);
-    try {
-      const response = await fetch(`${apiUrl}/api/verify/${selectedWeapon}`, {
-        method: "GET",
-        headers: {
-          "X-Data-Token": jwt,
-        },
-      });
-      const data = await response.json();
-      onClose(selectedWeapon, data.result);
-    } catch (error) {
-      console.error(error);
-    }
-    setProgressModalOpen(false);
-    setSelectedWeapon("");
     setOpen(false);
+    onClose(selectedWeapon);
+    setSelectedWeapon("");
   };
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>
