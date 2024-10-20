@@ -40,6 +40,20 @@ export const QuestionModal: FC<Props> = (props) => {
   const [selectedQuestion, setSelectedQuestion] = useState<Question>();
   const [disabled, setDisabled] = useState<boolean>(true);
   const [unit, setUnit] = useState<string>("");
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [autoCompleteOpen, setAutoCompleteOpen] = useState<boolean>(false);
+
+  const handleClick = () => {
+    if (!isFocused) {
+      setIsFocused(true);
+    } else {
+      setIsFocused(false);
+    }
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
 
   const handleClose = (_event: {}, _reason: string) => {
     setQuestion1Select("");
@@ -227,8 +241,24 @@ export const QuestionModal: FC<Props> = (props) => {
           value={question1Select}
           onChange={handleQuestion1Change}
           filterOptions={filterOptions}
+          blurOnSelect="touch"
           renderInput={(params) => (
-            <TextField {...params} label="質問1" variant="outlined" />
+            <TextField
+              {...params}
+              label="質問1"
+              variant="outlined"
+              onClick={handleClick}
+              onBlur={handleBlur}
+              inputProps={{
+                ...params.inputProps,
+                inputMode: isFocused ? "none" : "text",
+              }}
+              // slotProps={{
+              //   htmlInput: {
+              //     inputMode: { isFocused } ? "text" : "none",
+              //   },
+              // }}
+            />
           )}
         />
         {question2Set.length === 0 ? null : (
@@ -243,7 +273,17 @@ export const QuestionModal: FC<Props> = (props) => {
             filterOptions={filterOptions}
             value={question2Select}
             renderInput={(params) => (
-              <TextField {...params} label="質問2" variant="outlined" />
+              <TextField
+                {...params}
+                label="質問2"
+                variant="outlined"
+                onClick={handleClick}
+                onBlur={handleBlur}
+                inputProps={{
+                  ...params.inputProps,
+                  inputMode: isFocused ? "none" : "text",
+                }}
+              />
             )}
           />
         )}
@@ -259,7 +299,17 @@ export const QuestionModal: FC<Props> = (props) => {
             filterOptions={filterOptions}
             value={question3Select}
             renderInput={(params) => (
-              <TextField {...params} label="質問3" variant="outlined" />
+              <TextField
+                {...params}
+                label="質問3"
+                variant="outlined"
+                onClick={handleClick}
+                onBlur={handleBlur}
+                inputProps={{
+                  ...params.inputProps,
+                  inputMode: isFocused ? "none" : "text",
+                }}
+              />
             )}
           />
         )}
@@ -289,7 +339,17 @@ export const QuestionModal: FC<Props> = (props) => {
             onChange={handleQuestion4Change}
             value={question4Select}
             renderInput={(params) => (
-              <TextField {...params} label="比較" variant="outlined" />
+              <TextField
+                {...params}
+                label="比較"
+                variant="outlined"
+                onClick={handleClick}
+                onBlur={handleBlur}
+                inputProps={{
+                  ...params.inputProps,
+                  inputMode: isFocused ? "none" : "text",
+                }}
+              />
             )}
           />
         ) : null}
