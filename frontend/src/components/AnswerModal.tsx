@@ -1,15 +1,18 @@
-import { Button, Card, Modal } from "@mui/material";
+import { Box, Button, Card, Modal } from "@mui/material";
 import { FC } from "react";
+import { Answer } from "../types/Answer";
+import { AnswerHistory } from "./AnswerHistory";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  weapon: string;
+  answerHistory: Array<Answer>;
   onClose: () => void;
+  onClickAnswer: (answer: Answer) => void;
 };
 
 export const AnswerModal: FC<Props> = (props) => {
-  const { open, setOpen, weapon, onClose } = props;
+  const { open, setOpen, answerHistory, onClose, onClickAnswer } = props;
   const handleClose = (_event: {}, reason: string) => {
     if (reason !== "backdropClick") {
       setOpen(false);
@@ -24,7 +27,7 @@ export const AnswerModal: FC<Props> = (props) => {
       <Card
         sx={{
           width: "90%",
-          maxWidth: "400px",
+          maxWidth: "800px",
           padding: "30px",
           display: "flex",
           flexDirection: "column",
@@ -38,7 +41,13 @@ export const AnswerModal: FC<Props> = (props) => {
           maxHeight: "80%",
         }}
       >
-        <h2>正解は{weapon}でした</h2>
+        <h2>正解は{answerHistory[0]?.weapon}でした</h2>
+        <Box sx={{ minWidth: "600px", width: "100%" }}>
+          <AnswerHistory
+            answerHistory={answerHistory}
+            onClick={onClickAnswer}
+          />
+        </Box>
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}

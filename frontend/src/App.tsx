@@ -36,7 +36,6 @@ function App() {
   );
   const [submittedAnswer, setSubmittedAnswer] = useState<string>("");
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
-  const [answerWeapon, setAnswerWeapon] = useState<string>("");
   const [selectedAnswersQuestionHistory, setSelectedAnswersQuestionHistory] =
     useState<Array<QuestionAnswer>>([]);
   const [jwt, setJwt] = useState<string>("");
@@ -55,7 +54,7 @@ function App() {
     setProgressModalOpen(false);
   };
 
-  const getAnswerWeapon = async () => {
+  const getAnswerWeapon = async (): Promise<string> => {
     setProgressModalOpen(true);
     try {
       const response = await fetch(`${apiUrl}/api/answer`, {
@@ -65,11 +64,12 @@ function App() {
         },
       });
       const data = await response.json();
-      setAnswerWeapon(data.weaponName);
+      return data.weaponName;
     } catch (error) {
       console.error(error);
     }
     setProgressModalOpen(false);
+    return "";
   };
 
   const handleHowToPlayModalClose = async () => {
@@ -96,7 +96,14 @@ function App() {
 
   const handleIncorrectAnswerModalClose = async (retire: boolean) => {
     if (retire) {
-      await getAnswerWeapon();
+      const answerWeaponName = await getAnswerWeapon();
+
+      const answer: Answer = {
+        weapon: answerWeaponName,
+        isCorrect: false,
+        questionHistory: questionAnswers,
+      };
+      setAnswerHistory([answer, ...answerHistory]);
       setAnswerModalOpen(true);
     } else {
       const questionAnswer: QuestionAnswer = {
@@ -126,6 +133,7 @@ function App() {
       if (data.result) {
         const answer: Answer = {
           weapon: selectedWeapon,
+          isCorrect: true,
           questionHistory: questionAnswers,
         };
         setAnswerHistory([answer, ...answerHistory]);
@@ -197,8 +205,9 @@ function App() {
       <AnswerModal
         open={answerModalOpen}
         setOpen={setAnswerModalOpen}
-        weapon={answerWeapon}
+        answerHistory={answerHistory}
         onClose={handleAnswerModalClose}
+        onClickAnswer={handleClickAnswerRow}
       />
       <QuestionModal
         open={questionModalOpen}

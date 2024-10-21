@@ -25,6 +25,7 @@ export const AnswerHistory: FC<Props> = (props) => {
           <TableHead>
             <TableRow>
               <TableCell align="center">答え</TableCell>
+              <TableCell align="center">正解/不正解</TableCell>
               <TableCell align="center">質問回数</TableCell>
             </TableRow>
           </TableHead>
@@ -33,6 +34,15 @@ export const AnswerHistory: FC<Props> = (props) => {
               return (
                 <TableRow key={index} onClick={() => onClick(answer)}>
                   <TableCell>{answer.weapon}</TableCell>
+                  {answer.isCorrect ? (
+                    <TableCell align="center" style={{ color: "2e7d32" }}>
+                      正解
+                    </TableCell>
+                  ) : (
+                    <TableCell align="center" style={{ color: "#d32f2f" }}>
+                      不正解
+                    </TableCell>
+                  )}
                   <TableCell>{answer.questionHistory.length}</TableCell>
                 </TableRow>
               );

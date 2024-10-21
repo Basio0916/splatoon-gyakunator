@@ -1,4 +1,4 @@
-import { Button, Card, Modal } from "@mui/material";
+import { Box, Button, Card, Modal } from "@mui/material";
 import { AnswerHistory } from "./AnswerHistory";
 import { Answer } from "../types/Answer";
 import { FC } from "react";
@@ -42,12 +42,12 @@ export const CorrectAnswerModal: FC<Props> = (props) => {
         }}
       >
         <h1>正解</h1>
-        <div style={{ minWidth: "400px", width: "100%" }}>
+        <Box sx={{ minWidth: "400px", width: "100%" }}>
           <AnswerHistory
             answerHistory={answerHistory}
             onClick={onClickAnswer}
           />
-        </div>
+        </Box>
         <Button
           variant="contained"
           sx={{ width: "150px", fontSize: "18px", marginTop: "10px" }}
