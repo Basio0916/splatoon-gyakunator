@@ -19,7 +19,7 @@ import { ProgressModal } from "./components/ProgressModal";
 import { QuestionHistoryModal } from "./components/QuestionHistoryModal";
 
 function App() {
-  const [answerModalOpen, setAnswerModalOpen] = useState(true);
+  const [answerModalOpen, setAnswerModalOpen] = useState(false);
   const [incorrectAnswerModalOpen, setIncorrectAnswerModalOpen] =
     useState(false);
   const [correctAnswerModalOpen, setCorrectAnswerModalOpen] = useState(false);
