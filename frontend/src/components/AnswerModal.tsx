@@ -42,7 +42,7 @@ export const AnswerModal: FC<Props> = (props) => {
         }}
       >
         <h2>正解は{answerHistory[0]?.weapon}でした</h2>
-        <Box sx={{ minWidth: "600px", width: "100%" }}>
+        <Box sx={{ width: "100%" }}>
           <AnswerHistory
             answerHistory={answerHistory}
             onClick={onClickAnswer}
