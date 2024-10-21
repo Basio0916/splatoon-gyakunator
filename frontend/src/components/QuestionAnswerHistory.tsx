@@ -41,7 +41,7 @@ export const QuestionAnswerHistory: FC<Props> = (props) => {
                   <TableCell>{qa.question}</TableCell>
                   {qa.answer === AnswerStatus.Yes ? (
                     <TableCell>
-                      <PanoramaFishEyeIcon style={{ color: "2e7d32" }} />
+                      <PanoramaFishEyeIcon style={{ color: "#2e7d32" }} />
                     </TableCell>
                   ) : qa.answer === AnswerStatus.No ? (
                     <TableCell>

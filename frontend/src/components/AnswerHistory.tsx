@@ -35,7 +35,7 @@ export const AnswerHistory: FC<Props> = (props) => {
                 <TableRow key={index} onClick={() => onClick(answer)}>
                   <TableCell>{answer.weapon}</TableCell>
                   {answer.isCorrect ? (
-                    <TableCell align="center" style={{ color: "2e7d32" }}>
+                    <TableCell align="center" style={{ color: "#2e7d32" }}>
                       正解
                     </TableCell>
                   ) : (
