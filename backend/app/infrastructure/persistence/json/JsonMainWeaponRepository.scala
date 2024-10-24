@@ -7,6 +7,9 @@ import play.api.libs.json._
 import infrastructure.persistence.json.JsonReaders._
 import javax.inject.{Inject, Singleton, Named}
 
+/**
+ * メインウェポンのJSONリポジトリ
+ */
 @Singleton
 class JsonMainWeaponRepository @Inject()(@Named("MainWeapon") sourceFactory: SourceFactory) extends MainWeaponRepository {
     private val source = sourceFactory.createSource

@@ -9,6 +9,9 @@ import com.google.inject.name.Names
 import domain.services.JwtService
 import infrastructure.services.JwtServiceImpl
 
+/**
+ * DIモジュール
+ */
 class Module extends AbstractModule {
   override def configure() = {
     bind(classOf[SourceFactory]).annotatedWith(Names.named("Weapon")).to(classOf[JsonWeaponSourceFactory])

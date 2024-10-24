@@ -4,6 +4,9 @@ import play.api.libs.json._
 import play.api.libs.functional.syntax._
 import domain.models._
 
+/**
+ * JSONとドメインモデルの変換を行うためのリーダー
+ */
 object JsonReaders{
     implicit val weightReads: Reads[Weight] = Reads {
         case JsString(s) => JsSuccess(Weight(s))

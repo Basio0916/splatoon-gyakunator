@@ -7,6 +7,9 @@ import play.api.libs.json._
 import play.api.libs.functional.syntax._
 import javax.inject.{Inject, Singleton, Named}
 
+/**
+ * ブキのJSONリポジトリ
+ */
 @Singleton
 class JsonWeaponRepository @Inject()(
     @Named("Weapon") sourceFactory: SourceFactory,
@@ -40,7 +43,7 @@ class JsonWeaponRepository @Inject()(
         weapons.lift(row)
     }
 
-    def findAllWeaponNames(): List[String] = {
+    def findAllWeaponNames(): Seq[String] = {
         weapons.map(_.name)
     }
 }

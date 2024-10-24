@@ -6,11 +6,20 @@ import usecase.GameStartUseCase
 import play.api.mvc._
 import play.api.libs.json.Json
 
+/**
+ * ゲーム開始コントローラー
+ * @param cc コントローラーコンポーネント
+ * @param useCase ユースケース
+ */
 @Singleton
-class GameStartController @Inject()(cc: ControllerComponents, gameStartUseCase: GameStartUseCase) extends AbstractController(cc) {
+class GameStartController @Inject()(cc: ControllerComponents, useCase: GameStartUseCase) extends AbstractController(cc) {
 
+    /**
+     * ゲームを開始して、JWTを取得する
+     * @return JWT
+     */
     def startGame = Action {
-        val jwt = gameStartUseCase.run()
+        val jwt = useCase.run()
         Ok(Json.obj("jwt" -> jwt))
     }
 }

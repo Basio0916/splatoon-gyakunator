@@ -6,9 +6,18 @@ import play.api.mvc._
 import play.api.libs.json.Json
 import usecase.AnswerUseCase
 
+/**
+ * 答えのブキを返すコントローラー
+ * @param cc コントローラーコンポーネント
+ * @param useCase ユースケース
+ */
 @Singleton
 class AnswerController @Inject()(cc: ControllerComponents, useCase: AnswerUseCase) extends AbstractController(cc) {
 
+    /**
+     * 答えのブキを返す
+     * @return 答えのブキ
+     */
     def answer = Action { request =>
         val mayBeJwt = request.headers.get("X-Data-Token")
         

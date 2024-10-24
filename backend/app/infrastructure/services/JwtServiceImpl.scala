@@ -6,6 +6,9 @@ import play.api.libs.json.Json
 import scala.io.Source
 import java.security.SecureRandom
 
+/**
+ * JWTサービスの実装
+ */
 class JwtServiceImpl extends JwtService {
   val secretKey: String = getSecretKey
 

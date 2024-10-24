@@ -5,11 +5,29 @@ import domain.models.questions.main._
 import domain.models.questions.special._
 import domain.models.questions.sub._
 
+/**
+ * 質問のトレイト
+ */
 trait Question{
+    /**
+     * 質問に対する答えを返す
+     * @return 答え
+     */
     def answer: Answer
 }
 
+/**
+ * Questionのコンパニオンオブジェクト
+ */
 object Question {
+    /**
+     * Questionインスタンスを生成する
+     * @param questionName 質問の名前
+     * @param answerWeapon 答えのブキ
+     * @param option オプション
+     * @param comparator 比較子
+     * @return Questionインスタンス
+     */
     def apply(questionName: String, answerWeapon: Weapon, option: Option[String], comparator: Option[String]): Question = questionName match {
         case "CanChargeKeepQuestion" => new CanChargeKeepQuestion(answerWeapon)
         case "CanChargeQuestion" => new CanChargeQuestion(answerWeapon)
