@@ -13,7 +13,7 @@ import {
 import { FC, useEffect, useState } from "react";
 import { Prompt } from "../types/Prompt";
 import CloseIcon from "@mui/icons-material/Close";
-import { filterOptions } from "./FilterOptions";
+import { filterOptions } from "../utils/FilterOptions";
 
 /**
  * QuestionModalコンポーネントのプロパティ

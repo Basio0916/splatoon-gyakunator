@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { filterOptions } from "./FilterOptions";
+import { filterOptions } from "../utils/FilterOptions";
 
 /**
  * SubmissionModalコンポーネントのプロパティ
