@@ -5,6 +5,7 @@ import pdi.jwt.{Jwt, JwtAlgorithm, JwtClaim}
 import play.api.libs.json.Json
 import scala.io.Source
 import java.security.SecureRandom
+import java.time.LocalDateTime
 
 /**
  * JWTサービスの実装
@@ -17,8 +18,8 @@ class JwtServiceImpl extends JwtService {
   }
 
   def generateJwt(weaponName: String): String = {
-    val nonce = new SecureRandom().nextInt(10000)
-    val json = Json.obj("weaponName" -> s"$weaponName-$nonce")
+    val currentDateTime = LocalDateTime.now()
+    val json = Json.obj("weaponName" -> s"${weaponName}_${currentDateTime}")
     val claim = JwtClaim(json.toString())
     Jwt.encode(claim, secretKey, JwtAlgorithm.HS256)
   }
@@ -26,9 +27,9 @@ class JwtServiceImpl extends JwtService {
   def decodeJwt(token: String): String = {
     Jwt.decode(token, secretKey, Seq(JwtAlgorithm.HS256)).toOption.flatMap { claim =>
       val json = Json.parse(claim.content)
-      (json \ "weaponName").asOpt[String].map((weaponNameWithNonce: String) => {
-        val nonce = weaponNameWithNonce.split("-").last
-        weaponNameWithNonce.replace(s"-$nonce", "")
+      (json \ "weaponName").asOpt[String].map((weaponNameWithDateTime: String) => {
+        val dateTime = weaponNameWithDateTime.split("_").last
+        weaponNameWithDateTime.replace(s"_${dateTime}", "")
       })
     }.getOrElse(throw new IllegalArgumentException("Invalid token"))
   }
