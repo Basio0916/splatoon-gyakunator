@@ -1,12 +1,23 @@
 import { Button, Card, Modal, Stack } from "@mui/material";
 import { FC } from "react";
 
+/**
+ * IncorrectAnswerModalコンポーネントのプロパティ
+ * @param open モーダルの表示状態
+ * @param setOpen モーダルの表示状態を変更する関数
+ * @param onClose モーダルを閉じたときのコールバック関数
+ */
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   onClose?: (retire: boolean) => void;
 };
 
+/**
+ * 不正解モーダルコンポーネント
+ * @param props プロパティ
+ * @returns IncorrectAnswerModalコンポーネント
+ */
 export const IncorrectAnswerModal: FC<Props> = (props) => {
   const { open, setOpen, onClose } = props;
   const handleClose = (_event: {}, reason: string) => {

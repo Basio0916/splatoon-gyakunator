@@ -11,8 +11,11 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import { filterOptions } from "../filterOptions";
+import { filterOptions } from "./FilterOptions";
 
+/**
+ * SubmissionModalコンポーネントのプロパティ
+ */
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -20,7 +23,12 @@ type Props = {
   onClose: (selectedWeapon: string) => void;
 };
 
-export const AnswerSubmissionModal: FC<Props> = (props) => {
+/**
+ * 回答を提出する際に表示されるモーダルコンポーネント
+ * @param props プロパティ
+ * @returns SubmissionModalコンポーネント
+ */
+export const SubmissionModal: FC<Props> = (props) => {
   const { open, setOpen, weapons, onClose } = props;
   const [selectedWeapon, setSelectedWeapon] = useState<string>("");
   const [disabled, setDisabled] = useState<boolean>(true);

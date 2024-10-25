@@ -10,11 +10,21 @@ import {
   TableRow,
 } from "@mui/material";
 
+/**
+ * AnswerHistoryコンポーネントのプロパティ
+ * @param answerHistory 回答履歴
+ * @param onClick テーブルの行をクリックした際のコールバック関数
+ */
 type Props = {
   answerHistory: Array<Answer>;
-  onClick: (answer: Answer) => void;
+  onClick?: (answer: Answer) => void;
 };
 
+/**
+ * 回答履歴コンポーネント
+ * @param props プロパティ
+ * @returns AnswerHistoryコンポーネント
+ */
 export const AnswerHistory: FC<Props> = (props) => {
   const { answerHistory, onClick } = props;
   return (
@@ -24,7 +34,7 @@ export const AnswerHistory: FC<Props> = (props) => {
         <Table stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell align="center">答え</TableCell>
+              <TableCell align="center">答えのブキ</TableCell>
               <TableCell align="center">正解/不正解</TableCell>
               <TableCell align="center">質問回数</TableCell>
             </TableRow>
@@ -32,7 +42,10 @@ export const AnswerHistory: FC<Props> = (props) => {
           <TableBody>
             {answerHistory.map((answer, index) => {
               return (
-                <TableRow key={index} onClick={() => onClick(answer)}>
+                <TableRow
+                  key={index}
+                  onClick={() => onClick && onClick(answer)}
+                >
                   <TableCell>{answer.weapon}</TableCell>
                   {answer.isCorrect ? (
                     <TableCell align="center" style={{ color: "#2e7d32" }}>

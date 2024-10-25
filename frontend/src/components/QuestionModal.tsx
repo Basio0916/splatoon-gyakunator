@@ -11,14 +11,21 @@ import {
   Typography,
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
-import { Question } from "../types/Question";
+import { Prompt } from "../types/Prompt";
 import CloseIcon from "@mui/icons-material/Close";
-import { filterOptions } from "../filterOptions";
+import { filterOptions } from "./FilterOptions";
 
+/**
+ * QuestionModalコンポーネントのプロパティ
+ * @param open モーダルの表示状態
+ * @param setOpen モーダルの表示状態を変更する関数
+ * @param questions 質問リスト
+ * @param onClose モーダルを閉じたときのコールバック関数
+ */
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  questions: Array<Question>;
+  questions: Array<Prompt>;
   onClose: (
     questionString: string,
     questionName: string,
@@ -27,8 +34,11 @@ type Props = {
   ) => void;
 };
 
-const question4Set = ["以上？", "以下？", "？"];
-
+/**
+ * 質問をする際に表示されるモーダルコンポーネント
+ * @param props プロパティ
+ * @returns QuestionModalコンポーネント
+ */
 export const QuestionModal: FC<Props> = (props) => {
   const { open, setOpen, questions, onClose } = props;
   const [question1Select, setQuestion1Select] = useState<string>("");
@@ -37,10 +47,12 @@ export const QuestionModal: FC<Props> = (props) => {
   const [question4Select, setQuestion4Select] = useState<string>("");
   const [question2Set, setQuestion2Set] = useState<Array<string>>([]);
   const [question3Set, setQuestion3Set] = useState<Array<string>>([]);
-  const [selectedQuestion, setSelectedQuestion] = useState<Question>();
+  const [selectedQuestion, setSelectedQuestion] = useState<Prompt>();
   const [disabled, setDisabled] = useState<boolean>(true);
   const [unit, setUnit] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
+
+  const question4Set = ["以上？", "以下？", "？"];
 
   const handleClick = () => {
     if (!isFocused) {
@@ -61,14 +73,12 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion4Select("");
     setOpen(false);
   };
-  const question1Set = Array.from(
-    new Set(questions.map((q) => q.questions[0]))
-  );
+  const question1Set = Array.from(new Set(questions.map((q) => q.prompts[0])));
   useEffect(() => {
     const question2List = questions
-      .filter((q) => q.questions[0] === question1Select)
-      .filter((q) => q.questions[1])
-      .map((q) => q.questions[1]);
+      .filter((q) => q.prompts[0] === question1Select)
+      .filter((q) => q.prompts[1])
+      .map((q) => q.prompts[1]);
     setQuestion2Set(Array.from(new Set(question2List)));
     setQuestion2Select("");
     setQuestion3Select("");
@@ -76,24 +86,22 @@ export const QuestionModal: FC<Props> = (props) => {
   }, [question1Select]);
   useEffect(() => {
     const question3List = questions
-      .filter((q) => q.questions[1] === question2Select)
-      .filter((q) => q.questions[2])
-      .map((q) => q.questions[2]);
+      .filter((q) => q.prompts[1] === question2Select)
+      .filter((q) => q.prompts[2])
+      .map((q) => q.prompts[2]);
     setQuestion3Set(Array.from(new Set(question3List)));
     setQuestion3Select("");
     setQuestion4Select("");
-    const unit = questions.find(
-      (q) => q.questions[1] === question2Select
-    )?.unit;
+    const unit = questions.find((q) => q.prompts[1] === question2Select)?.unit;
     setUnit(unit || "");
   }, [question2Select]);
 
   useEffect(() => {
     const selected = questions.find(
       (q) =>
-        q.questions[0] === question1Select &&
-        q.questions[1] === question2Select &&
-        (q.questions[2] ? q.questions[2] === question3Select : true)
+        q.prompts[0] === question1Select &&
+        q.prompts[1] === question2Select &&
+        (q.prompts[2] ? q.prompts[2] === question3Select : true)
     );
     setSelectedQuestion(selected);
   }, [question1Select, question2Select, question3Select]);
@@ -252,11 +260,6 @@ export const QuestionModal: FC<Props> = (props) => {
                 ...params.inputProps,
                 inputMode: isFocused ? "none" : "text",
               }}
-              // slotProps={{
-              //   htmlInput: {
-              //     inputMode: { isFocused } ? "text" : "none",
-              //   },
-              // }}
             />
           )}
         />

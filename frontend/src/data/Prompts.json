@@ -1,0 +1,1208 @@
+[
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "シューター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "ブラスター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "ローラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "フデ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "チャージャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "スロッシャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "スピナー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "マニューバー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "シェルター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "ストリンガー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ブキ種が",
+    "prompt3": "ワイパー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeaponCategoryQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ボールドマーカー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "わかばシューター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "シャープマーカー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "プロモデラーMG？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スプラシューター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": ".52ガロン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "N-ZAP85？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "プライムシューター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": ".96ガロン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ジェットスイーパー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スペースシューター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "L3リールガン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "H3リールガン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ボトルガイザー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ノヴァブラスター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ホットブラスター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ロングブラスター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "クラッシュブラスター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ラピッドブラスター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "Rブラスターエリート？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "S-BLAST92？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "カーボンローラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スプラローラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ダイナモローラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ヴァリアブルローラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ワイドローラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "パブロ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ホクサイ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "フィンセント？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スクイックリンα？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スプラチャージャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スプラスコープ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "リッター4K？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "4Kスコープ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "14式竹筒銃・甲？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ソイチューバー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "R-PEN/5H？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "バケットスロッシャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ヒッセン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スクリュースロッシャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "オーバーフロッシャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "エクスプロッシャー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "モップリン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スプラスピナー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "バレルスピナー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ハイドラント？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "クーゲルシュライバー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ノーチラス47？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "イグザミナー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スパッタリー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スプラマニューバー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ケルビン525？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "デュアルスイーパー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "クアッドホッパーブラック？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ガエンFF？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "パラシェルター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "キャンピングシェルター？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "スパイガジェット？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "24式張替傘・甲？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "トライストリンガー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "LACT-450？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ジムワイパー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "メインウェポン名が",
+    "prompt3": "ドライブワイパー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "MainWeaponNameQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "射程が",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "ライン",
+    "questionName": "RangeQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "最大ダメージが",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "ダメージ",
+    "questionName": "MainWeaponMaxDamageQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "射撃間隔が",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "F",
+    "questionName": "RFiringIntervalQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "地上拡散が",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "°",
+    "questionName": "SpreadQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "重量が",
+    "prompt3": "最軽量級",
+    "isComparable": "TRUE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeightQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "重量が",
+    "prompt3": "軽量級",
+    "isComparable": "TRUE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeightQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "重量が",
+    "prompt3": "中量級",
+    "isComparable": "TRUE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeightQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "重量が",
+    "prompt3": "重量級",
+    "isComparable": "TRUE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "WeightQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ZR長押しで連射する？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanRapidFireQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ZR長押しでチャージする？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanChargeQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "弾が爆発する？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "IsExplosiveQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "ZR長押しで塗り進みする？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanRollingOrBrushingQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "チャージキープできる？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanChargeKeepQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "スライド回数が",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "回",
+    "questionName": "DodgeRollCountQuestion"
+  },
+  {
+    "prompt1": "メインウェポンは",
+    "prompt2": "直撃音が発生する？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "HasDirectHitSoundQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "スプラッシュボム？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "キューバンボム？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "クイックボム？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "スプリンクラー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "スプラッシュシールド？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "タンサンボム？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "カーリングボム？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "ロボットボム？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "ジャンプビーコン？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "ポイントセンサー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "トラップ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "ポイズンミスト？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "ラインマーカー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "サブウェポン名が",
+    "prompt3": "トーピード？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponNameQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "インク消費量が",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "%",
+    "questionName": "InkConsumptionQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "最大ダメージが",
+    "prompt3": "",
+    "isComparable": "TRUE",
+    "isNumeric": "TRUE",
+    "unit": "ダメージ",
+    "questionName": "SubWeaponMaxDamageQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "攻撃型？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SubWeaponIsAttackTypeQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "設置型？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanBePlacedQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "塗りを発生させる？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanInkQuestion"
+  },
+  {
+    "prompt1": "サブウェポンは",
+    "prompt2": "相手にセンサーを付ける？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanMarkQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "カニタンク？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ショクワンダー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "キューインキ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "エナジースタンド？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ホップソナー？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "サメライド？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "デコイチラシ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "スミナガシート？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ウルトラショット？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "グレートバリア？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "メガホンレーザー5.1ch？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "トリプルトルネード？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "テイオウイカ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ウルトラチャクチ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "マルチミサイル？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ジェットパック？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "アメフラシ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ウルトラハンコ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "スペシャルウェポン名が",
+    "prompt3": "ナイスダマ？",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponNameQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "1確が発生する？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "CanOneShotQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "継続的にダメージを与える？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "DealsContinuousDamageQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "ZRボタンでアクションする？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "HasZRButtonActionQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "Rボタンでアクションする？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "HasRButtonActionQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "攻撃型？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "SpecialWeaponIsAttackTypeQuestion"
+  },
+  {
+    "prompt1": "スペシャルウェポンは",
+    "prompt2": "味方のスーパージャンプは発動地点に飛ぶ？",
+    "prompt3": "",
+    "isComparable": "FALSE",
+    "isNumeric": "FALSE",
+    "unit": "",
+    "questionName": "JumpsToUsePointQuestion"
+  }
+]

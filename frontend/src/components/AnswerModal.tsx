@@ -3,14 +3,27 @@ import { FC } from "react";
 import { Answer } from "../types/Answer";
 import { AnswerHistory } from "./AnswerHistory";
 
+/**
+ * AnswerModalコンポーネントのプロパティ
+ * @param open モーダルの表示状態
+ * @param setOpen モーダルの表示状態を変更する関数
+ * @param answerHistory 回答履歴
+ * @param onClose モーダルを閉じたときのコールバック関数
+ * @param onClickAnswer AnswerHistoryの行をクリックした際のコールバック関数
+ */
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
   answerHistory: Array<Answer>;
-  onClose: () => void;
-  onClickAnswer: (answer: Answer) => void;
+  onClose?: () => void;
+  onClickAnswer?: (answer: Answer) => void;
 };
 
+/**
+ * 正解のブキを表示するモーダルコンポーネント
+ * @param props プロパティ
+ * @returns AnswerModalコンポーネント
+ */
 export const AnswerModal: FC<Props> = (props) => {
   const { open, setOpen, answerHistory, onClose, onClickAnswer } = props;
   const handleClose = (_event: {}, reason: string) => {
@@ -20,7 +33,9 @@ export const AnswerModal: FC<Props> = (props) => {
   };
   const handleClickStart = (_event: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(false);
-    onClose();
+    if (onClose) {
+      onClose();
+    }
   };
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>

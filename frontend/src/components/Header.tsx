@@ -3,6 +3,7 @@ import { FC } from "react";
 
 /**
  * ヘッダーを表すコンポーネント
+ * @returns Headerコンポーネント
  */
 export const Header: FC = () => {
   return (

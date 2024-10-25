@@ -6,13 +6,13 @@ import { CorrectAnswerModal } from "./components/CorrectAnswerModal";
 import { IncorrectAnswerModal } from "./components/IncorrectAnswerModal";
 import { AnswerModal } from "./components/AnswerModal";
 import { QuestionModal } from "./components/QuestionModal";
-import questionsJson from "./data/Questions.json";
+import promptsJson from "./data/Prompts.json";
 import weaponsJson from "./data/Weapons.json";
-import { CreateQuestion, CreateWeapons } from "./QuestionParser";
+import { createPrompts, createWeapons } from "./factories/Factory";
 import { QuestionAnswer } from "./types/QuestionAnswer";
 import { QuestionAnswerHistory } from "./components/QuestionAnswerHistory";
 import { Box, Button, Stack } from "@mui/material";
-import { AnswerSubmissionModal } from "./components/AnswerSubmissionModal";
+import { SubmissionModal } from "./components/SubmissionModal";
 import { AnswerStatus } from "./types/AnswerStatus";
 import { apiUrl } from "./config";
 import { ProgressModal } from "./components/ProgressModal";
@@ -25,8 +25,7 @@ function App() {
   const [correctAnswerModalOpen, setCorrectAnswerModalOpen] = useState(false);
   const [gameStartModalOpen, setGameStartModalOpen] = useState(true);
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
-  const [answerSubmissionModalOpen, setAnswerSubmissionModalOpen] =
-    useState(false);
+  const [submissionModalOpen, setSubmissionModalOpen] = useState(false);
   const [progressModalOpen, setProgressModalOpen] = useState(false);
   const [questionHistoryModalOpen, setQuestionHistoryModalOpen] =
     useState(false);
@@ -39,8 +38,8 @@ function App() {
   const [selectedAnswersQuestionHistory, setSelectedAnswersQuestionHistory] =
     useState<Array<QuestionAnswer>>([]);
   const [jwt, setJwt] = useState<string>("");
-  const questions = CreateQuestion(questionsJson);
-  const weapons = CreateWeapons(weaponsJson);
+  const questions = createPrompts(promptsJson);
+  const weapons = createWeapons(weaponsJson);
 
   const gameStart = async () => {
     setProgressModalOpen(true);
@@ -81,7 +80,7 @@ function App() {
   };
 
   const handleClickAnswer = () => {
-    setAnswerSubmissionModalOpen(true);
+    setSubmissionModalOpen(true);
   };
 
   const handleClickAnswerRow = (answer: Answer) => {
@@ -119,7 +118,7 @@ function App() {
     await gameStart();
   };
 
-  const handleAnswerSubmissionModalClose = async (selectedWeapon: string) => {
+  const handleSubmissionModalClose = async (selectedWeapon: string) => {
     setSubmittedAnswer(selectedWeapon);
     setProgressModalOpen(true);
     try {
@@ -215,11 +214,11 @@ function App() {
         questions={questions}
         onClose={handleQuestionModalClose}
       />
-      <AnswerSubmissionModal
-        open={answerSubmissionModalOpen}
-        setOpen={setAnswerSubmissionModalOpen}
+      <SubmissionModal
+        open={submissionModalOpen}
+        setOpen={setSubmissionModalOpen}
         weapons={weapons}
-        onClose={handleAnswerSubmissionModalClose}
+        onClose={handleSubmissionModalClose}
       />
       <QuestionHistoryModal
         open={questionHistoryModalOpen}

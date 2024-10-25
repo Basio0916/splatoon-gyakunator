@@ -14,10 +14,19 @@ import {
   TableRow,
 } from "@mui/material";
 
+/**
+ * QuestionAnswerHistoryコンポーネントのプロパティ
+ * @param questionAnswers 質問履歴
+ */
 type Props = {
   questionAnswers: Array<QuestionAnswer>;
 };
 
+/**
+ * 質問履歴コンポーネント
+ * @param props プロパティ
+ * @returns QuestionAnswerHistoryコンポーネント
+ */
 export const QuestionAnswerHistory: FC<Props> = (props) => {
   const { questionAnswers } = props;
 

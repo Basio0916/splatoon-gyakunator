@@ -7,27 +7,23 @@ import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
 import ClearIcon from "@mui/icons-material/Clear";
 import ChangeHistoryIcon from "@mui/icons-material/ChangeHistory";
 
+/**
+ * HowToPlayModalコンポーネントのプロパティ
+ * @param open モーダルの表示状態
+ * @param setOpen モーダルの表示状態を変更する関数
+ * @param onClose モーダルを閉じたときのコールバック関数
+ */
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  onClose: () => void;
+  onClose?: () => void;
 };
 
-const questionAnswers: Array<QuestionAnswer> = [
-  {
-    question: "サブウェポンはサブウェポン名がスプラッシュシールド？",
-    answer: AnswerStatus.No,
-  },
-  {
-    question: "スペシャルウェポンはスペシャルウェポン名がグレートバリア？",
-    answer: AnswerStatus.Yes,
-  },
-  {
-    question: "メインウェポンはブキ種がシューター？",
-    answer: AnswerStatus.Yes,
-  },
-];
-
+/**
+ * ゲームの説明を表示するモーダルコンポーネント
+ * @param props プロパティ
+ * @returns HowToPlayModalコンポーネント
+ */
 export const HowToPlayModal: FC<Props> = (props) => {
   const { open, setOpen, onClose } = props;
   const handleClose = (_event: {}, reason: string) => {
@@ -37,8 +33,24 @@ export const HowToPlayModal: FC<Props> = (props) => {
   };
   const handleClickStart = (_event: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(false);
-    onClose();
+    if (onClose) {
+      onClose();
+    }
   };
+  const questionAnswers: Array<QuestionAnswer> = [
+    {
+      question: "サブウェポンはサブウェポン名がスプラッシュシールド？",
+      answer: AnswerStatus.No,
+    },
+    {
+      question: "スペシャルウェポンはスペシャルウェポン名がグレートバリア？",
+      answer: AnswerStatus.Yes,
+    },
+    {
+      question: "メインウェポンはブキ種がシューター？",
+      answer: AnswerStatus.Yes,
+    },
+  ];
   return (
     <Modal open={open} onClose={handleClose} sx={{}}>
       <Card
