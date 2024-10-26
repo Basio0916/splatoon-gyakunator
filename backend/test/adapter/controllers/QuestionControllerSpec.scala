@@ -9,6 +9,7 @@ import usecase.QuestionUseCase
 import play.api.libs.json.Json
 import org.scalatest.prop.TableDrivenPropertyChecks
 import domain.models._
+import domain.exceptions.InvalidTokenException
 
 class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory with TableDrivenPropertyChecks {
   
@@ -42,6 +43,15 @@ class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
       (mockUseCase.run _).stubs(*, *, *, *).returning(Yes)
       val controller = new QuestionController(stubControllerComponents(), mockUseCase)
       val request = FakeRequest(GET, "/api/question/MainWeaponMaxDamageQuestion?option=25&comparator=以上？")
+      val result = controller.question("MainWeaponMaxDamageQuestion").apply(request)
+      status(result) mustBe BAD_REQUEST
+    }
+
+    "return 400 when invalid token" in {
+      val mockUseCase = mock[QuestionUseCase]
+      (mockUseCase.run _).stubs(*, *, *, *).throwing(new InvalidTokenException)
+      val controller = new QuestionController(stubControllerComponents(), mockUseCase)
+      val request = FakeRequest(GET, "/api/question/MainWeaponMaxDamageQuestion?option=25&comparator=以上？").withHeaders("X-Data-Token" -> "invalid-token")
       val result = controller.question("MainWeaponMaxDamageQuestion").apply(request)
       status(result) mustBe BAD_REQUEST
     }

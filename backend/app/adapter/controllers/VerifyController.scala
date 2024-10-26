@@ -5,6 +5,7 @@ import play.api.mvc.Results._
 import play.api.mvc._
 import play.api.libs.json.Json
 import usecase.VerifyUseCase
+import domain.exceptions.InvalidTokenException
 
 /**
  * 答えを提出するコントローラー
@@ -24,8 +25,13 @@ class VerifyController @Inject()(cc: ControllerComponents, useCase: VerifyUseCas
 
         mayBeJwt match {
             case Some(jwt) =>
-                val result = useCase.run(jwt, weaponName)
-                Ok(Json.obj("result" -> result))
+                try{
+                    val result = useCase.run(jwt, weaponName)
+                    Ok(Json.obj("result" -> result))
+                }
+                catch{
+                    case e: InvalidTokenException => BadRequest("Invalid token")
+                }
             case None => BadRequest("Token is required")
         }
     }

@@ -10,11 +10,11 @@ import domain.services.JwtService
 class GameStartUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
   
     "run" should "return weapon name" in {
-        var mockRepository = mock[WeaponRepository]
-        var weaponNames = List("わかばシューター", "もみじシューター", "プロモデラーMG")
+        val mockRepository = mock[WeaponRepository]
+        val weaponNames = List("わかばシューター", "もみじシューター", "プロモデラーMG")
         (mockRepository.findAllWeaponNames _).expects().returning(weaponNames)
 
-        var mockJwtService = mock[JwtService]
+        val mockJwtService = mock[JwtService]
         (mockJwtService.generateJwt _).stubs("わかばシューター").returning("わかばシューター")
         (mockJwtService.generateJwt _).stubs("もみじシューター").returning("もみじシューター")
         (mockJwtService.generateJwt _).stubs("プロモデラーMG").returning("プロモデラーMG")
@@ -22,7 +22,7 @@ class GameStartUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wi
         (mockJwtService.decodeJwt _).stubs("もみじシューター").returning("もみじシューター")
         (mockJwtService.decodeJwt _).stubs("プロモデラーMG").returning("プロモデラーMG")
 
-        var useCase = new GameStartUseCase(mockRepository, mockJwtService)
+        val useCase = new GameStartUseCase(mockRepository, mockJwtService)
         val result = useCase.run()
         Some(result) should contain oneOf ("わかばシューター", "もみじシューター", "プロモデラーMG")
     }

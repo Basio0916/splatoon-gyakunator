@@ -1,8 +1,10 @@
 package domain.services
+import javax.inject.Singleton
 
 /**
  * トークンのブラックリスト
  */
+@Singleton
 class BlackList {
     private var blackList: List[String] = List()
     private val MAX_SIZE = 1000

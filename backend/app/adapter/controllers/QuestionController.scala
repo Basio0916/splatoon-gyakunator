@@ -5,6 +5,7 @@ import play.api.mvc.Results._
 import play.api.mvc._
 import usecase.QuestionUseCase
 import play.api.libs.json.Json
+import domain.exceptions.InvalidTokenException
 
 /**
  * 質問に答えるコントローラー
@@ -26,8 +27,13 @@ class QuestionController @Inject()(cc: ControllerComponents, useCase: QuestionUs
             case Some(jwt) =>
                 val option = request.getQueryString("option")
                 val comparator = request.getQueryString("comparator")
-                val answer = useCase.run(jwt, questionName, option, comparator)
-                Ok(Json.obj("answer" -> answer.toString))
+                try{
+                    val answer = useCase.run(jwt, questionName, option, comparator)
+                    Ok(Json.obj("answer" -> answer.toString))   
+                }
+                catch{
+                    case e: InvalidTokenException => BadRequest("Invalid token")
+                }
             case None => BadRequest("Token is required")
         }
     }

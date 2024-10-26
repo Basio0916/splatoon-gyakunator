@@ -4,12 +4,12 @@ import domain.services.JwtService
 import pdi.jwt.{Jwt, JwtAlgorithm, JwtClaim}
 import play.api.libs.json.Json
 import scala.io.Source
-import java.security.SecureRandom
 import java.time.LocalDateTime
-
+import javax.inject.Singleton
 /**
  * JWTサービスの実装
  */
+@Singleton
 class JwtServiceImpl extends JwtService {
   val secretKey: String = getSecretKey
 

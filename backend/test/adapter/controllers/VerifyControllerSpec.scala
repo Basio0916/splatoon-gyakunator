@@ -9,6 +9,7 @@ import usecase.VerifyUseCase
 import domain.repositories.WeaponRepository
 import play.api.libs.json.Json
 import org.scalatest.prop.TableDrivenPropertyChecks
+import domain.exceptions.InvalidTokenException
 
 class VerifyControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockFactory with TableDrivenPropertyChecks{
   
@@ -31,6 +32,15 @@ class VerifyControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecti
       (mockUseCase.run _).stubs(*, *).returning(true)
       val controller = new VerifyController(stubControllerComponents(), mockUseCase)
       val request = FakeRequest(GET, "/api/verify/わかばシューター")
+      val result = controller.verify("わかばシューター").apply(request)
+      status(result) mustBe BAD_REQUEST
+    }
+
+    "return 400 when invalid token" in {
+      val mockUseCase = mock[VerifyUseCase]
+      (mockUseCase.run _).stubs(*, *).throwing(new InvalidTokenException)
+      val controller = new VerifyController(stubControllerComponents(), mockUseCase)
+      val request = FakeRequest(GET, "/api/verify/わかばシューター").withHeaders("X-Data-Token" -> "invalid-token")
       val result = controller.verify("わかばシューター").apply(request)
       status(result) mustBe BAD_REQUEST
     }

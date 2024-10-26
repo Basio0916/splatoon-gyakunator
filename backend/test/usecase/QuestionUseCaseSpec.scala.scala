@@ -8,11 +8,13 @@ import domain.repositories.WeaponRepository
 import domain.models._
 import domain.services.JwtService
 import play.api.libs.json.Json
+import domain.services.BlackList
+import domain.exceptions.InvalidTokenException
 
 class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
     "run" should "return the correct answer" in {
-        var mockRepository = mock[WeaponRepository]
-        var mainWeapon = new MainWeapon(
+        val mockRepository = mock[WeaponRepository]
+        val mainWeapon = new MainWeapon(
             name = "わかばシューター",
             weaponCategory = Shooter,
             range = List(1.6),
@@ -28,7 +30,7 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
             dodgeRollCount = 0,
             hasDirectHitSound = No
         )
-        var subWeapon = new SubWeapon(
+        val subWeapon = new SubWeapon(
             name = "スプラッシュボム",
             inkConsumption = 70,
             damage = List(180.0, 30.0),
@@ -37,7 +39,7 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
             canInk = Yes,
             canMark = No
         )
-        var specialWeapon = new SpecialWeapon(
+        val specialWeapon = new SpecialWeapon(
             name = "グレートバリア",
             hasZRButtonAction = No,
             hasRButtonAction = No,
@@ -46,7 +48,7 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
             isAttackType = No,
             jumpsToUsePoint = Yes
         )
-        var weapon = new Weapon(
+        val weapon = new Weapon(
             name = "わかばシューター",
             mainWeapon = mainWeapon,
             subWeapon = subWeapon,
@@ -55,13 +57,26 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
         )
 
         (mockRepository.findWeaponByName _).expects("わかばシューター").returning(Some(weapon))
-        var mockJwtService = mock[JwtService]
+        val mockJwtService = mock[JwtService]
         (mockJwtService.generateJwt _).stubs("わかばシューター").returning("わかばシューター")
         (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
-        var jwt = mockJwtService.generateJwt("わかばシューター")
-        
-        var useCase = new QuestionUseCase(mockRepository, mockJwtService)
+        val jwt = mockJwtService.generateJwt("わかばシューター")
+        val blackList = new BlackList()
+        val useCase = new QuestionUseCase(mockRepository, mockJwtService, blackList)
         val answer = useCase.run(jwt, "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
         answer should equal(Yes)
+    }
+
+    it should "throw an exception if the token is contained in the blacklist" in {
+        val mockRepository = mock[WeaponRepository]
+        val mockJwtService = mock[JwtService]
+        (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
+        val blackList = new BlackList()
+        blackList.add("token")
+        val useCase = new QuestionUseCase(mockRepository, mockJwtService, blackList)
+        val thrown = intercept[InvalidTokenException] {
+            useCase.run("token", "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
+        }
+        thrown.getMessage should equal("Invalid token")
     }
 }
