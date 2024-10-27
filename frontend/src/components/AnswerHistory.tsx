@@ -28,7 +28,10 @@ type Props = {
 export const AnswerHistory: FC<Props> = (props) => {
   const { answerHistory, onClick } = props;
   return (
-    <Paper sx={{ width: "100%", padding: 5, boxSizing: "border-box" }}>
+    <Paper
+      data-testid="answer-history"
+      sx={{ width: "100%", padding: 5, boxSizing: "border-box" }}
+    >
       <p style={{ fontWeight: "bold" }}>回答履歴</p>
       <TableContainer sx={{ maxHeight: 400 }}>
         <Table stickyHeader>

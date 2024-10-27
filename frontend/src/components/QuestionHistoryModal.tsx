@@ -54,6 +54,7 @@ export const QuestionHistoryModal: FC<Props> = (props) => {
             top: 40,
             color: (theme) => theme.palette.grey[500],
           }}
+          data-testid="close-icon"
         >
           <CloseIcon />
         </IconButton>

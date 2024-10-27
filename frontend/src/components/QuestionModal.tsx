@@ -73,7 +73,9 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion4Select("");
     setOpen(false);
   };
+
   const question1Set = Array.from(new Set(questions.map((q) => q.prompts[0])));
+
   useEffect(() => {
     const question2List = questions
       .filter((q) => q.prompts[0] === question1Select)
@@ -84,6 +86,7 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion3Select("");
     setQuestion4Select("");
   }, [question1Select]);
+
   useEffect(() => {
     const question3List = questions
       .filter((q) => q.prompts[1] === question2Select)
@@ -235,6 +238,7 @@ export const QuestionModal: FC<Props> = (props) => {
             top: 8,
             color: (theme) => theme.palette.grey[500],
           }}
+          data-testid="close-icon"
         >
           <CloseIcon />
         </IconButton>
@@ -248,7 +252,7 @@ export const QuestionModal: FC<Props> = (props) => {
           value={question1Select}
           onChange={handleQuestion1Change}
           filterOptions={filterOptions}
-          blurOnSelect="touch"
+          data-testid="question-1"
           renderInput={(params) => (
             <TextField
               {...params}
@@ -274,6 +278,7 @@ export const QuestionModal: FC<Props> = (props) => {
             onChange={handleQuestion2Change}
             filterOptions={filterOptions}
             value={question2Select}
+            data-testid="question-2"
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -300,6 +305,7 @@ export const QuestionModal: FC<Props> = (props) => {
             onChange={handleQuestion3Change}
             filterOptions={filterOptions}
             value={question3Select}
+            data-testid="question-3"
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -323,6 +329,7 @@ export const QuestionModal: FC<Props> = (props) => {
               variant="outlined"
               type="number"
               value={question3Select}
+              data-testid="question-3-number"
               onChange={handleQuestionNumberChange}
             />
             <Typography sx={{ width: "15%", marginLeft: "10px" }}>
@@ -340,6 +347,7 @@ export const QuestionModal: FC<Props> = (props) => {
             getOptionLabel={(option) => option}
             onChange={handleQuestion4Change}
             value={question4Select}
+            data-testid="question-4"
             renderInput={(params) => (
               <TextField
                 {...params}

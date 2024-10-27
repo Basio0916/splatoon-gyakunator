@@ -31,7 +31,10 @@ export const QuestionAnswerHistory: FC<Props> = (props) => {
   const { questionAnswers } = props;
 
   return (
-    <Paper sx={{ width: "100%", padding: 5, boxSizing: "border-box" }}>
+    <Paper
+      data-testid="question-answer-history"
+      sx={{ width: "100%", padding: 5, boxSizing: "border-box" }}
+    >
       <p style={{ fontWeight: "bold" }}>質問履歴</p>
       <TableContainer sx={{ maxHeight: 400 }}>
         <Table stickyHeader>
@@ -50,15 +53,24 @@ export const QuestionAnswerHistory: FC<Props> = (props) => {
                   <TableCell>{qa.question}</TableCell>
                   {qa.answer === AnswerStatus.Yes ? (
                     <TableCell>
-                      <PanoramaFishEyeIcon style={{ color: "#2e7d32" }} />
+                      <PanoramaFishEyeIcon
+                        data-testid="yes-icon"
+                        style={{ color: "#2e7d32" }}
+                      />
                     </TableCell>
                   ) : qa.answer === AnswerStatus.No ? (
                     <TableCell>
-                      <ClearIcon style={{ color: "#d32f2f" }} />
+                      <ClearIcon
+                        data-testid="no-icon"
+                        style={{ color: "#d32f2f" }}
+                      />
                     </TableCell>
                   ) : (
                     <TableCell>
-                      <ChangeHistoryIcon style={{ color: "#E3D026" }} />
+                      <ChangeHistoryIcon
+                        data-testid="partial-icon"
+                        style={{ color: "#E3D026" }}
+                      />
                     </TableCell>
                   )}
                 </TableRow>

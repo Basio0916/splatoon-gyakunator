@@ -95,6 +95,7 @@ export const SubmissionModal: FC<Props> = (props) => {
             top: 8,
             color: (theme) => theme.palette.grey[500],
           }}
+          data-testid="close-icon"
         >
           <CloseIcon />
         </IconButton>

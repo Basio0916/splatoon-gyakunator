@@ -20,5 +20,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "test/components/AnswerHistory.test.tsx",
+    "test/components/AnswerModal.test.tsx",
+    "test/components/HowToPlayModal.test.tsx",
+    "test/components/CorrectAnswerModal.test.tsx",
+    "test/components/QuestionAnswerHistory.test.tsx",
+    "test/components/IncorrectAnswerModal.test.tsx",
+    "test/components/QuestionModal.test.tsx",
+    "test/components/QuestionHistoryModal.test.tsx"
+, "test/components/SubmissionModal.test.tsx"  ]
 }
