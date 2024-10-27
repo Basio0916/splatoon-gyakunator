@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { QuestionHistoryModal } from "../../src/components/QuestionHistoryModal";
 import "@testing-library/jest-dom";
 import { AnswerStatus } from "../../src/types/AnswerStatus";
-import React from "react";
 
 describe("QuestionHistoryModal", () => {
   const questionHistory = [
