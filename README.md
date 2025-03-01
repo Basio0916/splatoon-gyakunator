@@ -45,7 +45,7 @@ cd frontend
 npm run dev
 ```
 
-http://localhost:5173 でサーバーが立ち上がります
+http://localhost:5173 でサーバーが立ち上がります。
 
 ### バックエンド
 
@@ -54,4 +54,8 @@ cd backend
 sbt run
 ```
 
-http://localhost:9000 でサーバーが立ち上がります
+http://localhost:9000 でサーバーが立ち上がります。
+
+## ローカルでの検証方法
+
+上記の 2 つのサーバーを立ち上げて、フロントエンドのサーバー（http://localhost:5173）にアクセスしてください。
