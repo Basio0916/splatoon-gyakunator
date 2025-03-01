@@ -4,7 +4,6 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
-import domain.services.JwtService
 import domain.models.DenyList
 import domain.exceptions.InvalidTokenException
 

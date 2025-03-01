@@ -6,7 +6,6 @@ import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
 import domain.repositories.WeaponRepository
 import domain.models._
-import domain.services.JwtService
 import play.api.libs.json.Json
 import domain.models.DenyList
 import domain.exceptions.InvalidTokenException

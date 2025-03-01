@@ -5,7 +5,6 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
 import domain.repositories.WeaponRepository
-import domain.services.JwtService
 import domain.models.WeaponTokenizer
 
 class GameStartUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
