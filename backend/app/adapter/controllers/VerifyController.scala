@@ -21,9 +21,7 @@ class VerifyController @Inject()(cc: ControllerComponents, useCase: VerifyUseCas
      * @return 結果
      */
     def verify(weaponName: String) = Action { request =>
-        val mayBeJwt = request.headers.get("X-Data-Token")
-
-        mayBeJwt match {
+        request.session.get("weaponToken") match {
             case Some(jwt) =>
                 try{
                     val result = useCase.run(jwt, weaponName)

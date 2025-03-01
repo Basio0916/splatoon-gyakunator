@@ -21,9 +21,7 @@ class QuestionController @Inject()(cc: ControllerComponents, useCase: QuestionUs
      * @return 答え
      */
     def question(questionName: String) = Action { request =>
-        val mayBeJwt = request.headers.get("X-Data-Token")
-
-        mayBeJwt match {
+        request.session.get("weaponToken") match {
             case Some(jwt) =>
                 val option = request.getQueryString("option")
                 val comparator = request.getQueryString("comparator")

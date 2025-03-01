@@ -18,14 +18,14 @@ class AnswerControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecti
       (mockUseCase.run _).expects(*).returning(weaponName)
 
       val controller = new AnswerController(stubControllerComponents(), mockUseCase)
-      val request =  FakeRequest(GET, "/api/answer").withHeaders("X-Data-Token" -> "jwt-decoded-string")
+      val request =  FakeRequest(GET, "/api/answer").withSession("weaponToken" -> "token")
       val result = controller.answer().apply(request)
 
       status(result) mustBe OK
       contentAsJson(result) mustBe Json.obj("weaponName" -> weaponName)
     }
 
-    "return 400 when X-Data-Token is not set" in {
+    "return 400 when session is not set" in {
       val mockUseCase = mock[AnswerUseCase]
       val controller = new AnswerController(stubControllerComponents(), mockUseCase)
       val request = FakeRequest(GET, "/api/answer")

@@ -37,16 +37,16 @@ function App() {
   const [answerHistory, setAnswerHistory] = useState<Array<Answer>>([]);
   const [selectedAnswersQuestionHistory, setSelectedAnswersQuestionHistory] =
     useState<Array<QuestionAnswer>>([]);
-  const [jwt, setJwt] = useState<string>("");
   const questions = createPrompts(promptsJson);
   const weapons = createWeapons(weaponsJson);
 
   const gameStart = async () => {
     setProgressModalOpen(true);
     try {
-      const response = await fetch(`${apiUrl}/api/start`);
-      const data = await response.json();
-      setJwt(data.jwt);
+      await fetch(`${apiUrl}/api/start`, {
+        method: "GET",
+        credentials: "include",
+      });
     } catch (error) {
       console.error(error);
     }
@@ -58,9 +58,7 @@ function App() {
     try {
       const response = await fetch(`${apiUrl}/api/answer`, {
         method: "GET",
-        headers: {
-          "X-Data-Token": jwt,
-        },
+        credentials: "include",
       });
       const data = await response.json();
       return data.weaponName;
@@ -124,9 +122,7 @@ function App() {
     try {
       const response = await fetch(`${apiUrl}/api/verify/${selectedWeapon}`, {
         method: "GET",
-        headers: {
-          "X-Data-Token": jwt,
-        },
+        credentials: "include",
       });
       const data = await response.json();
       if (data.result) {
@@ -162,9 +158,7 @@ function App() {
         `${apiUrl}/api/question/${questionName}?${optionQueryString}${comparatorQueryString}`,
         {
           method: "GET",
-          headers: {
-            "X-Data-Token": jwt,
-          },
+          credentials: "include",
         }
       );
 

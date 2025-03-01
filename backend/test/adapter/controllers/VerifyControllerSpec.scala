@@ -21,7 +21,7 @@ class VerifyControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecti
       val controller = new VerifyController(stubControllerComponents(), mockUseCase)
       val weaponName = "わかばシューター"
       val encodedWeaponName = java.net.URLEncoder.encode(weaponName, "UTF-8")
-      val request = FakeRequest(GET, s"/api/verify/$encodedWeaponName").withHeaders("X-Data-Token" -> "jwt-decoded-string")
+      val request = FakeRequest(GET, s"/api/verify/$encodedWeaponName").withSession("weaponToken" -> "token")
       val result = controller.verify("わかばシューター").apply(request)
       status(result) mustBe OK
       contentAsJson(result) mustBe Json.obj("result" -> true)
@@ -40,7 +40,7 @@ class VerifyControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecti
       val mockUseCase = mock[VerifyUseCase]
       (mockUseCase.run _).stubs(*, *).throwing(new InvalidTokenException)
       val controller = new VerifyController(stubControllerComponents(), mockUseCase)
-      val request = FakeRequest(GET, "/api/verify/わかばシューター").withHeaders("X-Data-Token" -> "invalid-token")
+      val request = FakeRequest(GET, "/api/verify/わかばシューター").withSession("weaponToken" -> "invalid-token")
       val result = controller.verify("わかばシューター").apply(request)
       status(result) mustBe BAD_REQUEST
     }

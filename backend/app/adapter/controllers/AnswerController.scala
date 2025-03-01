@@ -9,22 +9,20 @@ import usecase.AnswerUseCase
 /**
  * 答えのブキを返すコントローラー
  * @param cc コントローラーコンポーネント
- * @param useCase ユースケース
+ * @param answerUseCase ユースケース
  */
 @Singleton
-class AnswerController @Inject()(cc: ControllerComponents, useCase: AnswerUseCase) extends AbstractController(cc) {
+class AnswerController @Inject()(cc: ControllerComponents, answerUseCase: AnswerUseCase) extends AbstractController(cc) {
 
     /**
      * 答えのブキを返す
      * @return 答えのブキ
      */
     def answer = Action { request =>
-        val mayBeJwt = request.headers.get("X-Data-Token")
-        
-        mayBeJwt match {
-            case Some(jwt) =>
-                val weaponName = useCase.run(jwt)
-                Ok(Json.obj("weaponName" -> weaponName))
+        request.session.get("weaponToken") match {
+            case Some(weaponToken) =>
+                val answer = answerUseCase.run(weaponToken)
+                Ok(Json.obj("weaponName" -> answer))
             case None => BadRequest("Token is required")
         }
     }

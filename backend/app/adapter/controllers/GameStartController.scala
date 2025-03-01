@@ -20,6 +20,6 @@ class GameStartController @Inject()(cc: ControllerComponents, useCase: GameStart
      */
     def startGame = Action {
         val jwt = useCase.run()
-        Ok(Json.obj("jwt" -> jwt))
+        Ok.withSession("weaponToken" -> jwt)
     }
 }

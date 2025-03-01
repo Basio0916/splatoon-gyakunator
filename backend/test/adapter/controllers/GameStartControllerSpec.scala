@@ -11,7 +11,7 @@ class GameStartControllerSpec extends PlaySpec with GuiceOneAppPerTest with Inje
 
   "GameStartController GET" should {
 
-    "return a JWT token" in {
+    "return weapon token by the session" in {
       val mockUseCase = mock[GameStartUseCase]
       (mockUseCase.run _).expects().returning("testToken")
 
@@ -19,7 +19,7 @@ class GameStartControllerSpec extends PlaySpec with GuiceOneAppPerTest with Inje
       val result = controller.startGame().apply(FakeRequest(GET, "/api/game/start"))
 
       status(result) mustBe OK
-      contentAsString(result) mustBe ("""{"jwt":"testToken"}""")
+      session(result).get("weaponToken") mustBe Some("testToken")
     }
   }
 }

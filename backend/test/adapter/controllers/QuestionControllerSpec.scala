@@ -32,13 +32,13 @@ class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
           comparator.map("comparator" -> _)
         ).flatten.toMap
         var url = s"/api/question/$questionName?${queryString.map { case (key, value) => s"$key=$value" }.mkString("&")}"
-        var request = FakeRequest(GET, url).withHeaders("X-Data-Token" -> jwt)
+        var request = FakeRequest(GET, url).withSession("weaponToken" -> jwt)
         val result = controller.question(questionName).apply(request)
         status(result) mustBe OK
       }
     }
 
-    "return 400 when X-Data-Token is not set" in {
+    "return 400 when session is not set" in {
       val mockUseCase = mock[QuestionUseCase]
       (mockUseCase.run _).stubs(*, *, *, *).returning(Yes)
       val controller = new QuestionController(stubControllerComponents(), mockUseCase)
@@ -51,7 +51,7 @@ class QuestionControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injec
       val mockUseCase = mock[QuestionUseCase]
       (mockUseCase.run _).stubs(*, *, *, *).throwing(new InvalidTokenException)
       val controller = new QuestionController(stubControllerComponents(), mockUseCase)
-      val request = FakeRequest(GET, "/api/question/MainWeaponMaxDamageQuestion?option=25&comparator=以上？").withHeaders("X-Data-Token" -> "invalid-token")
+      val request = FakeRequest(GET, "/api/question/MainWeaponMaxDamageQuestion?option=25&comparator=以上？").withSession("weaponToken" -> "invalid-token")
       val result = controller.question("MainWeaponMaxDamageQuestion").apply(request)
       status(result) mustBe BAD_REQUEST
     }
