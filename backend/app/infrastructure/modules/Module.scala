@@ -8,7 +8,7 @@ import com.google.inject.AbstractModule
 import com.google.inject.name.Names
 import domain.services.JwtService
 import infrastructure.services.JwtServiceImpl
-import domain.services.BlackList
+import domain.models.DenyList
 
 /**
  * DIモジュール

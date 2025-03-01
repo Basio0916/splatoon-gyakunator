@@ -3,7 +3,7 @@ package usecase
 import javax.inject.{Inject, Singleton}
 import domain.repositories.WeaponRepository
 import domain.services.JwtService
-import domain.services.BlackList
+import domain.models.DenyList
 import domain.exceptions.InvalidTokenException
 
 /**
@@ -12,7 +12,7 @@ import domain.exceptions.InvalidTokenException
  * @param blackList ブラックリスト
  */
 @Singleton
-class VerifyUseCase @Inject()(jwtService: JwtService, blackList: BlackList) {
+class VerifyUseCase @Inject()(jwtService: JwtService, denyList: DenyList) {
     /**
      * 答えを提出する
      * @param jwt JWT
@@ -21,7 +21,7 @@ class VerifyUseCase @Inject()(jwtService: JwtService, blackList: BlackList) {
      */
     def run(jwt: String, weaponName: String): Boolean = {
 
-        if(blackList.contains(jwt)){
+        if(denyList.contains(jwt)){
             throw new InvalidTokenException()
         }
         val decodedWeaponName = jwtService.decodeJwt(jwt)

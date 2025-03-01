@@ -5,7 +5,7 @@ import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
 import domain.services.JwtService
-import domain.services.BlackList
+import domain.models.DenyList
 import domain.exceptions.InvalidTokenException
 
 class VerifyUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
@@ -21,9 +21,9 @@ class VerifyUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with 
 
         val mockJwtService = mock[JwtService]
         (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
-        val blackList = new BlackList()
+        val denyList = new DenyList()
         forAll(examples) { (weaponName, expected) =>
-            val useCase = new VerifyUseCase(mockJwtService, blackList)
+            val useCase = new VerifyUseCase(mockJwtService, denyList)
             val result = useCase.run("わかばシューター", weaponName) 
             result should equal(expected)
         }
@@ -31,9 +31,9 @@ class VerifyUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with 
 
     it should "throws an exception when the token is contained in the blacklist" in {
         val mockJwtService = mock[JwtService]
-        val blackList = new BlackList()
-        blackList.add("token")
-        val useCase = new VerifyUseCase(mockJwtService, blackList)
+        val denyList = new DenyList()
+        denyList.add("token")
+        val useCase = new VerifyUseCase(mockJwtService, denyList)
         val weaponName = "わかばシューター"
         val thrown = intercept[InvalidTokenException] {
             useCase.run("token", weaponName)
