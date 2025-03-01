@@ -45,14 +45,16 @@ export const QuestionModal: FC<Props> = (props) => {
   const [question2Select, setQuestion2Select] = useState<string>("");
   const [question3Select, setQuestion3Select] = useState<string>("");
   const [question4Select, setQuestion4Select] = useState<string>("");
+  const [question1Set] = useState<Array<string>>(
+    Array.from(new Set(questions.map((q) => q.prompts[0])))
+  );
   const [question2Set, setQuestion2Set] = useState<Array<string>>([]);
   const [question3Set, setQuestion3Set] = useState<Array<string>>([]);
+  const [question4Set] = useState<Array<string>>(["以上？", "以下？", "？"]);
   const [selectedQuestion, setSelectedQuestion] = useState<Prompt>();
   const [disabled, setDisabled] = useState<boolean>(true);
   const [unit, setUnit] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
-
-  const question4Set = ["以上？", "以下？", "？"];
 
   const handleClick = () => {
     if (!isFocused) {
@@ -73,8 +75,6 @@ export const QuestionModal: FC<Props> = (props) => {
     setQuestion4Select("");
     setOpen(false);
   };
-
-  const question1Set = Array.from(new Set(questions.map((q) => q.prompts[0])));
 
   useEffect(() => {
     const question2List = questions
