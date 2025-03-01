@@ -1,11 +1,9 @@
 package domain.models
-import javax.inject.Singleton
 
 /**
  * トークンの拒否リスト
  */
-@Singleton
-class DenyList {
+object DenyList {
     private var denyList: List[String] = List()
     private val MAX_SIZE = 1000
     

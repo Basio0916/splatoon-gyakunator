@@ -6,18 +6,17 @@ import domain.models.WeaponTokenizer
 
 /**
  * 答えのブキを取得するユースケース
- * @param denyList 拒否リスト
  */
 @Singleton
-class AnswerUseCase @Inject()(denyList: DenyList) {
+class AnswerUseCase() {
     /**
      * 答えのブキを取得する
      * @param weaponToken ブキトークン
      * @return 答えのブキ
      */
     def run(weaponToken: String): String = {
-        if(!denyList.contains(weaponToken)){
-            denyList.add(weaponToken)
+        if(!DenyList.contains(weaponToken)){
+            DenyList.add(weaponToken)
         }
         WeaponTokenizer.decodeToken(weaponToken)
     }

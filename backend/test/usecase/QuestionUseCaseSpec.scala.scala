@@ -60,17 +60,15 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
         
         val sessionId = UUID.randomUUID().toString()
         val weaponToken = WeaponTokenizer.createToken("わかばシューター", sessionId)
-        val denyList = new DenyList()
-        val useCase = new QuestionUseCase(mockRepository, denyList)
+        val useCase = new QuestionUseCase(mockRepository)
         val answer = useCase.run(weaponToken, "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
         answer should equal(Yes)
     }
 
     it should "throw an exception if the token is contained in the blacklist" in {
         val mockRepository = mock[WeaponRepository]
-        val denyList = new DenyList()
-        denyList.add("token")
-        val useCase = new QuestionUseCase(mockRepository, denyList)
+        DenyList.add("token")
+        val useCase = new QuestionUseCase(mockRepository)
         val thrown = intercept[InvalidTokenException] {
             useCase.run("token", "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
         }

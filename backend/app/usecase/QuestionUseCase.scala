@@ -10,10 +10,9 @@ import domain.exceptions.InvalidTokenException
 /**
  * 質問に対する答えを取得するユースケース
  * @param weaponRepository ブキリポジトリ
- * @param blackList ブラックリスト
  */
 @Singleton
-class QuestionUseCase @Inject()(weaponRepository: WeaponRepository, denyList: DenyList) {
+class QuestionUseCase @Inject()(weaponRepository: WeaponRepository) {
     /**
      * 質問に対する答えを取得する
      * @param weaponToken ブキトークン
@@ -24,7 +23,7 @@ class QuestionUseCase @Inject()(weaponRepository: WeaponRepository, denyList: De
      */
     def run(weaponToken: String, questionName: String, option: Option[String], comparator: Option[String]): Answer = {
 
-        if(denyList.contains(weaponToken)){
+        if(DenyList.contains(weaponToken)){
             throw new InvalidTokenException()
         }
         val weaponName = WeaponTokenizer.decodeToken(weaponToken)

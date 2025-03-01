@@ -18,18 +18,16 @@ class VerifyUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with 
             ("プロモデラーMG", false)
         )
 
-        val denyList = new DenyList()
         forAll(examples) { (weaponName, expected) =>
-            val useCase = new VerifyUseCase(denyList)
+            val useCase = new VerifyUseCase()
             val result = useCase.run("わかばシューター", weaponName) 
             result should equal(expected)
         }
     } 
 
     it should "throws an exception when the token is contained in the blacklist" in {
-        val denyList = new DenyList()
-        denyList.add("token")
-        val useCase = new VerifyUseCase(denyList)
+        DenyList.add("token")
+        val useCase = new VerifyUseCase()
         val weaponName = "わかばシューター"
         val thrown = intercept[InvalidTokenException] {
             useCase.run("token", weaponName)

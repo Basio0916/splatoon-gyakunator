@@ -10,18 +10,16 @@ import java.util.UUID
 class AnswerUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
   
     "run" should "return weapon names" in {
-        val denyList = new DenyList()
         val weaponName = "わかばシューター"
-        val useCase = new AnswerUseCase(denyList)
+        val useCase = new AnswerUseCase()
         val sessionId = UUID.randomUUID().toString()
         val token = s"${weaponName}_${sessionId}"
         useCase.run(token) should equal(weaponName)
     }
 
     it should "add the token to the blacklist" in {
-        val denyList = new DenyList()
-        val useCase = new AnswerUseCase(denyList)
+        val useCase = new AnswerUseCase()
         useCase.run("token")
-        denyList.contains("token") should equal(true)
+        DenyList.contains("token") should equal(true)
     }
 }

@@ -8,10 +8,9 @@ import domain.models.WeaponTokenizer
 
 /**
  * 答えを提出するユースケース
- * @param blackList ブラックリスト
  */
 @Singleton
-class VerifyUseCase @Inject()(denyList: DenyList) {
+class VerifyUseCase() {
     /**
      * 答えを提出する
      * @param weaponName ブキ名
@@ -19,7 +18,7 @@ class VerifyUseCase @Inject()(denyList: DenyList) {
      */
     def run(weaponToken: String, weaponName: String): Boolean = {
 
-        if(denyList.contains(weaponToken)){
+        if(DenyList.contains(weaponToken)){
             throw new InvalidTokenException()
         }
         val decodedWeaponName = WeaponTokenizer.decodeToken(weaponToken)
