@@ -6,6 +6,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalamock.scalatest.MockFactory
 import domain.repositories.WeaponRepository
 import domain.services.JwtService
+import domain.models.WeaponTokenizer
 
 class GameStartUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
   
@@ -14,16 +15,9 @@ class GameStartUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wi
         val weaponNames = List("わかばシューター", "もみじシューター", "プロモデラーMG")
         (mockRepository.findAllWeaponNames _).expects().returning(weaponNames)
 
-        val mockJwtService = mock[JwtService]
-        (mockJwtService.generateJwt _).stubs("わかばシューター").returning("わかばシューター")
-        (mockJwtService.generateJwt _).stubs("もみじシューター").returning("もみじシューター")
-        (mockJwtService.generateJwt _).stubs("プロモデラーMG").returning("プロモデラーMG")
-        (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
-        (mockJwtService.decodeJwt _).stubs("もみじシューター").returning("もみじシューター")
-        (mockJwtService.decodeJwt _).stubs("プロモデラーMG").returning("プロモデラーMG")
-
-        val useCase = new GameStartUseCase(mockRepository, mockJwtService)
+        val useCase = new GameStartUseCase(mockRepository)
         val result = useCase.run()
-        Some(result) should contain oneOf ("わかばシューター", "もみじシューター", "プロモデラーMG")
+        val weaponName = WeaponTokenizer.decodeToken(result)
+        Some(weaponName) should contain oneOf ("わかばシューター", "もみじシューター", "プロモデラーMG")
     }
 }

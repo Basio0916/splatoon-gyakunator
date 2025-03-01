@@ -10,6 +10,7 @@ import domain.services.JwtService
 import play.api.libs.json.Json
 import domain.models.DenyList
 import domain.exceptions.InvalidTokenException
+import java.util.UUID
 
 class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with Matchers with MockFactory {
     "run" should "return the correct answer" in {
@@ -57,23 +58,20 @@ class QuestionUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks wit
         )
 
         (mockRepository.findWeaponByName _).expects("わかばシューター").returning(Some(weapon))
-        val mockJwtService = mock[JwtService]
-        (mockJwtService.generateJwt _).stubs("わかばシューター").returning("わかばシューター")
-        (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
-        val jwt = mockJwtService.generateJwt("わかばシューター")
+        
+        val sessionId = UUID.randomUUID().toString()
+        val weaponToken = WeaponTokenizer.createToken("わかばシューター", sessionId)
         val denyList = new DenyList()
-        val useCase = new QuestionUseCase(mockRepository, mockJwtService, denyList)
-        val answer = useCase.run(jwt, "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
+        val useCase = new QuestionUseCase(mockRepository, denyList)
+        val answer = useCase.run(weaponToken, "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
         answer should equal(Yes)
     }
 
     it should "throw an exception if the token is contained in the blacklist" in {
         val mockRepository = mock[WeaponRepository]
-        val mockJwtService = mock[JwtService]
-        (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
         val denyList = new DenyList()
         denyList.add("token")
-        val useCase = new QuestionUseCase(mockRepository, mockJwtService, denyList)
+        val useCase = new QuestionUseCase(mockRepository, denyList)
         val thrown = intercept[InvalidTokenException] {
             useCase.run("token", "MainWeaponMaxDamageQuestion", Some("25.0"), Some("以上？"))
         }

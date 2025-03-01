@@ -22,11 +22,11 @@ class QuestionController @Inject()(cc: ControllerComponents, useCase: QuestionUs
      */
     def question(questionName: String) = Action { request =>
         request.session.get("weaponToken") match {
-            case Some(jwt) =>
+            case Some(weaponToken) =>
                 val option = request.getQueryString("option")
                 val comparator = request.getQueryString("comparator")
                 try{
-                    val answer = useCase.run(jwt, questionName, option, comparator)
+                    val answer = useCase.run(weaponToken, questionName, option, comparator)
                     Ok(Json.obj("answer" -> answer.toString))   
                 }
                 catch{

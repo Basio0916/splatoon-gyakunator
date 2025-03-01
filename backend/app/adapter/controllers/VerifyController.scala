@@ -22,9 +22,9 @@ class VerifyController @Inject()(cc: ControllerComponents, useCase: VerifyUseCas
      */
     def verify(weaponName: String) = Action { request =>
         request.session.get("weaponToken") match {
-            case Some(jwt) =>
+            case Some(weaponToken) =>
                 try{
-                    val result = useCase.run(jwt, weaponName)
+                    val result = useCase.run(weaponToken, weaponName)
                     Ok(Json.obj("result" -> result))
                 }
                 catch{

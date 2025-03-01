@@ -19,21 +19,18 @@ class VerifyUseCaseSpec extends AnyFlatSpec with TableDrivenPropertyChecks with 
             ("プロモデラーMG", false)
         )
 
-        val mockJwtService = mock[JwtService]
-        (mockJwtService.decodeJwt _).stubs("わかばシューター").returning("わかばシューター")
         val denyList = new DenyList()
         forAll(examples) { (weaponName, expected) =>
-            val useCase = new VerifyUseCase(mockJwtService, denyList)
+            val useCase = new VerifyUseCase(denyList)
             val result = useCase.run("わかばシューター", weaponName) 
             result should equal(expected)
         }
     } 
 
     it should "throws an exception when the token is contained in the blacklist" in {
-        val mockJwtService = mock[JwtService]
         val denyList = new DenyList()
         denyList.add("token")
-        val useCase = new VerifyUseCase(mockJwtService, denyList)
+        val useCase = new VerifyUseCase(denyList)
         val weaponName = "わかばシューター"
         val thrown = intercept[InvalidTokenException] {
             useCase.run("token", weaponName)

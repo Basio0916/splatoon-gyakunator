@@ -5,26 +5,25 @@ import domain.repositories.WeaponRepository
 import domain.services.JwtService
 import domain.models.DenyList
 import domain.exceptions.InvalidTokenException
+import domain.models.WeaponTokenizer
 
 /**
  * 答えを提出するユースケース
- * @param jwtService JWTサービス
  * @param blackList ブラックリスト
  */
 @Singleton
-class VerifyUseCase @Inject()(jwtService: JwtService, denyList: DenyList) {
+class VerifyUseCase @Inject()(denyList: DenyList) {
     /**
      * 答えを提出する
-     * @param jwt JWT
      * @param weaponName ブキ名
      * @return 結果
      */
-    def run(jwt: String, weaponName: String): Boolean = {
+    def run(weaponToken: String, weaponName: String): Boolean = {
 
-        if(denyList.contains(jwt)){
+        if(denyList.contains(weaponToken)){
             throw new InvalidTokenException()
         }
-        val decodedWeaponName = jwtService.decodeJwt(jwt)
+        val decodedWeaponName = WeaponTokenizer.decodeToken(weaponToken)
         weaponName == decodedWeaponName
     }
 }

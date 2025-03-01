@@ -15,11 +15,11 @@ import play.api.libs.json.Json
 class GameStartController @Inject()(cc: ControllerComponents, useCase: GameStartUseCase) extends AbstractController(cc) {
 
     /**
-     * ゲームを開始して、JWTを取得する
-     * @return JWT
+     * ゲームを開始して、ブキトークンを取得する
+     * @return ブキトークン
      */
     def startGame = Action {
-        val jwt = useCase.run()
-        Ok.withSession("weaponToken" -> jwt)
+        val weaponToken = useCase.run()
+        Ok.withSession("weaponToken" -> weaponToken)
     }
 }
