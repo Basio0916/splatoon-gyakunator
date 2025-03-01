@@ -6,9 +6,6 @@ import infrastructure.persistence.json._
 import infrastructure.factories._
 import com.google.inject.AbstractModule
 import com.google.inject.name.Names
-import domain.services.JwtService
-import infrastructure.services.JwtServiceImpl
-import domain.models.DenyList
 
 /**
  * DIモジュール
@@ -23,6 +20,5 @@ class Module extends AbstractModule {
     bind(classOf[MainWeaponRepository]).to(classOf[JsonMainWeaponRepository])
     bind(classOf[SubWeaponRepository]).to(classOf[JsonSubWeaponRepository])
     bind(classOf[SpecialWeaponRepository]).to(classOf[JsonSpecialWeaponRepository])
-    bind(classOf[JwtService]).to(classOf[JwtServiceImpl])
   }
 }

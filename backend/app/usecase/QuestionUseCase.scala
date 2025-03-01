@@ -4,7 +4,6 @@ import javax.inject.{Inject, Singleton}
 import domain.models._
 import domain.models.questions._
 import domain.repositories._
-import domain.services.JwtService
 import domain.models.DenyList
 import domain.exceptions.InvalidTokenException
 

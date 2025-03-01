@@ -1,7 +1,6 @@
 package usecase
 
 import javax.inject.{Inject, Singleton}
-import domain.services.JwtService
 import domain.models.DenyList
 import domain.models.WeaponTokenizer
 

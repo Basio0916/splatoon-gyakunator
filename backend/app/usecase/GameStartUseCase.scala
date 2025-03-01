@@ -2,7 +2,6 @@ package usecase
 
 import javax.inject.{Inject, Singleton}
 import domain.repositories.WeaponRepository
-import domain.services.JwtService
 import domain.models.WeaponTokenizer
 
 /**
